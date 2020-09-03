@@ -1,0 +1,648 @@
+<!DOCTYPE HTML>
+<html lang="en-US" manifest="../manifest.appcache">
+    
+    <head prefix="og: http://ogp.me/ns# book: http://ogp.me/ns/book#">
+        
+        
+        <meta charset="UTF-8">
+        <title>多人协作 | Git教程</title>
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="robots" content="index, follow">
+        <meta name="author" content="">
+        <meta name="description" content="git">
+        <meta name="keywords" content="gitbook,github" >
+        <meta name="generator" content="www.gitbook.io">
+
+        
+        <link rel="next" href="../chapter-7/README.html" />
+        
+        
+        <link rel="prev" href="../chapter-6/6-5.html" />
+        
+
+        <meta property="og:title" content="多人协作 | Git教程">
+        <meta property="og:site_name" content="Git教程">
+        <meta property="og:type" content="book">
+        <meta property="og:locale" content="en_US">
+
+        <meta property="book:author" content="https://github.com/">
+        <meta property="book:tag" content="GitBook">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+        
+    </head>
+    <body>
+        
+        
+
+        <link rel="stylesheet" href="../gitbook/style.css">
+        
+
+
+        
+    <div class="book"  data-level="6.6" data-basepath=".." data-revision="1401100972792">
+    <div class="book-header">
+    <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
+    
+    <a href="https://github.com/null" target="_blank" class="btn pull-left home-bookmark" aria-label="GitHub home"><i class="fa fa-bookmark-o"></i></a>
+    
+    <a href="#" class="btn pull-left toggle-search" aria-label="Toggle search"><i class="fa fa-search"></i></a>
+    <span id="font-settings-wrapper">
+        <a href="#" class="btn pull-left toggle-font-settings" aria-label="Toggle font settings"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="btn-group btn-block">
+        <button id="reduce-font-size" class="btn btn-default">A</button>
+        <button id="enlarge-font-size" class="btn btn-default">A</button>
+    </div>
+
+    <ul class="list-group font-family-list">
+        <li class="list-group-item" data-font="0">Serif</li>
+        <li class="list-group-item" data-font="1">Sans</li>
+    </ul>
+
+    <div class="btn-group btn-group-xs btn-block color-theme-list">
+        <button type="button" class="btn btn-default" id="color-theme-preview-0" data-theme="0">White</button>
+        <button type="button" class="btn btn-default" id="color-theme-preview-1" data-theme="1">Sepia</button>
+        <button type="button" class="btn btn-default" id="color-theme-preview-2" data-theme="2">Night</button>
+    </div>
+</div>
+
+    </span>
+
+    <!-- Actions Right -->
+    
+    <a href="#" target="_blank" class="btn pull-right google-plus-sharing-link sharing-link" data-sharing="google-plus" aria-label="Share on Google Plus"><i class="fa fa-google-plus"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right facebook-sharing-link sharing-link" data-sharing="facebook" aria-label="Share on Facebook"><i class="fa fa-facebook"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right twitter-sharing-link sharing-link" data-sharing="twitter" aria-label="Share on Twitter"><i class="fa fa-twitter"></i></a>
+    
+
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-spinner fa-spin"></i>
+        <a href="../" >Git教程</a>
+    </h1>
+</div>
+
+    <div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="Search" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+        
+
+        
+
+        
+
+        
+
+        <li data-level="0" data-path="index.html">
+            <a href="../"><i class="fa fa-check"></i> Introduction</a>
+        </li>
+        
+            <li class="chapter " data-level="1" data-path="chapter-1/README.html">
+                
+                <a href="../chapter-1/README.html">
+                    <i class="fa fa-check"></i> <b>1.</b> Git简介
+                </a>
+                
+                
+                <ul class="articles">
+                    
+                        <li  data-level="1.1" data-path="chapter-1/1-1.html">
+                            
+                            <a href="../chapter-1/1-1.html">
+                                <i class="fa fa-check"></i> <b>1.1.</b> Git的诞生
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="1.2" data-path="chapter-1/1-2.html">
+                            
+                            <a href="../chapter-1/1-2.html">
+                                <i class="fa fa-check"></i> <b>1.2.</b> 集中式vs分布式
+                            </a>
+                            
+                        </li>
+                    
+                </ul>
+                
+            </li>
+        
+            <li class="chapter " data-level="2" data-path="chapter-2/README.html">
+                
+                <a href="../chapter-2/README.html">
+                    <i class="fa fa-check"></i> <b>2.</b> 安装Git
+                </a>
+                
+                
+            </li>
+        
+            <li class="chapter " data-level="3" data-path="chapter-3/README.html">
+                
+                <a href="../chapter-3/README.html">
+                    <i class="fa fa-check"></i> <b>3.</b> 创建版本库
+                </a>
+                
+                
+            </li>
+        
+            <li class="chapter " data-level="4" data-path="chapter-4/README.html">
+                
+                <a href="../chapter-4/README.html">
+                    <i class="fa fa-check"></i> <b>4.</b> 时光机穿梭
+                </a>
+                
+                
+                <ul class="articles">
+                    
+                        <li  data-level="4.1" data-path="chapter-4/4-1.html">
+                            
+                            <a href="../chapter-4/4-1.html">
+                                <i class="fa fa-check"></i> <b>4.1.</b> 版本回退
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="4.2" data-path="chapter-4/4-2.html">
+                            
+                            <a href="../chapter-4/4-2.html">
+                                <i class="fa fa-check"></i> <b>4.2.</b> 工作区和暂存区
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="4.3" data-path="chapter-4/4-3.html">
+                            
+                            <a href="../chapter-4/4-3.html">
+                                <i class="fa fa-check"></i> <b>4.3.</b> 管理修改
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="4.4" data-path="chapter-4/4-4.html">
+                            
+                            <a href="../chapter-4/4-4.html">
+                                <i class="fa fa-check"></i> <b>4.4.</b> 撤销修改
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="4.5" data-path="chapter-4/4-5.html">
+                            
+                            <a href="../chapter-4/4-5.html">
+                                <i class="fa fa-check"></i> <b>4.5.</b> 删除文件
+                            </a>
+                            
+                        </li>
+                    
+                </ul>
+                
+            </li>
+        
+            <li class="chapter " data-level="5" data-path="chapter-5/README.html">
+                
+                <a href="../chapter-5/README.html">
+                    <i class="fa fa-check"></i> <b>5.</b> 远程仓库
+                </a>
+                
+                
+                <ul class="articles">
+                    
+                        <li  data-level="5.1" data-path="chapter-5/5-1.html">
+                            
+                            <a href="../chapter-5/5-1.html">
+                                <i class="fa fa-check"></i> <b>5.1.</b> 添加远程库
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="5.2" data-path="chapter-5/5-2.html">
+                            
+                            <a href="../chapter-5/5-2.html">
+                                <i class="fa fa-check"></i> <b>5.2.</b> 从远程库克隆
+                            </a>
+                            
+                        </li>
+                    
+                </ul>
+                
+            </li>
+        
+            <li class="chapter " data-level="6" data-path="chapter-6/README.html">
+                
+                <a href="../chapter-6/README.html">
+                    <i class="fa fa-check"></i> <b>6.</b> 分支管理
+                </a>
+                
+                
+                <ul class="articles">
+                    
+                        <li  data-level="6.1" data-path="chapter-6/6-1.html">
+                            
+                            <a href="../chapter-6/6-1.html">
+                                <i class="fa fa-check"></i> <b>6.1.</b> 创建与合并分支
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="6.2" data-path="chapter-6/6-2.html">
+                            
+                            <a href="../chapter-6/6-2.html">
+                                <i class="fa fa-check"></i> <b>6.2.</b> 解决冲突
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="6.3" data-path="chapter-6/6-3.html">
+                            
+                            <a href="../chapter-6/6-3.html">
+                                <i class="fa fa-check"></i> <b>6.3.</b> 分支管理策略
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="6.4" data-path="chapter-6/6-4.html">
+                            
+                            <a href="../chapter-6/6-4.html">
+                                <i class="fa fa-check"></i> <b>6.4.</b> Bug分支
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="6.5" data-path="chapter-6/6-5.html">
+                            
+                            <a href="../chapter-6/6-5.html">
+                                <i class="fa fa-check"></i> <b>6.5.</b> Feature分支
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="6.6" data-path="chapter-6/6-6.html">
+                            
+                            <a href="../chapter-6/6-6.html">
+                                <i class="fa fa-check"></i> <b>6.6.</b> 多人协作
+                            </a>
+                            
+                        </li>
+                    
+                </ul>
+                
+            </li>
+        
+            <li class="chapter " data-level="7" data-path="chapter-7/README.html">
+                
+                <a href="../chapter-7/README.html">
+                    <i class="fa fa-check"></i> <b>7.</b> 标签管理
+                </a>
+                
+                
+                <ul class="articles">
+                    
+                        <li  data-level="7.1" data-path="chapter-7/7-1.html">
+                            
+                            <a href="../chapter-7/7-1.html">
+                                <i class="fa fa-check"></i> <b>7.1.</b> 创建标签
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="7.2" data-path="chapter-7/7-2.html">
+                            
+                            <a href="../chapter-7/7-2.html">
+                                <i class="fa fa-check"></i> <b>7.2.</b> 操作标签
+                            </a>
+                            
+                        </li>
+                    
+                </ul>
+                
+            </li>
+        
+            <li class="chapter " data-level="8" data-path="chapter-8/README.html">
+                
+                <a href="../chapter-8/README.html">
+                    <i class="fa fa-check"></i> <b>8.</b> 使用GitHub
+                </a>
+                
+                
+            </li>
+        
+            <li class="chapter " data-level="9" data-path="chapter-9/README.html">
+                
+                <a href="../chapter-9/README.html">
+                    <i class="fa fa-check"></i> <b>9.</b> 自定义Git
+                </a>
+                
+                
+                <ul class="articles">
+                    
+                        <li  data-level="9.1" data-path="chapter-9/9-1.html">
+                            
+                            <a href="../chapter-9/9-1.html">
+                                <i class="fa fa-check"></i> <b>9.1.</b> 忽略特殊文件
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="9.2" data-path="chapter-9/9-2.html">
+                            
+                            <a href="../chapter-9/9-2.html">
+                                <i class="fa fa-check"></i> <b>9.2.</b> 配置别名
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="9.3" data-path="chapter-9/9-3.html">
+                            
+                            <a href="../chapter-9/9-3.html">
+                                <i class="fa fa-check"></i> <b>9.3.</b> 搭建Git服务器
+                            </a>
+                            
+                        </li>
+                    
+                </ul>
+                
+            </li>
+        
+            <li class="chapter " data-level="10" data-path="chapter-10/README.html">
+                
+                <a href="../chapter-10/README.html">
+                    <i class="fa fa-check"></i> <b>10.</b> 期末总结
+                </a>
+                
+                
+            </li>
+        
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="http://www.gitbook.io/" target="blank" class="gitbook-link">Generated using GitBook</a>
+        </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="page-wrapper" tabindex="-1">
+                <div class="book-progress">
+    <div class="bar">
+        <div class="inner" style="width: 70%;min-width: 66.66666666666667%;"></div>
+    </div>
+    <div class="chapters">
+    
+        <a href="../index.html" title="Introduction" class="chapter done new-chapter" data-progress="0" style="left: 0%;"></a>
+    
+        <a href="../chapter-1/README.html" title="Git简介" class="chapter done new-chapter" data-progress="1" style="left: 3.3333333333333335%;"></a>
+    
+        <a href="../chapter-1/1-1.html" title="Git的诞生" class="chapter done " data-progress="1.1" style="left: 6.666666666666667%;"></a>
+    
+        <a href="../chapter-1/1-2.html" title="集中式vs分布式" class="chapter done " data-progress="1.2" style="left: 10%;"></a>
+    
+        <a href="../chapter-2/README.html" title="安装Git" class="chapter done new-chapter" data-progress="2" style="left: 13.333333333333334%;"></a>
+    
+        <a href="../chapter-3/README.html" title="创建版本库" class="chapter done new-chapter" data-progress="3" style="left: 16.666666666666668%;"></a>
+    
+        <a href="../chapter-4/README.html" title="时光机穿梭" class="chapter done new-chapter" data-progress="4" style="left: 20%;"></a>
+    
+        <a href="../chapter-4/4-1.html" title="版本回退" class="chapter done " data-progress="4.1" style="left: 23.333333333333332%;"></a>
+    
+        <a href="../chapter-4/4-2.html" title="工作区和暂存区" class="chapter done " data-progress="4.2" style="left: 26.666666666666668%;"></a>
+    
+        <a href="../chapter-4/4-3.html" title="管理修改" class="chapter done " data-progress="4.3" style="left: 30%;"></a>
+    
+        <a href="../chapter-4/4-4.html" title="撤销修改" class="chapter done " data-progress="4.4" style="left: 33.333333333333336%;"></a>
+    
+        <a href="../chapter-4/4-5.html" title="删除文件" class="chapter done " data-progress="4.5" style="left: 36.666666666666664%;"></a>
+    
+        <a href="../chapter-5/README.html" title="远程仓库" class="chapter done new-chapter" data-progress="5" style="left: 40%;"></a>
+    
+        <a href="../chapter-5/5-1.html" title="添加远程库" class="chapter done " data-progress="5.1" style="left: 43.333333333333336%;"></a>
+    
+        <a href="../chapter-5/5-2.html" title="从远程库克隆" class="chapter done " data-progress="5.2" style="left: 46.666666666666664%;"></a>
+    
+        <a href="../chapter-6/README.html" title="分支管理" class="chapter done new-chapter" data-progress="6" style="left: 50%;"></a>
+    
+        <a href="../chapter-6/6-1.html" title="创建与合并分支" class="chapter done " data-progress="6.1" style="left: 53.333333333333336%;"></a>
+    
+        <a href="../chapter-6/6-2.html" title="解决冲突" class="chapter done " data-progress="6.2" style="left: 56.666666666666664%;"></a>
+    
+        <a href="../chapter-6/6-3.html" title="分支管理策略" class="chapter done " data-progress="6.3" style="left: 60%;"></a>
+    
+        <a href="../chapter-6/6-4.html" title="Bug分支" class="chapter done " data-progress="6.4" style="left: 63.333333333333336%;"></a>
+    
+        <a href="../chapter-6/6-5.html" title="Feature分支" class="chapter done " data-progress="6.5" style="left: 66.66666666666667%;"></a>
+    
+        <a href="../chapter-6/6-6.html" title="多人协作" class="chapter done " data-progress="6.6" style="left: 70%;"></a>
+    
+        <a href="../chapter-7/README.html" title="标签管理" class="chapter  new-chapter" data-progress="7" style="left: 73.33333333333333%;"></a>
+    
+        <a href="../chapter-7/7-1.html" title="创建标签" class="chapter  " data-progress="7.1" style="left: 76.66666666666667%;"></a>
+    
+        <a href="../chapter-7/7-2.html" title="操作标签" class="chapter  " data-progress="7.2" style="left: 80%;"></a>
+    
+        <a href="../chapter-8/README.html" title="使用GitHub" class="chapter  new-chapter" data-progress="8" style="left: 83.33333333333333%;"></a>
+    
+        <a href="../chapter-9/README.html" title="自定义Git" class="chapter  new-chapter" data-progress="9" style="left: 86.66666666666667%;"></a>
+    
+        <a href="../chapter-9/9-1.html" title="忽略特殊文件" class="chapter  " data-progress="9.1" style="left: 90%;"></a>
+    
+        <a href="../chapter-9/9-2.html" title="配置别名" class="chapter  " data-progress="9.2" style="left: 93.33333333333333%;"></a>
+    
+        <a href="../chapter-9/9-3.html" title="搭建Git服务器" class="chapter  " data-progress="9.3" style="left: 96.66666666666667%;"></a>
+    
+        <a href="../chapter-10/README.html" title="期末总结" class="chapter  " data-progress="10" style="left: 100%;"></a>
+    
+    </div>
+</div>
+
+                <div class="page-inner">
+                
+                    <section class="normal" id="section-gitbook_23">
+                    
+                        <h1 id="-">多人协作</h1>
+<p>当你从远程仓库克隆时，实际上Git自动把本地的master分支和远程的master分支对应起来了，并且，远程仓库的默认名称是origin。</p>
+<p>要查看远程库的信息，用git remote：</p>
+<pre><code>$ git remote
+origin
+</code></pre><p>或者，用<code>git remote -v</code>显示更详细的信息：</p>
+<pre><code class="lang-shell">$ git remote -v
+origin  git@github.com:michaelliao/learngit.git (fetch)
+origin  git@github.com:michaelliao/learngit.git (push)
+</code></pre>
+<p>上面显示了可以抓取和推送的origin的地址。如果没有推送权限，就看不到push的地址。</p>
+<p>推送分支
+推送分支，就是把该分支上的所有本地提交推送到远程库。推送时，要指定本地分支，这样，Git就会把该分支推送到远程库对应的远程分支上：</p>
+<pre><code>$ git push origin master
+</code></pre><p>如果要推送其他分支，比如dev，就改成：</p>
+<pre><code>$ git push origin dev
+</code></pre><p>但是，并不是一定要把本地分支往远程推送，那么，哪些分支需要推送，哪些不需要呢？</p>
+<p>master分支是主分支，因此要时刻与远程同步；</p>
+<p>dev分支是开发分支，团队所有成员都需要在上面工作，所以也需要与远程同步；</p>
+<p>bug分支只用于在本地修复bug，就没必要推到远程了，除非老板要看看你每周到底修复了几个bug；</p>
+<p>feature分支是否推到远程，取决于你是否和你的小伙伴合作在上面开发。</p>
+<p>总之，就是在Git中，分支完全可以在本地自己藏着玩，是否推送，视你的心情而定！</p>
+<p>抓取分支
+多人协作时，大家都会往master和dev分支上推送各自的修改。</p>
+<p>现在，模拟一个你的小伙伴，可以在另一台电脑（注意要把SSH Key添加到GitHub）或者同一台电脑的另一个目录下克隆：</p>
+<pre><code class="lang-shell">$ git clone git@github.com:michaelliao/learngit.git
+Cloning into &#39;learngit&#39;...
+remote: Counting objects: 46, done.
+remote: Compressing objects: 100% (26/26), done.
+remote: Total 46 (delta 16), reused 45 (delta 15)
+Receiving objects: 100% (46/46), 15.69 KiB | 6 KiB/s, done.
+Resolving deltas: 100% (16/16), done.
+</code></pre>
+<p>当你的小伙伴从远程库clone时，默认情况下，你的小伙伴只能看到本地的master分支。不信可以用git branch命令看看：</p>
+<pre><code class="lang-shell">$ git branch
+* master
+</code></pre>
+<p>现在，你的小伙伴要在dev分支上开发，就必须创建远程origin的dev分支到本地，于是他用这个命令创建本地dev分支：</p>
+<pre><code class="lang-shell">$ git checkout -b dev origin/dev
+</code></pre>
+<p>现在，他就可以在dev上继续修改，然后，时不时地把dev分支push到远程：</p>
+<pre><code class="lang-shell">$ git commit -m &quot;add /usr/bin/env&quot;
+[dev 291bea8] add /usr/bin/env
+ 1 file changed, 1 insertion(+)
+$ git push origin dev
+Counting objects: 5, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 349 bytes, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To git@github.com:michaelliao/learngit.git
+   fc38031..291bea8  dev -&gt; dev
+</code></pre>
+<p>你的小伙伴已经向origin/dev分支推送了他的提交，而碰巧你也对同样的文件作了修改，并试图推送：</p>
+<pre><code>$ git add hello.py 
+$ git commit -m &quot;add coding: utf-8&quot;
+[dev bd6ae48] add coding: utf-8
+ 1 file changed, 1 insertion(+)
+$ git push origin dev
+To git@github.com:michaelliao/learngit.git
+ ! [rejected]        dev -&gt; dev (non-fast-forward)
+error: failed to push some refs to &#39;git@github.com:michaelliao/learngit.git&#39;
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. Merge the remote changes (e.g. &#39;git pull&#39;)
+hint: before pushing again.
+hint: See the &#39;Note about fast-forwards&#39; in &#39;git push --help&#39; for details.
+</code></pre><p>推送失败，因为你的小伙伴的最新提交和你试图推送的提交有冲突，解决办法也很简单，Git已经提示我们，先用git pull把最新的提交从origin/dev抓下来，然后，在本地合并，解决冲突，再推送：</p>
+<pre><code>$ git pull
+remote: Counting objects: 5, done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 0), reused 3 (delta 0)
+Unpacking objects: 100% (3/3), done.
+From github.com:michaelliao/learngit
+   fc38031..291bea8  dev        -&gt; origin/dev
+There is no tracking information for the current branch.
+Please specify which branch you want to merge with.
+See git-pull(1) for details
+
+    git pull &lt;remote&gt; &lt;branch&gt;
+
+If you wish to set tracking information for this branch you can do so with:
+
+    git branch --set-upstream dev origin/&lt;branch&gt;
+</code></pre><p>git pull也失败了，原因是没有指定本地dev分支与远程origin/dev分支的链接，根据提示，设置dev和origin/dev的链接：</p>
+<pre><code>$ git branch --set-upstream dev origin/dev
+Branch dev set up to track remote branch dev from origin.
+</code></pre><p>再pull：</p>
+<pre><code>$ git pull
+Auto-merging hello.py
+CONFLICT (content): Merge conflict in hello.py
+Automatic merge failed; fix conflicts and then commit the result.
+</code></pre><p>这回git pull成功，但是合并有冲突，需要手动解决，解决的方法和分支管理中的解决冲突完全一样。解决后，提交，再push：</p>
+<pre><code>$ git commit -m &quot;merge &amp; fix hello.py&quot;
+[dev adca45d] merge &amp; fix hello.py
+$ git push origin dev
+Counting objects: 10, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (6/6), 747 bytes, done.
+Total 6 (delta 0), reused 0 (delta 0)
+To git@github.com:michaelliao/learngit.git
+   291bea8..adca45d  dev -&gt; dev
+</code></pre><p>因此，多人协作的工作模式通常是这样：</p>
+<p>首先，可以试图用<code>git push origin branch-name</code>推送自己的修改；</p>
+<p>如果推送失败，则因为远程分支比你的本地更新，需要先用<code>git pull</code>试图合并；</p>
+<p>如果合并有冲突，则解决冲突，并在本地提交；</p>
+<p>没有冲突或者解决掉冲突后，再用<code>git push origin branch-name</code>推送就能成功！</p>
+<p>如果git pull提示“no tracking information”，则说明本地分支和远程分支的链接关系没有创建，用命令git branch --set-upstream branch-name origin/branch-name。</p>
+<p>这就是多人协作的工作模式，一旦熟悉了，就非常简单。</p>
+<h2 id="-">小结</h2>
+<p>查看远程库信息，使用git remote -v；</p>
+<p>本地新建的分支如果不推送到远程，对其他人就是不可见的；</p>
+<p>从本地推送分支，使用git push origin branch-name，如果推送失败，先用git pull抓取远程的新提交；</p>
+<p>在本地创建和远程分支对应的分支，使用git checkout -b branch-name origin/branch-name，本地和远程分支的名称最好一致；</p>
+<p>建立本地分支和远程分支的关联，使用git branch --set-upstream branch-name origin/branch-name；</p>
+<p>从远程抓取分支，使用git pull，如果有冲突，要先处理冲突。</p>
+
+                    
+                    </section>
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../chapter-6/6-5.html" class="navigation navigation-prev " aria-label="Previous page: Feature分支"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../chapter-7/README.html" class="navigation navigation-next " aria-label="Next page: 标签管理"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+
+        <script src="http://cdn.bootcss.com/ace/1.1.3/ace.js"></script>
+        <script src="http://cdn.bootcss.com/ace/1.1.3/mode-javascript.js"></script>
+        <script src="../gitbook/jsrepl/jsrepl.js" id="jsrepl-script"></script>
+        <script src="../gitbook/app.js"></script>
+        
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-mixpanel/plugin.js"></script>
+    
+
+    
+    <script src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>
