@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>深入浅出外观模式（三） | 设计模式</title>
+    <meta name="generator" content="VuePress 1.5.4">
+    <link rel="icon" href="/images/typescript.png">
+    <meta name="description" content="目录">
+    <link rel="preload" href="/assets/css/0.styles.ccac5a78.css" as="style"><link rel="preload" href="/assets/js/app.61038a2e.js" as="script"><link rel="preload" href="/assets/js/2.59fcb4b9.js" as="script"><link rel="preload" href="/assets/js/102.a482364c.js" as="script"><link rel="prefetch" href="/assets/js/10.874d8029.js"><link rel="prefetch" href="/assets/js/100.9530126e.js"><link rel="prefetch" href="/assets/js/101.f792bf7f.js"><link rel="prefetch" href="/assets/js/103.c3b485a5.js"><link rel="prefetch" href="/assets/js/104.086fb816.js"><link rel="prefetch" href="/assets/js/105.1752b675.js"><link rel="prefetch" href="/assets/js/106.fb07f8cd.js"><link rel="prefetch" href="/assets/js/107.754c61c5.js"><link rel="prefetch" href="/assets/js/108.46cae808.js"><link rel="prefetch" href="/assets/js/109.d3b06d0f.js"><link rel="prefetch" href="/assets/js/11.dad3b836.js"><link rel="prefetch" href="/assets/js/110.8ad47f70.js"><link rel="prefetch" href="/assets/js/111.77dc6489.js"><link rel="prefetch" href="/assets/js/112.84db77a1.js"><link rel="prefetch" href="/assets/js/113.70baa5a9.js"><link rel="prefetch" href="/assets/js/114.7be8d013.js"><link rel="prefetch" href="/assets/js/115.99f7ef37.js"><link rel="prefetch" href="/assets/js/116.4c3c2285.js"><link rel="prefetch" href="/assets/js/117.2c45c866.js"><link rel="prefetch" href="/assets/js/118.aad1fa95.js"><link rel="prefetch" href="/assets/js/119.b0eafca6.js"><link rel="prefetch" href="/assets/js/12.d4db77f4.js"><link rel="prefetch" href="/assets/js/120.e273cd0b.js"><link rel="prefetch" href="/assets/js/121.49b9ca92.js"><link rel="prefetch" href="/assets/js/122.4ad93b29.js"><link rel="prefetch" href="/assets/js/123.f9dbaa66.js"><link rel="prefetch" href="/assets/js/124.bea1aacb.js"><link rel="prefetch" href="/assets/js/125.8b4e8c45.js"><link rel="prefetch" href="/assets/js/126.7182c465.js"><link rel="prefetch" href="/assets/js/127.6503bc31.js"><link rel="prefetch" href="/assets/js/128.2b17e851.js"><link rel="prefetch" href="/assets/js/129.a24fcabe.js"><link rel="prefetch" href="/assets/js/13.dd3d61dd.js"><link rel="prefetch" href="/assets/js/130.63f9bd99.js"><link rel="prefetch" href="/assets/js/131.2b1be2c3.js"><link rel="prefetch" href="/assets/js/132.5466bad6.js"><link rel="prefetch" href="/assets/js/133.6d65c72a.js"><link rel="prefetch" href="/assets/js/134.abe463f4.js"><link rel="prefetch" href="/assets/js/135.d09913a5.js"><link rel="prefetch" href="/assets/js/136.c0e95cbc.js"><link rel="prefetch" href="/assets/js/137.66ab7679.js"><link rel="prefetch" href="/assets/js/138.00f617c4.js"><link rel="prefetch" href="/assets/js/139.68835715.js"><link rel="prefetch" href="/assets/js/14.0a308518.js"><link rel="prefetch" href="/assets/js/140.e11022ef.js"><link rel="prefetch" href="/assets/js/141.a9296a8d.js"><link rel="prefetch" href="/assets/js/142.ca20c2c6.js"><link rel="prefetch" href="/assets/js/143.da7e0086.js"><link rel="prefetch" href="/assets/js/144.01a56269.js"><link rel="prefetch" href="/assets/js/145.cc3ccc63.js"><link rel="prefetch" href="/assets/js/146.1c4eb3c4.js"><link rel="prefetch" href="/assets/js/147.249beb6c.js"><link rel="prefetch" href="/assets/js/148.f2a92d54.js"><link rel="prefetch" href="/assets/js/149.64961d19.js"><link rel="prefetch" href="/assets/js/15.c35f1d83.js"><link rel="prefetch" href="/assets/js/150.973d6bc0.js"><link rel="prefetch" href="/assets/js/151.3eba6723.js"><link rel="prefetch" href="/assets/js/152.d5fe1f44.js"><link rel="prefetch" href="/assets/js/153.c11ad6dc.js"><link rel="prefetch" href="/assets/js/154.56f430a0.js"><link rel="prefetch" href="/assets/js/155.f167872e.js"><link rel="prefetch" href="/assets/js/156.0e9910f2.js"><link rel="prefetch" href="/assets/js/157.51393679.js"><link rel="prefetch" href="/assets/js/158.b427f9d8.js"><link rel="prefetch" href="/assets/js/159.e24ed9e3.js"><link rel="prefetch" href="/assets/js/16.aeabe254.js"><link rel="prefetch" href="/assets/js/160.a24611af.js"><link rel="prefetch" href="/assets/js/161.11b8d1e6.js"><link rel="prefetch" href="/assets/js/162.ee84e1d9.js"><link rel="prefetch" href="/assets/js/163.aecce7b4.js"><link rel="prefetch" href="/assets/js/164.ee441756.js"><link rel="prefetch" href="/assets/js/165.3ad4de65.js"><link rel="prefetch" href="/assets/js/166.248f6f28.js"><link rel="prefetch" href="/assets/js/167.b3a1722f.js"><link rel="prefetch" href="/assets/js/17.a1ebac9c.js"><link rel="prefetch" href="/assets/js/18.b90a786f.js"><link rel="prefetch" href="/assets/js/19.0fd988d3.js"><link rel="prefetch" href="/assets/js/20.892e82e9.js"><link rel="prefetch" href="/assets/js/21.33111ce4.js"><link rel="prefetch" href="/assets/js/22.99ced76e.js"><link rel="prefetch" href="/assets/js/23.7e224152.js"><link rel="prefetch" href="/assets/js/24.e9f56109.js"><link rel="prefetch" href="/assets/js/25.09f31188.js"><link rel="prefetch" href="/assets/js/26.1986d3e8.js"><link rel="prefetch" href="/assets/js/27.16772f9a.js"><link rel="prefetch" href="/assets/js/28.3bbd9183.js"><link rel="prefetch" href="/assets/js/29.aebe80f3.js"><link rel="prefetch" href="/assets/js/3.42420182.js"><link rel="prefetch" href="/assets/js/30.83b49f27.js"><link rel="prefetch" href="/assets/js/31.3d439066.js"><link rel="prefetch" href="/assets/js/32.23313804.js"><link rel="prefetch" href="/assets/js/33.f8399100.js"><link rel="prefetch" href="/assets/js/34.14f82cdc.js"><link rel="prefetch" href="/assets/js/35.5f80fd99.js"><link rel="prefetch" href="/assets/js/36.a024567a.js"><link rel="prefetch" href="/assets/js/37.7033ccb0.js"><link rel="prefetch" href="/assets/js/38.64a94c17.js"><link rel="prefetch" href="/assets/js/39.1643c9f2.js"><link rel="prefetch" href="/assets/js/4.5ed19beb.js"><link rel="prefetch" href="/assets/js/40.54f37494.js"><link rel="prefetch" href="/assets/js/41.980982b2.js"><link rel="prefetch" href="/assets/js/42.ba1bf739.js"><link rel="prefetch" href="/assets/js/43.34834d6e.js"><link rel="prefetch" href="/assets/js/44.86577531.js"><link rel="prefetch" href="/assets/js/45.4a7e612d.js"><link rel="prefetch" href="/assets/js/46.5b82cab0.js"><link rel="prefetch" href="/assets/js/47.a8b810d1.js"><link rel="prefetch" href="/assets/js/48.35253376.js"><link rel="prefetch" href="/assets/js/49.18311c2e.js"><link rel="prefetch" href="/assets/js/5.2cab7bfe.js"><link rel="prefetch" href="/assets/js/50.b1ae9d0e.js"><link rel="prefetch" href="/assets/js/51.9e1f691f.js"><link rel="prefetch" href="/assets/js/52.89b2adf6.js"><link rel="prefetch" href="/assets/js/53.38c11e5b.js"><link rel="prefetch" href="/assets/js/54.afb3ecb4.js"><link rel="prefetch" href="/assets/js/55.e026099c.js"><link rel="prefetch" href="/assets/js/56.a681d79a.js"><link rel="prefetch" href="/assets/js/57.a40be15e.js"><link rel="prefetch" href="/assets/js/58.7feef101.js"><link rel="prefetch" href="/assets/js/59.b7d5f8c6.js"><link rel="prefetch" href="/assets/js/6.c1e71ac1.js"><link rel="prefetch" href="/assets/js/60.58e7ed44.js"><link rel="prefetch" href="/assets/js/61.57be6b29.js"><link rel="prefetch" href="/assets/js/62.275799a6.js"><link rel="prefetch" href="/assets/js/63.d633c7fb.js"><link rel="prefetch" href="/assets/js/64.1b56030a.js"><link rel="prefetch" href="/assets/js/65.280ec9f5.js"><link rel="prefetch" href="/assets/js/66.82262c75.js"><link rel="prefetch" href="/assets/js/67.d02aae69.js"><link rel="prefetch" href="/assets/js/68.6a157678.js"><link rel="prefetch" href="/assets/js/69.12af0553.js"><link rel="prefetch" href="/assets/js/7.427a58b2.js"><link rel="prefetch" href="/assets/js/70.2b02d406.js"><link rel="prefetch" href="/assets/js/71.6b958c68.js"><link rel="prefetch" href="/assets/js/72.d7e1ed87.js"><link rel="prefetch" href="/assets/js/73.b4860b5a.js"><link rel="prefetch" href="/assets/js/74.edbfcadf.js"><link rel="prefetch" href="/assets/js/75.8d38909c.js"><link rel="prefetch" href="/assets/js/76.92714ac3.js"><link rel="prefetch" href="/assets/js/77.acb09ca4.js"><link rel="prefetch" href="/assets/js/78.a842091b.js"><link rel="prefetch" href="/assets/js/79.cdc46e98.js"><link rel="prefetch" href="/assets/js/8.f99e238f.js"><link rel="prefetch" href="/assets/js/80.b8b65e1f.js"><link rel="prefetch" href="/assets/js/81.f1bf0699.js"><link rel="prefetch" href="/assets/js/82.3c24e140.js"><link rel="prefetch" href="/assets/js/83.281fc60e.js"><link rel="prefetch" href="/assets/js/84.07da010a.js"><link rel="prefetch" href="/assets/js/85.1df53a15.js"><link rel="prefetch" href="/assets/js/86.98f18cc0.js"><link rel="prefetch" href="/assets/js/87.7cca4d88.js"><link rel="prefetch" href="/assets/js/88.57cc24f2.js"><link rel="prefetch" href="/assets/js/89.afeade71.js"><link rel="prefetch" href="/assets/js/9.d578bf13.js"><link rel="prefetch" href="/assets/js/90.b2424d6c.js"><link rel="prefetch" href="/assets/js/91.44acca51.js"><link rel="prefetch" href="/assets/js/92.aa09a589.js"><link rel="prefetch" href="/assets/js/93.1804f529.js"><link rel="prefetch" href="/assets/js/94.cc326de7.js"><link rel="prefetch" href="/assets/js/95.a58aa803.js"><link rel="prefetch" href="/assets/js/96.ab39bb52.js"><link rel="prefetch" href="/assets/js/97.7ae11fab.js"><link rel="prefetch" href="/assets/js/98.d9f11bff.js"><link rel="prefetch" href="/assets/js/99.caf9e303.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.ccac5a78.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">设计模式</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><!---->  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>基础知识</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/设计模式概述.html" class="sidebar-link">设计模式概述</a></li><li><a href="/面向对象设计原则.html" class="sidebar-link">面向对象设计原则</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>六个创建型模式</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/简单工厂模式-Simple Factory Pattern.html" class="sidebar-link">简单工厂模式-Simple Factory Pattern</a></li><li><a href="/工厂方法模式-Factory Method Pattern.html" class="sidebar-link">工厂方法模式-Factory Method Pattern</a></li><li><a href="/抽象工厂模式-Abstract  Factory Pattern.html" class="sidebar-link">抽象工厂模式-Abstract  Factory Pattern</a></li><li><a href="/单例模式-Singleton Pattern.html" class="sidebar-link">单例模式-Singleton Pattern</a></li><li><a href="/原型模式-Prototype Pattern.html" class="sidebar-link">原型模式-Prototype Pattern</a></li><li><a href="/建造者模式-Builder Pattern.html" class="sidebar-link">建造者模式-Builder Pattern</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>七个结构型模式</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/适配器模式-Adapter Pattern.html" class="sidebar-link">适配器模式-Adapter Pattern</a></li><li><a href="/桥接模式-Bridge Pattern.html" class="sidebar-link">桥接模式-Bridge Pattern</a></li><li><a href="/组合模式-Composite Pattern.html" class="sidebar-link">组合模式-Composite Pattern</a></li><li><a href="/装饰模式-Decorator Pattern.html" class="sidebar-link">装饰模式-Decorator Pattern</a></li><li><a href="/外观模式-Facade Pattern.html" class="sidebar-link">外观模式-Facade Pattern</a></li><li><a href="/享元模式-Flyweight Pattern.html" class="sidebar-link">享元模式-Flyweight Pattern</a></li><li><a href="/代理模式-Proxy Pattern.html" class="sidebar-link">代理模式-Proxy Pattern</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>十一个行为型模式</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/职责链模式-Chain of Responsibility Pattern.html" class="sidebar-link">职责链模式-Chain of Responsibility Pattern</a></li><li><a href="/命令模式-Command Pattern.html" class="sidebar-link">命令模式-Command Pattern</a></li><li><a href="/解释器模式-Interpreter Pattern.html" class="sidebar-link">解释器模式-Interpreter Pattern</a></li><li><a href="/迭代器模式-Iterator Pattern.html" class="sidebar-link">迭代器模式-Iterator Pattern</a></li><li><a href="/中介者模式-Mediator Pattern.html" class="sidebar-link">中介者模式-Mediator Pattern</a></li><li><a href="/备忘录模式-Memento Pattern.html" class="sidebar-link">备忘录模式-Memento Pattern</a></li><li><a href="/观察者模式-Observer Pattern.html" class="sidebar-link">观察者模式-Observer Pattern</a></li><li><a href="/状态模式-State Pattern.html" class="sidebar-link">状态模式-State Pattern</a></li><li><a href="/策略模式-Strategy Pattern.html" class="sidebar-link">策略模式-Strategy Pattern</a></li><li><a href="/模板方法模式-Template Method Pattern.html" class="sidebar-link">模板方法模式-Template Method Pattern</a></li><li><a href="/访问者模式-Visitor Pattern.html" class="sidebar-link">访问者模式-Visitor Pattern</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>设计模式趣味学习（复习）</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/设计模式与足球（一）.html" class="sidebar-link">设计模式与足球（一）</a></li><li><a href="/设计模式与足球（二）.html" class="sidebar-link">设计模式与足球（二）</a></li><li><a href="/设计模式与足球（三）.html" class="sidebar-link">设计模式与足球（三）</a></li><li><a href="/设计模式与足球（四）.html" class="sidebar-link">设计模式与足球（四）</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>设计模式综合应用实例</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/多人联机射击游戏.html" class="sidebar-link">多人联机射击游戏</a></li><li><a href="/数据库同步系统.html" class="sidebar-link">数据库同步系统</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="深入浅出外观模式-三"><a href="#深入浅出外观模式-三" class="header-anchor">#</a> 深入浅出外观模式（三）</h1> <ol start="4"><li>抽象外观类</li></ol> <p>在标准的外观模式结构图中，如果需要增加、删除或更换与外观类交互的子系统类，必须修改外观类或客户端的源代码，这将违背开闭原则，因此可以通过引入抽象外观类来对系统进行改进，在一定程度上可以解决该问题。在引入抽象外观类之后，客户端可以针对抽象外观类进行编程，对于新的业务需求，不需要修改原有外观类，而对应增加一个新的具体外观类，由新的具体外观类来关联新的子系统对象，同时通过修改配置文件来达到不修改任何源代码并更换外观类的目的。</p> <p>下面通过一个具体实例来学习如何使用抽象外观类：</p> <p>如果在应用实例“文件加密模块”中需要更换一个加密类，不再使用原有的基于求模运算的加密类CipherMachine，而改为基于移位运算的新加密类NewCipherMachine，其代码如下：</p> <div class="language- extra-class"><pre class="language-text"><code>using System;  
+  
+namespace FacadeSample  
+{  
+    class NewCipherMachine  
+    {  
+        public string Encrypt(string plainText)   
+        {  
+            Console.Write(&quot;数据加密，将明文转换为密文：&quot;);  
+            string es = &quot;&quot;;  
+            int key = 10;//设置密钥，移位数为10  
+            char[] chars = plainText.ToCharArray();  
+            foreach(char ch in chars)   
+            {  
+                int temp = Convert.ToInt32(ch);  
+                //小写字母移位  
+                if (ch &gt;= 'a' &amp;&amp; ch &lt;= 'z') {  
+                    temp += key % 26;  
+                    if (temp &gt; 122) temp -= 26;  
+                    if (temp &lt; 97) temp += 26;  
+                }  
+                //大写字母移位  
+                if (ch &gt;= 'A' &amp;&amp; ch &lt;= 'Z') {  
+                    temp += key % 26;  
+                    if (temp &gt; 90) temp -= 26;  
+                    if (temp &lt; 65) temp += 26;  
+                }  
+                es += ((char)temp).ToString();  
+            }  
+            Console.WriteLine(es);  
+            return es;  
+        }  
+    }  
+}  
+</code></pre></div><p>如果不增加新的外观类，只能通过修改原有外观类EncryptFacade的源代码来实现加密类的更换，将原有的对CipherMachine类型对象的引用改为对NewCipherMachine类型对象的引用，这违背了开闭原则，因此需要通过增加新的外观类来实现对子系统对象引用的改变。</p> <p>如果增加一个新的外观类NewEncryptFacade来与FileReader类、FileWriter类以及新增加的NewCipherMachine类进行交互，虽然原有系统类库无须做任何修改，但是因为客户端代码中原来针对EncryptFacade类进行编程，现在需要改为NewEncryptFacade类，因此需要修改客户端源代码。</p> <p>如何在不修改客户端代码的前提下使用新的外观类呢？解决方法之一是：引入一个抽象外观类，客户端针对抽象外观类编程，而在运行时再确定具体外观类，引入抽象外观类之后的文件加密模块结构图如图5所示：</p> <p><img src="http://img.my.csdn.net/uploads/201212/05/1354689057_4412.jpg" alt=""></p> <p>图5 引入抽象外观类之后的文件加密模块结构图</p> <p>在图5中，客户类Client针对抽象外观类AbstractEncryptFacade进行编程，AbstractEncryptFacade代码如下：</p> <div class="language- extra-class"><pre class="language-text"><code>namespace FacadeSample  
+{  
+    abstract class AbstractEncryptFacade  
+    {  
+        public abstract void FileEncrypt(string fileNameSrc, string fileNameDes);  
+    }  
+}  
+       新增具体加密外观类NewEncryptFacade代码如下：
+[csharp] view plain copy
+namespace FacadeSample  
+{  
+    class NewEncryptFacade : AbstractEncryptFacade  
+    {  
+        private FileReader reader;  
+        private NewCipherMachine cipher;  
+        private FileWriter writer;  
+  
+        public NewEncryptFacade()  
+        {  
+            reader = new FileReader();  
+            cipher = new NewCipherMachine();  
+            writer = new FileWriter();  
+        }  
+  
+        public override void FileEncrypt(string fileNameSrc, string fileNameDes)  
+        {  
+            string plainStr = reader.Read(fileNameSrc);  
+            string encryptStr = cipher.Encrypt(plainStr);  
+            writer.Write(encryptStr, fileNameDes);  
+        }  
+    }  
+}  
+</code></pre></div><p>配置文件App.config中存储了具体外观类的类名，代码如下：</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;  
+&lt;configuration&gt;  
+  &lt;appSettings&gt;  
+    &lt;add key=&quot;facade&quot; value=&quot;FacadeSample.NewEncryptFacade&quot;/&gt;  
+  &lt;/appSettings&gt;  
+&lt;/configuration&gt;  
+</code></pre></div><p>客户端测试代码修改如下：</p> <div class="language- extra-class"><pre class="language-text"><code>using System;  
+using System.Configuration;  
+using System.Reflection;  
+  
+namespace FacadeSample  
+{  
+    class Program  
+    {  
+        static void Main(string[] args)  
+        {  
+            AbstractEncryptFacade ef; //针对抽象外观类编程  
+            //读取配置文件  
+            string facadeString = ConfigurationManager.AppSettings[&quot;facade&quot;];  
+            //反射生成对象  
+            ef = (AbstractEncryptFacade)Assembly.Load(&quot;FacadeSample&quot;). CreateInstance (facadeString);  
+            ef.FileEncrypt(&quot;src.txt&quot;, &quot;des.txt&quot;);  
+            Console.Read();  
+        }  
+    }  
+}
+</code></pre></div><p>编译并运行程序，输出结果如下：</p> <div class="language- extra-class"><pre class="language-text"><code>读取文件，获取明文：Hello world!
+数据加密，将明文转换为密文：Rovvy gybvn!
+保存密文，写入文件。
+</code></pre></div><p>原有外观类EncryptFacade也需作为抽象外观类AbstractEncryptFacade类的子类，更换具体外观类时只需修改配置文件，无须修改源代码，符合开闭原则。</p> <ol start="5"><li>外观模式效果与适用场景</li></ol> <p>外观模式是一种使用频率非常高的设计模式，它通过引入一个外观角色来简化客户端与子系统之间的交互，为复杂的子系统调用提供一个统一的入口，使子系统与客户端的耦合度降低，且客户端调用非常方便。外观模式并不给系统增加任何新功能，它仅仅是简化调用接口。在几乎所有的软件中都能够找到外观模式的应用，如绝大多数B/S系统都有一个首页或者导航页面，大部分C/S系统都提供了菜单或者工具栏，在这里，首页和导航页面就是B/S系统的外观角色，而菜单和工具栏就是C/S系统的外观角色，通过它们用户可以快速访问子系统，降低了系统的复杂程度。所有涉及到与多个业务对象交互的场景都可以考虑使用外观模式进行重构。</p> <p>5.1 模式优点</p> <p>外观模式的主要优点如下：</p> <p>(1) 它对客户端屏蔽了子系统组件，减少了客户端所需处理的对象数目，并使得子系统使用起来更加容易。通过引入外观模式，客户端代码将变得很简单，与之关联的对象也很少。</p> <p>(2) 它实现了子系统与客户端之间的松耦合关系，这使得子系统的变化不会影响到调用它的客户端，只需要调整外观类即可。</p> <p>(3) 一个子系统的修改对其他子系统没有任何影响，而且子系统内部变化也不会影响到外观对象。</p> <p>5.2 模式缺点</p> <p>外观模式的主要缺点如下：</p> <p>(1) 不能很好地限制客户端直接使用子系统类，如果对客户端访问子系统类做太多的限制则减少了可变性和灵活 性。</p> <p>(2) 如果设计不当，增加新的子系统可能需要修改外观类的源代码，违背了开闭原则。</p> <p>5.3 模式适用场景</p> <p>在以下情况下可以考虑使用外观模式：</p> <p>(1) 当要为访问一系列复杂的子系统提供一个简单入口时可以使用外观模式。</p> <p>(2) 客户端程序与多个子系统之间存在很大的依赖性。引入外观类可以将子系统与客户端解耦，从而提高子系统的独立性和可移植性。</p> <p>(3) 在层次化结构中，可以使用外观模式定义系统中每一层的入口，层与层之间不直接产生联系，而通过外观类建立联系，降低层之间的耦合度。</p></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">4/27/2016, 6:06:54 PM</span></div></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.61038a2e.js" defer></script><script src="/assets/js/2.59fcb4b9.js" defer></script><script src="/assets/js/102.a482364c.js" defer></script>
+  </body>
+</html>

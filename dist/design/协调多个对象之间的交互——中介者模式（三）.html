@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>协调多个对象之间的交互——中介者模式（三） | 设计模式</title>
+    <meta name="generator" content="VuePress 1.5.4">
+    <link rel="icon" href="/images/typescript.png">
+    <meta name="description" content="目录">
+    <link rel="preload" href="/assets/css/0.styles.ccac5a78.css" as="style"><link rel="preload" href="/assets/js/app.61038a2e.js" as="script"><link rel="preload" href="/assets/js/2.59fcb4b9.js" as="script"><link rel="preload" href="/assets/js/20.892e82e9.js" as="script"><link rel="prefetch" href="/assets/js/10.874d8029.js"><link rel="prefetch" href="/assets/js/100.9530126e.js"><link rel="prefetch" href="/assets/js/101.f792bf7f.js"><link rel="prefetch" href="/assets/js/102.a482364c.js"><link rel="prefetch" href="/assets/js/103.c3b485a5.js"><link rel="prefetch" href="/assets/js/104.086fb816.js"><link rel="prefetch" href="/assets/js/105.1752b675.js"><link rel="prefetch" href="/assets/js/106.fb07f8cd.js"><link rel="prefetch" href="/assets/js/107.754c61c5.js"><link rel="prefetch" href="/assets/js/108.46cae808.js"><link rel="prefetch" href="/assets/js/109.d3b06d0f.js"><link rel="prefetch" href="/assets/js/11.dad3b836.js"><link rel="prefetch" href="/assets/js/110.8ad47f70.js"><link rel="prefetch" href="/assets/js/111.77dc6489.js"><link rel="prefetch" href="/assets/js/112.84db77a1.js"><link rel="prefetch" href="/assets/js/113.70baa5a9.js"><link rel="prefetch" href="/assets/js/114.7be8d013.js"><link rel="prefetch" href="/assets/js/115.99f7ef37.js"><link rel="prefetch" href="/assets/js/116.4c3c2285.js"><link rel="prefetch" href="/assets/js/117.2c45c866.js"><link rel="prefetch" href="/assets/js/118.aad1fa95.js"><link rel="prefetch" href="/assets/js/119.b0eafca6.js"><link rel="prefetch" href="/assets/js/12.d4db77f4.js"><link rel="prefetch" href="/assets/js/120.e273cd0b.js"><link rel="prefetch" href="/assets/js/121.49b9ca92.js"><link rel="prefetch" href="/assets/js/122.4ad93b29.js"><link rel="prefetch" href="/assets/js/123.f9dbaa66.js"><link rel="prefetch" href="/assets/js/124.bea1aacb.js"><link rel="prefetch" href="/assets/js/125.8b4e8c45.js"><link rel="prefetch" href="/assets/js/126.7182c465.js"><link rel="prefetch" href="/assets/js/127.6503bc31.js"><link rel="prefetch" href="/assets/js/128.2b17e851.js"><link rel="prefetch" href="/assets/js/129.a24fcabe.js"><link rel="prefetch" href="/assets/js/13.dd3d61dd.js"><link rel="prefetch" href="/assets/js/130.63f9bd99.js"><link rel="prefetch" href="/assets/js/131.2b1be2c3.js"><link rel="prefetch" href="/assets/js/132.5466bad6.js"><link rel="prefetch" href="/assets/js/133.6d65c72a.js"><link rel="prefetch" href="/assets/js/134.abe463f4.js"><link rel="prefetch" href="/assets/js/135.d09913a5.js"><link rel="prefetch" href="/assets/js/136.c0e95cbc.js"><link rel="prefetch" href="/assets/js/137.66ab7679.js"><link rel="prefetch" href="/assets/js/138.00f617c4.js"><link rel="prefetch" href="/assets/js/139.68835715.js"><link rel="prefetch" href="/assets/js/14.0a308518.js"><link rel="prefetch" href="/assets/js/140.e11022ef.js"><link rel="prefetch" href="/assets/js/141.a9296a8d.js"><link rel="prefetch" href="/assets/js/142.ca20c2c6.js"><link rel="prefetch" href="/assets/js/143.da7e0086.js"><link rel="prefetch" href="/assets/js/144.01a56269.js"><link rel="prefetch" href="/assets/js/145.cc3ccc63.js"><link rel="prefetch" href="/assets/js/146.1c4eb3c4.js"><link rel="prefetch" href="/assets/js/147.249beb6c.js"><link rel="prefetch" href="/assets/js/148.f2a92d54.js"><link rel="prefetch" href="/assets/js/149.64961d19.js"><link rel="prefetch" href="/assets/js/15.c35f1d83.js"><link rel="prefetch" href="/assets/js/150.973d6bc0.js"><link rel="prefetch" href="/assets/js/151.3eba6723.js"><link rel="prefetch" href="/assets/js/152.d5fe1f44.js"><link rel="prefetch" href="/assets/js/153.c11ad6dc.js"><link rel="prefetch" href="/assets/js/154.56f430a0.js"><link rel="prefetch" href="/assets/js/155.f167872e.js"><link rel="prefetch" href="/assets/js/156.0e9910f2.js"><link rel="prefetch" href="/assets/js/157.51393679.js"><link rel="prefetch" href="/assets/js/158.b427f9d8.js"><link rel="prefetch" href="/assets/js/159.e24ed9e3.js"><link rel="prefetch" href="/assets/js/16.aeabe254.js"><link rel="prefetch" href="/assets/js/160.a24611af.js"><link rel="prefetch" href="/assets/js/161.11b8d1e6.js"><link rel="prefetch" href="/assets/js/162.ee84e1d9.js"><link rel="prefetch" href="/assets/js/163.aecce7b4.js"><link rel="prefetch" href="/assets/js/164.ee441756.js"><link rel="prefetch" href="/assets/js/165.3ad4de65.js"><link rel="prefetch" href="/assets/js/166.248f6f28.js"><link rel="prefetch" href="/assets/js/167.b3a1722f.js"><link rel="prefetch" href="/assets/js/17.a1ebac9c.js"><link rel="prefetch" href="/assets/js/18.b90a786f.js"><link rel="prefetch" href="/assets/js/19.0fd988d3.js"><link rel="prefetch" href="/assets/js/21.33111ce4.js"><link rel="prefetch" href="/assets/js/22.99ced76e.js"><link rel="prefetch" href="/assets/js/23.7e224152.js"><link rel="prefetch" href="/assets/js/24.e9f56109.js"><link rel="prefetch" href="/assets/js/25.09f31188.js"><link rel="prefetch" href="/assets/js/26.1986d3e8.js"><link rel="prefetch" href="/assets/js/27.16772f9a.js"><link rel="prefetch" href="/assets/js/28.3bbd9183.js"><link rel="prefetch" href="/assets/js/29.aebe80f3.js"><link rel="prefetch" href="/assets/js/3.42420182.js"><link rel="prefetch" href="/assets/js/30.83b49f27.js"><link rel="prefetch" href="/assets/js/31.3d439066.js"><link rel="prefetch" href="/assets/js/32.23313804.js"><link rel="prefetch" href="/assets/js/33.f8399100.js"><link rel="prefetch" href="/assets/js/34.14f82cdc.js"><link rel="prefetch" href="/assets/js/35.5f80fd99.js"><link rel="prefetch" href="/assets/js/36.a024567a.js"><link rel="prefetch" href="/assets/js/37.7033ccb0.js"><link rel="prefetch" href="/assets/js/38.64a94c17.js"><link rel="prefetch" href="/assets/js/39.1643c9f2.js"><link rel="prefetch" href="/assets/js/4.5ed19beb.js"><link rel="prefetch" href="/assets/js/40.54f37494.js"><link rel="prefetch" href="/assets/js/41.980982b2.js"><link rel="prefetch" href="/assets/js/42.ba1bf739.js"><link rel="prefetch" href="/assets/js/43.34834d6e.js"><link rel="prefetch" href="/assets/js/44.86577531.js"><link rel="prefetch" href="/assets/js/45.4a7e612d.js"><link rel="prefetch" href="/assets/js/46.5b82cab0.js"><link rel="prefetch" href="/assets/js/47.a8b810d1.js"><link rel="prefetch" href="/assets/js/48.35253376.js"><link rel="prefetch" href="/assets/js/49.18311c2e.js"><link rel="prefetch" href="/assets/js/5.2cab7bfe.js"><link rel="prefetch" href="/assets/js/50.b1ae9d0e.js"><link rel="prefetch" href="/assets/js/51.9e1f691f.js"><link rel="prefetch" href="/assets/js/52.89b2adf6.js"><link rel="prefetch" href="/assets/js/53.38c11e5b.js"><link rel="prefetch" href="/assets/js/54.afb3ecb4.js"><link rel="prefetch" href="/assets/js/55.e026099c.js"><link rel="prefetch" href="/assets/js/56.a681d79a.js"><link rel="prefetch" href="/assets/js/57.a40be15e.js"><link rel="prefetch" href="/assets/js/58.7feef101.js"><link rel="prefetch" href="/assets/js/59.b7d5f8c6.js"><link rel="prefetch" href="/assets/js/6.c1e71ac1.js"><link rel="prefetch" href="/assets/js/60.58e7ed44.js"><link rel="prefetch" href="/assets/js/61.57be6b29.js"><link rel="prefetch" href="/assets/js/62.275799a6.js"><link rel="prefetch" href="/assets/js/63.d633c7fb.js"><link rel="prefetch" href="/assets/js/64.1b56030a.js"><link rel="prefetch" href="/assets/js/65.280ec9f5.js"><link rel="prefetch" href="/assets/js/66.82262c75.js"><link rel="prefetch" href="/assets/js/67.d02aae69.js"><link rel="prefetch" href="/assets/js/68.6a157678.js"><link rel="prefetch" href="/assets/js/69.12af0553.js"><link rel="prefetch" href="/assets/js/7.427a58b2.js"><link rel="prefetch" href="/assets/js/70.2b02d406.js"><link rel="prefetch" href="/assets/js/71.6b958c68.js"><link rel="prefetch" href="/assets/js/72.d7e1ed87.js"><link rel="prefetch" href="/assets/js/73.b4860b5a.js"><link rel="prefetch" href="/assets/js/74.edbfcadf.js"><link rel="prefetch" href="/assets/js/75.8d38909c.js"><link rel="prefetch" href="/assets/js/76.92714ac3.js"><link rel="prefetch" href="/assets/js/77.acb09ca4.js"><link rel="prefetch" href="/assets/js/78.a842091b.js"><link rel="prefetch" href="/assets/js/79.cdc46e98.js"><link rel="prefetch" href="/assets/js/8.f99e238f.js"><link rel="prefetch" href="/assets/js/80.b8b65e1f.js"><link rel="prefetch" href="/assets/js/81.f1bf0699.js"><link rel="prefetch" href="/assets/js/82.3c24e140.js"><link rel="prefetch" href="/assets/js/83.281fc60e.js"><link rel="prefetch" href="/assets/js/84.07da010a.js"><link rel="prefetch" href="/assets/js/85.1df53a15.js"><link rel="prefetch" href="/assets/js/86.98f18cc0.js"><link rel="prefetch" href="/assets/js/87.7cca4d88.js"><link rel="prefetch" href="/assets/js/88.57cc24f2.js"><link rel="prefetch" href="/assets/js/89.afeade71.js"><link rel="prefetch" href="/assets/js/9.d578bf13.js"><link rel="prefetch" href="/assets/js/90.b2424d6c.js"><link rel="prefetch" href="/assets/js/91.44acca51.js"><link rel="prefetch" href="/assets/js/92.aa09a589.js"><link rel="prefetch" href="/assets/js/93.1804f529.js"><link rel="prefetch" href="/assets/js/94.cc326de7.js"><link rel="prefetch" href="/assets/js/95.a58aa803.js"><link rel="prefetch" href="/assets/js/96.ab39bb52.js"><link rel="prefetch" href="/assets/js/97.7ae11fab.js"><link rel="prefetch" href="/assets/js/98.d9f11bff.js"><link rel="prefetch" href="/assets/js/99.caf9e303.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.ccac5a78.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">设计模式</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><!---->  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>基础知识</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/设计模式概述.html" class="sidebar-link">设计模式概述</a></li><li><a href="/面向对象设计原则.html" class="sidebar-link">面向对象设计原则</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>六个创建型模式</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/简单工厂模式-Simple Factory Pattern.html" class="sidebar-link">简单工厂模式-Simple Factory Pattern</a></li><li><a href="/工厂方法模式-Factory Method Pattern.html" class="sidebar-link">工厂方法模式-Factory Method Pattern</a></li><li><a href="/抽象工厂模式-Abstract  Factory Pattern.html" class="sidebar-link">抽象工厂模式-Abstract  Factory Pattern</a></li><li><a href="/单例模式-Singleton Pattern.html" class="sidebar-link">单例模式-Singleton Pattern</a></li><li><a href="/原型模式-Prototype Pattern.html" class="sidebar-link">原型模式-Prototype Pattern</a></li><li><a href="/建造者模式-Builder Pattern.html" class="sidebar-link">建造者模式-Builder Pattern</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>七个结构型模式</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/适配器模式-Adapter Pattern.html" class="sidebar-link">适配器模式-Adapter Pattern</a></li><li><a href="/桥接模式-Bridge Pattern.html" class="sidebar-link">桥接模式-Bridge Pattern</a></li><li><a href="/组合模式-Composite Pattern.html" class="sidebar-link">组合模式-Composite Pattern</a></li><li><a href="/装饰模式-Decorator Pattern.html" class="sidebar-link">装饰模式-Decorator Pattern</a></li><li><a href="/外观模式-Facade Pattern.html" class="sidebar-link">外观模式-Facade Pattern</a></li><li><a href="/享元模式-Flyweight Pattern.html" class="sidebar-link">享元模式-Flyweight Pattern</a></li><li><a href="/代理模式-Proxy Pattern.html" class="sidebar-link">代理模式-Proxy Pattern</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>十一个行为型模式</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/职责链模式-Chain of Responsibility Pattern.html" class="sidebar-link">职责链模式-Chain of Responsibility Pattern</a></li><li><a href="/命令模式-Command Pattern.html" class="sidebar-link">命令模式-Command Pattern</a></li><li><a href="/解释器模式-Interpreter Pattern.html" class="sidebar-link">解释器模式-Interpreter Pattern</a></li><li><a href="/迭代器模式-Iterator Pattern.html" class="sidebar-link">迭代器模式-Iterator Pattern</a></li><li><a href="/中介者模式-Mediator Pattern.html" class="sidebar-link">中介者模式-Mediator Pattern</a></li><li><a href="/备忘录模式-Memento Pattern.html" class="sidebar-link">备忘录模式-Memento Pattern</a></li><li><a href="/观察者模式-Observer Pattern.html" class="sidebar-link">观察者模式-Observer Pattern</a></li><li><a href="/状态模式-State Pattern.html" class="sidebar-link">状态模式-State Pattern</a></li><li><a href="/策略模式-Strategy Pattern.html" class="sidebar-link">策略模式-Strategy Pattern</a></li><li><a href="/模板方法模式-Template Method Pattern.html" class="sidebar-link">模板方法模式-Template Method Pattern</a></li><li><a href="/访问者模式-Visitor Pattern.html" class="sidebar-link">访问者模式-Visitor Pattern</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>设计模式趣味学习（复习）</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/设计模式与足球（一）.html" class="sidebar-link">设计模式与足球（一）</a></li><li><a href="/设计模式与足球（二）.html" class="sidebar-link">设计模式与足球（二）</a></li><li><a href="/设计模式与足球（三）.html" class="sidebar-link">设计模式与足球（三）</a></li><li><a href="/设计模式与足球（四）.html" class="sidebar-link">设计模式与足球（四）</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>设计模式综合应用实例</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/多人联机射击游戏.html" class="sidebar-link">多人联机射击游戏</a></li><li><a href="/数据库同步系统.html" class="sidebar-link">数据库同步系统</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="协调多个对象之间的交互-中介者模式-三"><a href="#协调多个对象之间的交互-中介者模式-三" class="header-anchor">#</a> 协调多个对象之间的交互——中介者模式（三）</h1> <p>20.3 完整解决方案</p> <p>为了协调界面组件对象之间的复杂交互关系，Sunny公司开发人员使用中介者模式来设计客户信息管理窗口，其结构示意图如图20-7所示：</p> <p><img src="http://img.my.csdn.net/uploads/201301/08/1357652393_2992.jpg" alt=""></p> <p>图20-7 引入了中介者类的“客户信息管理窗口”结构示意图</p> <p>图20-7只是一个重构之后的结构示意图，在具体实现时，为了确保系统具有更好的灵活性和可扩展性，我们需要定义抽象中介者和抽象组件类，其中抽象组件类是所有具体组件类的公共父类，完整类图如图20-8所示：</p> <p><img src="http://img.my.csdn.net/uploads/201301/08/1357652403_1841.jpg" alt=""></p> <p>图20-8 重构后的“客户信息管理窗口”结构图</p> <p>在图20-8中，Component充当抽象同事类，Button、List、ComboBox和TextBox充当具体同事类，Mediator充当抽象中介者类，ConcreteMediator充当具体中介者类，ConcreteMediator维持了对具体同事类的引用，为了简化ConcreteMediator类的代码，我们在其中只定义了一个Button对象和一个TextBox对象。完整代码如下所示：</p> <div class="language- extra-class"><pre class="language-text"><code>//抽象中介者  
+abstract class Mediator {  
+    public abstract void componentChanged(Component c);  
+}  
+  
+//具体中介者  
+class ConcreteMediator extends Mediator {  
+    //维持对各个同事对象的引用  
+    public Button addButton;  
+    public List list;  
+    public TextBox userNameTextBox;  
+    public ComboBox cb;  
+  
+    //封装同事对象之间的交互  
+    public void componentChanged(Component c) {  
+        //单击按钮  
+if(c == addButton) {  
+            System.out.println(&quot;--单击增加按钮--&quot;);  
+            list.update();  
+            cb.update();  
+            userNameTextBox.update();  
+        }  
+        //从列表框选择客户  
+        else if(c == list) {  
+            System.out.println(&quot;--从列表框选择客户--&quot;);  
+            cb.select();  
+            userNameTextBox.setText();  
+        }  
+        //从组合框选择客户  
+        else if(c == cb) {  
+            System.out.println(&quot;--从组合框选择客户--&quot;);  
+            cb.select();  
+            userNameTextBox.setText();  
+        }  
+    }  
+}  
+  
+//抽象组件类：抽象同事类  
+abstract class Component {  
+    protected Mediator mediator;  
+      
+    public void setMediator(Mediator mediator) {  
+        this.mediator = mediator;  
+    }  
+  
+    //转发调用  
+    public void changed() {  
+        mediator.componentChanged(this);  
+    }  
+      
+    public abstract void update();    
+}  
+  
+//按钮类：具体同事类  
+class Button extends Component {  
+    public void update() {  
+        //按钮不产生交互  
+    }  
+}  
+  
+//列表框类：具体同事类  
+class List extends Component {  
+    public void update() {  
+        System.out.println(&quot;列表框增加一项：张无忌。&quot;);  
+    }  
+      
+    public void select() {  
+        System.out.println(&quot;列表框选中项：小龙女。&quot;);  
+    }  
+}  
+  
+//组合框类：具体同事类  
+class ComboBox extends Component {  
+    public void update() {  
+        System.out.println(&quot;组合框增加一项：张无忌。&quot;);  
+    }  
+      
+    public void select() {  
+        System.out.println(&quot;组合框选中项：小龙女。&quot;);  
+    }  
+}  
+  
+//文本框类：具体同事类  
+class TextBox extends Component {  
+    public void update() {  
+        System.out.println(&quot;客户信息增加成功后文本框清空。&quot;);  
+    }  
+      
+    public void setText() {  
+        System.out.println(&quot;文本框显示：小龙女。&quot;);  
+    }  
+}  
+</code></pre></div><p>编写如下客户端测试代码：</p> <div class="language- extra-class"><pre class="language-text"><code>class Client {  
+    public static void main(String args[]) {  
+        //定义中介者对象  
+        ConcreteMediator mediator;  
+        mediator = new ConcreteMediator();  
+          
+        //定义同事对象  
+        Button addBT = new Button();  
+        List list = new List();  
+        ComboBox cb = new ComboBox();  
+        TextBox userNameTB = new TextBox();  
+  
+        addBT.setMediator(mediator);  
+        list.setMediator(mediator);  
+        cb.setMediator(mediator);  
+        userNameTB.setMediator(mediator);  
+  
+        mediator.addButton = addBT;  
+        mediator.list = list;  
+        mediator.cb = cb;  
+        mediator.userNameTextBox = userNameTB;  
+          
+        addBT.changed();  
+        System.out.println(&quot;-----------------------------&quot;);  
+        list.changed();  
+    }  
+}  
+</code></pre></div><p>编译并运行程序，输出结果如下：</p> <div class="language- extra-class"><pre class="language-text"><code>--单击增加按钮--
+列表框增加一项：张无忌。
+组合框增加一项：张无忌。
+客户信息增加成功后文本框清空。
+-----------------------------
+--从列表框选择客户--
+组合框选中项：小龙女。
+文本框显示：小龙女。
+</code></pre></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">4/28/2016, 7:57:44 AM</span></div></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.61038a2e.js" defer></script><script src="/assets/js/2.59fcb4b9.js" defer></script><script src="/assets/js/20.892e82e9.js" defer></script>
+  </body>
+</html>

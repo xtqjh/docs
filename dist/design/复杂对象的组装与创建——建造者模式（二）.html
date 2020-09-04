@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>复杂对象的组装与创建——建造者模式（二） | 设计模式</title>
+    <meta name="generator" content="VuePress 1.5.4">
+    <link rel="icon" href="/images/typescript.png">
+    <meta name="description" content="目录">
+    <link rel="preload" href="/assets/css/0.styles.ccac5a78.css" as="style"><link rel="preload" href="/assets/js/app.61038a2e.js" as="script"><link rel="preload" href="/assets/js/2.59fcb4b9.js" as="script"><link rel="preload" href="/assets/js/41.980982b2.js" as="script"><link rel="prefetch" href="/assets/js/10.874d8029.js"><link rel="prefetch" href="/assets/js/100.9530126e.js"><link rel="prefetch" href="/assets/js/101.f792bf7f.js"><link rel="prefetch" href="/assets/js/102.a482364c.js"><link rel="prefetch" href="/assets/js/103.c3b485a5.js"><link rel="prefetch" href="/assets/js/104.086fb816.js"><link rel="prefetch" href="/assets/js/105.1752b675.js"><link rel="prefetch" href="/assets/js/106.fb07f8cd.js"><link rel="prefetch" href="/assets/js/107.754c61c5.js"><link rel="prefetch" href="/assets/js/108.46cae808.js"><link rel="prefetch" href="/assets/js/109.d3b06d0f.js"><link rel="prefetch" href="/assets/js/11.dad3b836.js"><link rel="prefetch" href="/assets/js/110.8ad47f70.js"><link rel="prefetch" href="/assets/js/111.77dc6489.js"><link rel="prefetch" href="/assets/js/112.84db77a1.js"><link rel="prefetch" href="/assets/js/113.70baa5a9.js"><link rel="prefetch" href="/assets/js/114.7be8d013.js"><link rel="prefetch" href="/assets/js/115.99f7ef37.js"><link rel="prefetch" href="/assets/js/116.4c3c2285.js"><link rel="prefetch" href="/assets/js/117.2c45c866.js"><link rel="prefetch" href="/assets/js/118.aad1fa95.js"><link rel="prefetch" href="/assets/js/119.b0eafca6.js"><link rel="prefetch" href="/assets/js/12.d4db77f4.js"><link rel="prefetch" href="/assets/js/120.e273cd0b.js"><link rel="prefetch" href="/assets/js/121.49b9ca92.js"><link rel="prefetch" href="/assets/js/122.4ad93b29.js"><link rel="prefetch" href="/assets/js/123.f9dbaa66.js"><link rel="prefetch" href="/assets/js/124.bea1aacb.js"><link rel="prefetch" href="/assets/js/125.8b4e8c45.js"><link rel="prefetch" href="/assets/js/126.7182c465.js"><link rel="prefetch" href="/assets/js/127.6503bc31.js"><link rel="prefetch" href="/assets/js/128.2b17e851.js"><link rel="prefetch" href="/assets/js/129.a24fcabe.js"><link rel="prefetch" href="/assets/js/13.dd3d61dd.js"><link rel="prefetch" href="/assets/js/130.63f9bd99.js"><link rel="prefetch" href="/assets/js/131.2b1be2c3.js"><link rel="prefetch" href="/assets/js/132.5466bad6.js"><link rel="prefetch" href="/assets/js/133.6d65c72a.js"><link rel="prefetch" href="/assets/js/134.abe463f4.js"><link rel="prefetch" href="/assets/js/135.d09913a5.js"><link rel="prefetch" href="/assets/js/136.c0e95cbc.js"><link rel="prefetch" href="/assets/js/137.66ab7679.js"><link rel="prefetch" href="/assets/js/138.00f617c4.js"><link rel="prefetch" href="/assets/js/139.68835715.js"><link rel="prefetch" href="/assets/js/14.0a308518.js"><link rel="prefetch" href="/assets/js/140.e11022ef.js"><link rel="prefetch" href="/assets/js/141.a9296a8d.js"><link rel="prefetch" href="/assets/js/142.ca20c2c6.js"><link rel="prefetch" href="/assets/js/143.da7e0086.js"><link rel="prefetch" href="/assets/js/144.01a56269.js"><link rel="prefetch" href="/assets/js/145.cc3ccc63.js"><link rel="prefetch" href="/assets/js/146.1c4eb3c4.js"><link rel="prefetch" href="/assets/js/147.249beb6c.js"><link rel="prefetch" href="/assets/js/148.f2a92d54.js"><link rel="prefetch" href="/assets/js/149.64961d19.js"><link rel="prefetch" href="/assets/js/15.c35f1d83.js"><link rel="prefetch" href="/assets/js/150.973d6bc0.js"><link rel="prefetch" href="/assets/js/151.3eba6723.js"><link rel="prefetch" href="/assets/js/152.d5fe1f44.js"><link rel="prefetch" href="/assets/js/153.c11ad6dc.js"><link rel="prefetch" href="/assets/js/154.56f430a0.js"><link rel="prefetch" href="/assets/js/155.f167872e.js"><link rel="prefetch" href="/assets/js/156.0e9910f2.js"><link rel="prefetch" href="/assets/js/157.51393679.js"><link rel="prefetch" href="/assets/js/158.b427f9d8.js"><link rel="prefetch" href="/assets/js/159.e24ed9e3.js"><link rel="prefetch" href="/assets/js/16.aeabe254.js"><link rel="prefetch" href="/assets/js/160.a24611af.js"><link rel="prefetch" href="/assets/js/161.11b8d1e6.js"><link rel="prefetch" href="/assets/js/162.ee84e1d9.js"><link rel="prefetch" href="/assets/js/163.aecce7b4.js"><link rel="prefetch" href="/assets/js/164.ee441756.js"><link rel="prefetch" href="/assets/js/165.3ad4de65.js"><link rel="prefetch" href="/assets/js/166.248f6f28.js"><link rel="prefetch" href="/assets/js/167.b3a1722f.js"><link rel="prefetch" href="/assets/js/17.a1ebac9c.js"><link rel="prefetch" href="/assets/js/18.b90a786f.js"><link rel="prefetch" href="/assets/js/19.0fd988d3.js"><link rel="prefetch" href="/assets/js/20.892e82e9.js"><link rel="prefetch" href="/assets/js/21.33111ce4.js"><link rel="prefetch" href="/assets/js/22.99ced76e.js"><link rel="prefetch" href="/assets/js/23.7e224152.js"><link rel="prefetch" href="/assets/js/24.e9f56109.js"><link rel="prefetch" href="/assets/js/25.09f31188.js"><link rel="prefetch" href="/assets/js/26.1986d3e8.js"><link rel="prefetch" href="/assets/js/27.16772f9a.js"><link rel="prefetch" href="/assets/js/28.3bbd9183.js"><link rel="prefetch" href="/assets/js/29.aebe80f3.js"><link rel="prefetch" href="/assets/js/3.42420182.js"><link rel="prefetch" href="/assets/js/30.83b49f27.js"><link rel="prefetch" href="/assets/js/31.3d439066.js"><link rel="prefetch" href="/assets/js/32.23313804.js"><link rel="prefetch" href="/assets/js/33.f8399100.js"><link rel="prefetch" href="/assets/js/34.14f82cdc.js"><link rel="prefetch" href="/assets/js/35.5f80fd99.js"><link rel="prefetch" href="/assets/js/36.a024567a.js"><link rel="prefetch" href="/assets/js/37.7033ccb0.js"><link rel="prefetch" href="/assets/js/38.64a94c17.js"><link rel="prefetch" href="/assets/js/39.1643c9f2.js"><link rel="prefetch" href="/assets/js/4.5ed19beb.js"><link rel="prefetch" href="/assets/js/40.54f37494.js"><link rel="prefetch" href="/assets/js/42.ba1bf739.js"><link rel="prefetch" href="/assets/js/43.34834d6e.js"><link rel="prefetch" href="/assets/js/44.86577531.js"><link rel="prefetch" href="/assets/js/45.4a7e612d.js"><link rel="prefetch" href="/assets/js/46.5b82cab0.js"><link rel="prefetch" href="/assets/js/47.a8b810d1.js"><link rel="prefetch" href="/assets/js/48.35253376.js"><link rel="prefetch" href="/assets/js/49.18311c2e.js"><link rel="prefetch" href="/assets/js/5.2cab7bfe.js"><link rel="prefetch" href="/assets/js/50.b1ae9d0e.js"><link rel="prefetch" href="/assets/js/51.9e1f691f.js"><link rel="prefetch" href="/assets/js/52.89b2adf6.js"><link rel="prefetch" href="/assets/js/53.38c11e5b.js"><link rel="prefetch" href="/assets/js/54.afb3ecb4.js"><link rel="prefetch" href="/assets/js/55.e026099c.js"><link rel="prefetch" href="/assets/js/56.a681d79a.js"><link rel="prefetch" href="/assets/js/57.a40be15e.js"><link rel="prefetch" href="/assets/js/58.7feef101.js"><link rel="prefetch" href="/assets/js/59.b7d5f8c6.js"><link rel="prefetch" href="/assets/js/6.c1e71ac1.js"><link rel="prefetch" href="/assets/js/60.58e7ed44.js"><link rel="prefetch" href="/assets/js/61.57be6b29.js"><link rel="prefetch" href="/assets/js/62.275799a6.js"><link rel="prefetch" href="/assets/js/63.d633c7fb.js"><link rel="prefetch" href="/assets/js/64.1b56030a.js"><link rel="prefetch" href="/assets/js/65.280ec9f5.js"><link rel="prefetch" href="/assets/js/66.82262c75.js"><link rel="prefetch" href="/assets/js/67.d02aae69.js"><link rel="prefetch" href="/assets/js/68.6a157678.js"><link rel="prefetch" href="/assets/js/69.12af0553.js"><link rel="prefetch" href="/assets/js/7.427a58b2.js"><link rel="prefetch" href="/assets/js/70.2b02d406.js"><link rel="prefetch" href="/assets/js/71.6b958c68.js"><link rel="prefetch" href="/assets/js/72.d7e1ed87.js"><link rel="prefetch" href="/assets/js/73.b4860b5a.js"><link rel="prefetch" href="/assets/js/74.edbfcadf.js"><link rel="prefetch" href="/assets/js/75.8d38909c.js"><link rel="prefetch" href="/assets/js/76.92714ac3.js"><link rel="prefetch" href="/assets/js/77.acb09ca4.js"><link rel="prefetch" href="/assets/js/78.a842091b.js"><link rel="prefetch" href="/assets/js/79.cdc46e98.js"><link rel="prefetch" href="/assets/js/8.f99e238f.js"><link rel="prefetch" href="/assets/js/80.b8b65e1f.js"><link rel="prefetch" href="/assets/js/81.f1bf0699.js"><link rel="prefetch" href="/assets/js/82.3c24e140.js"><link rel="prefetch" href="/assets/js/83.281fc60e.js"><link rel="prefetch" href="/assets/js/84.07da010a.js"><link rel="prefetch" href="/assets/js/85.1df53a15.js"><link rel="prefetch" href="/assets/js/86.98f18cc0.js"><link rel="prefetch" href="/assets/js/87.7cca4d88.js"><link rel="prefetch" href="/assets/js/88.57cc24f2.js"><link rel="prefetch" href="/assets/js/89.afeade71.js"><link rel="prefetch" href="/assets/js/9.d578bf13.js"><link rel="prefetch" href="/assets/js/90.b2424d6c.js"><link rel="prefetch" href="/assets/js/91.44acca51.js"><link rel="prefetch" href="/assets/js/92.aa09a589.js"><link rel="prefetch" href="/assets/js/93.1804f529.js"><link rel="prefetch" href="/assets/js/94.cc326de7.js"><link rel="prefetch" href="/assets/js/95.a58aa803.js"><link rel="prefetch" href="/assets/js/96.ab39bb52.js"><link rel="prefetch" href="/assets/js/97.7ae11fab.js"><link rel="prefetch" href="/assets/js/98.d9f11bff.js"><link rel="prefetch" href="/assets/js/99.caf9e303.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.ccac5a78.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">设计模式</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><!---->  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>基础知识</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/设计模式概述.html" class="sidebar-link">设计模式概述</a></li><li><a href="/面向对象设计原则.html" class="sidebar-link">面向对象设计原则</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>六个创建型模式</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/简单工厂模式-Simple Factory Pattern.html" class="sidebar-link">简单工厂模式-Simple Factory Pattern</a></li><li><a href="/工厂方法模式-Factory Method Pattern.html" class="sidebar-link">工厂方法模式-Factory Method Pattern</a></li><li><a href="/抽象工厂模式-Abstract  Factory Pattern.html" class="sidebar-link">抽象工厂模式-Abstract  Factory Pattern</a></li><li><a href="/单例模式-Singleton Pattern.html" class="sidebar-link">单例模式-Singleton Pattern</a></li><li><a href="/原型模式-Prototype Pattern.html" class="sidebar-link">原型模式-Prototype Pattern</a></li><li><a href="/建造者模式-Builder Pattern.html" class="sidebar-link">建造者模式-Builder Pattern</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>七个结构型模式</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/适配器模式-Adapter Pattern.html" class="sidebar-link">适配器模式-Adapter Pattern</a></li><li><a href="/桥接模式-Bridge Pattern.html" class="sidebar-link">桥接模式-Bridge Pattern</a></li><li><a href="/组合模式-Composite Pattern.html" class="sidebar-link">组合模式-Composite Pattern</a></li><li><a href="/装饰模式-Decorator Pattern.html" class="sidebar-link">装饰模式-Decorator Pattern</a></li><li><a href="/外观模式-Facade Pattern.html" class="sidebar-link">外观模式-Facade Pattern</a></li><li><a href="/享元模式-Flyweight Pattern.html" class="sidebar-link">享元模式-Flyweight Pattern</a></li><li><a href="/代理模式-Proxy Pattern.html" class="sidebar-link">代理模式-Proxy Pattern</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>十一个行为型模式</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/职责链模式-Chain of Responsibility Pattern.html" class="sidebar-link">职责链模式-Chain of Responsibility Pattern</a></li><li><a href="/命令模式-Command Pattern.html" class="sidebar-link">命令模式-Command Pattern</a></li><li><a href="/解释器模式-Interpreter Pattern.html" class="sidebar-link">解释器模式-Interpreter Pattern</a></li><li><a href="/迭代器模式-Iterator Pattern.html" class="sidebar-link">迭代器模式-Iterator Pattern</a></li><li><a href="/中介者模式-Mediator Pattern.html" class="sidebar-link">中介者模式-Mediator Pattern</a></li><li><a href="/备忘录模式-Memento Pattern.html" class="sidebar-link">备忘录模式-Memento Pattern</a></li><li><a href="/观察者模式-Observer Pattern.html" class="sidebar-link">观察者模式-Observer Pattern</a></li><li><a href="/状态模式-State Pattern.html" class="sidebar-link">状态模式-State Pattern</a></li><li><a href="/策略模式-Strategy Pattern.html" class="sidebar-link">策略模式-Strategy Pattern</a></li><li><a href="/模板方法模式-Template Method Pattern.html" class="sidebar-link">模板方法模式-Template Method Pattern</a></li><li><a href="/访问者模式-Visitor Pattern.html" class="sidebar-link">访问者模式-Visitor Pattern</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>设计模式趣味学习（复习）</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/设计模式与足球（一）.html" class="sidebar-link">设计模式与足球（一）</a></li><li><a href="/设计模式与足球（二）.html" class="sidebar-link">设计模式与足球（二）</a></li><li><a href="/设计模式与足球（三）.html" class="sidebar-link">设计模式与足球（三）</a></li><li><a href="/设计模式与足球（四）.html" class="sidebar-link">设计模式与足球（四）</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>设计模式综合应用实例</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/多人联机射击游戏.html" class="sidebar-link">多人联机射击游戏</a></li><li><a href="/数据库同步系统.html" class="sidebar-link">数据库同步系统</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="复杂对象的组装与创建-建造者模式-二"><a href="#复杂对象的组装与创建-建造者模式-二" class="header-anchor">#</a> 复杂对象的组装与创建——建造者模式（二）</h1> <p>8.3 完整解决方案</p> <p>Sunny公司开发人员决定使用建造者模式来实现游戏角色的创建，其基本结构如图8-3所示：</p> <p><img src="http://my.csdn.net/uploads/201204/04/1333541212_6038.gif" alt=""></p> <p>图8-3 游戏角色创建结构图</p> <p>在图8-3中，ActorController充当指挥者，ActorBuilder充当抽象建造者，HeroBuilder、AngelBuilder和DevilBuilder充当具体建造者，Actor充当复杂产品。完整代码如下所示：
+//Actor角色类：复杂产品，考虑到代码的可读性，只列出部分成员属性，且成员属性的类型均为String，真实情况下，有些成员属性的类型需自定义</p> <div class="language- extra-class"><pre class="language-text"><code>class Actor
+{
+       private  String type; //角色类型
+       private  String sex; //性别
+       private  String face; //脸型
+       private  String costume; //服装
+       private  String hairstyle; //发型
+      
+       public  void setType(String type) {
+              this.type  = type;
+       }
+       public  void setSex(String sex) {
+              this.sex  = sex;
+       }
+       public  void setFace(String face) {
+              this.face  = face;
+       }
+       public  void setCostume(String costume) {
+              this.costume  = costume;
+       }
+       public  void setHairstyle(String hairstyle) {
+              this.hairstyle  = hairstyle;
+       }
+       public  String getType() {
+              return  (this.type);
+       }
+       public  String getSex() {
+              return  (this.sex);
+       }
+       public  String getFace() {
+              return  (this.face);
+       }
+       public  String getCostume() {
+              return  (this.costume);
+       }
+       public  String getHairstyle() {
+              return  (this.hairstyle);
+       }
+}
+
+//角色建造器：抽象建造者
+abstract class ActorBuilder
+{
+       protected  Actor actor = new Actor();
+      
+       public  abstract void buildType();
+       public  abstract void buildSex();
+       public  abstract void buildFace();
+       public  abstract void buildCostume();
+       public  abstract void buildHairstyle();
+ 
+    //工厂方法，返回一个完整的游戏角色对象
+       public Actor createActor()
+       {
+              return actor;
+       }
+}
+ 
+//英雄角色建造器：具体建造者
+class HeroBuilder extends ActorBuilder
+{
+       public  void buildType()
+       {
+              actor.setType(&quot;英雄&quot;);
+       }
+       public  void buildSex()
+       {
+              actor.setSex(&quot;男&quot;);
+       }
+       public  void buildFace()
+       {
+              actor.setFace(&quot;英俊&quot;);
+       }
+       public  void buildCostume()
+       {
+              actor.setCostume(&quot;盔甲&quot;);
+       }
+       public  void buildHairstyle()
+       {
+              actor.setHairstyle(&quot;飘逸&quot;);
+       }    
+}
+ 
+//天使角色建造器：具体建造者
+class AngelBuilder extends ActorBuilder
+{
+       public  void buildType()
+       {
+              actor.setType(&quot;天使&quot;);
+       }
+       public  void buildSex()
+       {
+              actor.setSex(&quot;女&quot;);
+       }
+       public  void buildFace()
+       {
+              actor.setFace(&quot;漂亮&quot;);
+       }
+       public  void buildCostume()
+       {
+              actor.setCostume(&quot;白裙&quot;);
+       }
+       public  void buildHairstyle()
+       {
+              actor.setHairstyle(&quot;披肩长发&quot;);
+       }    
+}
+ 
+//恶魔角色建造器：具体建造者
+class DevilBuilder extends ActorBuilder
+{
+       public  void buildType()
+       {
+              actor.setType(&quot;恶魔&quot;);
+       }
+       public  void buildSex()
+       {
+              actor.setSex(&quot;妖&quot;);
+       }
+       public  void buildFace()
+       {
+              actor.setFace(&quot;丑陋&quot;);
+       }
+       public  void buildCostume()
+       {
+              actor.setCostume(&quot;黑衣&quot;);
+       }
+       public  void buildHairstyle()
+       {
+              actor.setHairstyle(&quot;光头&quot;);
+       }    
+}
+
+</code></pre></div><p>指挥者类ActorController定义了construct()方法，该方法拥有一个抽象建造者ActorBuilder类型的参数，在该方法内部实现了游戏角色对象的逐步构建，代码如下所示：</p> <div class="language- extra-class"><pre class="language-text"><code>//游戏角色创建控制器：指挥者
+class ActorController
+{
+    //逐步构建复杂产品对象
+       public Actor construct(ActorBuilder ab)
+       {
+              Actor actor;
+              ab.buildType();
+              ab.buildSex();
+              ab.buildFace();
+              ab.buildCostume();
+              ab.buildHairstyle();
+              actor=ab.createActor();
+              return actor;
+       }
+}
+</code></pre></div><p>为了提高系统的灵活性和可扩展性，我们将具体建造者类的类名存储在配置文件中，并通过工具类XMLUtil来读取配置文件并反射生成对象，XMLUtil类的代码如下所示：</p> <div class="language- extra-class"><pre class="language-text"><code>import javax.xml.parsers.*;
+import org.w3c.dom.*;
+import org.xml.sax.SAXException;
+import java.io.*;
+class XMLUtil
+{
+//该方法用于从XML配置文件中提取具体类类名，并返回一个实例对象
+       public  static Object getBean()
+       {
+              try
+              {
+                     //创建文档对象
+                     DocumentBuilderFactory  dFactory = DocumentBuilderFactory.newInstance();
+                     DocumentBuilder  builder = dFactory.newDocumentBuilder();
+                     Document  doc;                                                
+                     doc  = builder.parse(new File(&quot;config.xml&quot;));
+             
+                     //获取包含类名的文本节点
+                     NodeList  nl = doc.getElementsByTagName(&quot;className&quot;);
+            Node  classNode=nl.item(0).getFirstChild();
+            String  cName=classNode.getNodeValue();
+           
+            //通过类名生成实例对象并将其返回
+            Class c=Class.forName(cName);
+                 Object obj=c.newInstance();
+            return obj;
+         }  
+         catch(Exception e)
+         {
+              e.printStackTrace();
+              return null;
+          }
+       }
+}
+</code></pre></div><p>配置文件config.xml中存储了具体建造者类的类名，代码如下所示：</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;config&gt;
+       &lt;className&gt;AngelBuilder&lt;/className&gt;
+&lt;/config&gt;   
+        编写如下客户端测试代码：
+class Client
+{
+       public  static void main(String args[])
+       {
+              ActorBuilder ab; //针对抽象建造者编程
+              ab =  (ActorBuilder)XMLUtil.getBean(); //反射生成具体建造者对象
+ 
+         ActorController ac = new  ActorController();
+              Actor actor;
+              actor = ac.construct(ab); //通过指挥者创建完整的建造者对象
+ 
+              String  type = actor.getType();
+              System.out.println(type  + &quot;的外观：&quot;);
+              System.out.println(&quot;性别：&quot; + actor.getSex());
+              System.out.println(&quot;面容：&quot; + actor.getFace());
+              System.out.println(&quot;服装：&quot; + actor.getCostume());
+              System.out.println(&quot;发型：&quot; + actor.getHairstyle());
+       }
+}
+</code></pre></div><p>编译并运行程序，输出结果如下：</p> <div class="language- extra-class"><pre class="language-text"><code>天使的外观：
+性别：女
+面容：漂亮
+服装：白裙
+发型：披肩长发
+</code></pre></div><p>在建造者模式中，客户端只需实例化指挥者类，指挥者类针对抽象建造者编程，客户端根据需要传入具体的建造者类型，指挥者将指导具体建造者一步一步构造一个完整的产品（逐步调用具体建造者的buildX()方法），相同的构造过程可以创建完全不同的产品。在游戏角色实例中，如果需要更换角色，只需要修改配置文件，更换具体角色建造者类即可；如果需要增加新角色，可以增加一个新的具体角色建造者类作为抽象角色建造者的子类，再修改配置文件即可，原有代码无须修改，完全符合“开闭原则”。</p></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">4/27/2016, 12:53:08 PM</span></div></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.61038a2e.js" defer></script><script src="/assets/js/2.59fcb4b9.js" defer></script><script src="/assets/js/41.980982b2.js" defer></script>
+  </body>
+</html>

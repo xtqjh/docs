@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>设计模式之代理模式（二） | 设计模式</title>
+    <meta name="generator" content="VuePress 1.5.4">
+    <link rel="icon" href="/images/typescript.png">
+    <meta name="description" content="目录">
+    <link rel="preload" href="/assets/css/0.styles.ccac5a78.css" as="style"><link rel="preload" href="/assets/js/app.61038a2e.js" as="script"><link rel="preload" href="/assets/js/2.59fcb4b9.js" as="script"><link rel="preload" href="/assets/js/133.6d65c72a.js" as="script"><link rel="prefetch" href="/assets/js/10.874d8029.js"><link rel="prefetch" href="/assets/js/100.9530126e.js"><link rel="prefetch" href="/assets/js/101.f792bf7f.js"><link rel="prefetch" href="/assets/js/102.a482364c.js"><link rel="prefetch" href="/assets/js/103.c3b485a5.js"><link rel="prefetch" href="/assets/js/104.086fb816.js"><link rel="prefetch" href="/assets/js/105.1752b675.js"><link rel="prefetch" href="/assets/js/106.fb07f8cd.js"><link rel="prefetch" href="/assets/js/107.754c61c5.js"><link rel="prefetch" href="/assets/js/108.46cae808.js"><link rel="prefetch" href="/assets/js/109.d3b06d0f.js"><link rel="prefetch" href="/assets/js/11.dad3b836.js"><link rel="prefetch" href="/assets/js/110.8ad47f70.js"><link rel="prefetch" href="/assets/js/111.77dc6489.js"><link rel="prefetch" href="/assets/js/112.84db77a1.js"><link rel="prefetch" href="/assets/js/113.70baa5a9.js"><link rel="prefetch" href="/assets/js/114.7be8d013.js"><link rel="prefetch" href="/assets/js/115.99f7ef37.js"><link rel="prefetch" href="/assets/js/116.4c3c2285.js"><link rel="prefetch" href="/assets/js/117.2c45c866.js"><link rel="prefetch" href="/assets/js/118.aad1fa95.js"><link rel="prefetch" href="/assets/js/119.b0eafca6.js"><link rel="prefetch" href="/assets/js/12.d4db77f4.js"><link rel="prefetch" href="/assets/js/120.e273cd0b.js"><link rel="prefetch" href="/assets/js/121.49b9ca92.js"><link rel="prefetch" href="/assets/js/122.4ad93b29.js"><link rel="prefetch" href="/assets/js/123.f9dbaa66.js"><link rel="prefetch" href="/assets/js/124.bea1aacb.js"><link rel="prefetch" href="/assets/js/125.8b4e8c45.js"><link rel="prefetch" href="/assets/js/126.7182c465.js"><link rel="prefetch" href="/assets/js/127.6503bc31.js"><link rel="prefetch" href="/assets/js/128.2b17e851.js"><link rel="prefetch" href="/assets/js/129.a24fcabe.js"><link rel="prefetch" href="/assets/js/13.dd3d61dd.js"><link rel="prefetch" href="/assets/js/130.63f9bd99.js"><link rel="prefetch" href="/assets/js/131.2b1be2c3.js"><link rel="prefetch" href="/assets/js/132.5466bad6.js"><link rel="prefetch" href="/assets/js/134.abe463f4.js"><link rel="prefetch" href="/assets/js/135.d09913a5.js"><link rel="prefetch" href="/assets/js/136.c0e95cbc.js"><link rel="prefetch" href="/assets/js/137.66ab7679.js"><link rel="prefetch" href="/assets/js/138.00f617c4.js"><link rel="prefetch" href="/assets/js/139.68835715.js"><link rel="prefetch" href="/assets/js/14.0a308518.js"><link rel="prefetch" href="/assets/js/140.e11022ef.js"><link rel="prefetch" href="/assets/js/141.a9296a8d.js"><link rel="prefetch" href="/assets/js/142.ca20c2c6.js"><link rel="prefetch" href="/assets/js/143.da7e0086.js"><link rel="prefetch" href="/assets/js/144.01a56269.js"><link rel="prefetch" href="/assets/js/145.cc3ccc63.js"><link rel="prefetch" href="/assets/js/146.1c4eb3c4.js"><link rel="prefetch" href="/assets/js/147.249beb6c.js"><link rel="prefetch" href="/assets/js/148.f2a92d54.js"><link rel="prefetch" href="/assets/js/149.64961d19.js"><link rel="prefetch" href="/assets/js/15.c35f1d83.js"><link rel="prefetch" href="/assets/js/150.973d6bc0.js"><link rel="prefetch" href="/assets/js/151.3eba6723.js"><link rel="prefetch" href="/assets/js/152.d5fe1f44.js"><link rel="prefetch" href="/assets/js/153.c11ad6dc.js"><link rel="prefetch" href="/assets/js/154.56f430a0.js"><link rel="prefetch" href="/assets/js/155.f167872e.js"><link rel="prefetch" href="/assets/js/156.0e9910f2.js"><link rel="prefetch" href="/assets/js/157.51393679.js"><link rel="prefetch" href="/assets/js/158.b427f9d8.js"><link rel="prefetch" href="/assets/js/159.e24ed9e3.js"><link rel="prefetch" href="/assets/js/16.aeabe254.js"><link rel="prefetch" href="/assets/js/160.a24611af.js"><link rel="prefetch" href="/assets/js/161.11b8d1e6.js"><link rel="prefetch" href="/assets/js/162.ee84e1d9.js"><link rel="prefetch" href="/assets/js/163.aecce7b4.js"><link rel="prefetch" href="/assets/js/164.ee441756.js"><link rel="prefetch" href="/assets/js/165.3ad4de65.js"><link rel="prefetch" href="/assets/js/166.248f6f28.js"><link rel="prefetch" href="/assets/js/167.b3a1722f.js"><link rel="prefetch" href="/assets/js/17.a1ebac9c.js"><link rel="prefetch" href="/assets/js/18.b90a786f.js"><link rel="prefetch" href="/assets/js/19.0fd988d3.js"><link rel="prefetch" href="/assets/js/20.892e82e9.js"><link rel="prefetch" href="/assets/js/21.33111ce4.js"><link rel="prefetch" href="/assets/js/22.99ced76e.js"><link rel="prefetch" href="/assets/js/23.7e224152.js"><link rel="prefetch" href="/assets/js/24.e9f56109.js"><link rel="prefetch" href="/assets/js/25.09f31188.js"><link rel="prefetch" href="/assets/js/26.1986d3e8.js"><link rel="prefetch" href="/assets/js/27.16772f9a.js"><link rel="prefetch" href="/assets/js/28.3bbd9183.js"><link rel="prefetch" href="/assets/js/29.aebe80f3.js"><link rel="prefetch" href="/assets/js/3.42420182.js"><link rel="prefetch" href="/assets/js/30.83b49f27.js"><link rel="prefetch" href="/assets/js/31.3d439066.js"><link rel="prefetch" href="/assets/js/32.23313804.js"><link rel="prefetch" href="/assets/js/33.f8399100.js"><link rel="prefetch" href="/assets/js/34.14f82cdc.js"><link rel="prefetch" href="/assets/js/35.5f80fd99.js"><link rel="prefetch" href="/assets/js/36.a024567a.js"><link rel="prefetch" href="/assets/js/37.7033ccb0.js"><link rel="prefetch" href="/assets/js/38.64a94c17.js"><link rel="prefetch" href="/assets/js/39.1643c9f2.js"><link rel="prefetch" href="/assets/js/4.5ed19beb.js"><link rel="prefetch" href="/assets/js/40.54f37494.js"><link rel="prefetch" href="/assets/js/41.980982b2.js"><link rel="prefetch" href="/assets/js/42.ba1bf739.js"><link rel="prefetch" href="/assets/js/43.34834d6e.js"><link rel="prefetch" href="/assets/js/44.86577531.js"><link rel="prefetch" href="/assets/js/45.4a7e612d.js"><link rel="prefetch" href="/assets/js/46.5b82cab0.js"><link rel="prefetch" href="/assets/js/47.a8b810d1.js"><link rel="prefetch" href="/assets/js/48.35253376.js"><link rel="prefetch" href="/assets/js/49.18311c2e.js"><link rel="prefetch" href="/assets/js/5.2cab7bfe.js"><link rel="prefetch" href="/assets/js/50.b1ae9d0e.js"><link rel="prefetch" href="/assets/js/51.9e1f691f.js"><link rel="prefetch" href="/assets/js/52.89b2adf6.js"><link rel="prefetch" href="/assets/js/53.38c11e5b.js"><link rel="prefetch" href="/assets/js/54.afb3ecb4.js"><link rel="prefetch" href="/assets/js/55.e026099c.js"><link rel="prefetch" href="/assets/js/56.a681d79a.js"><link rel="prefetch" href="/assets/js/57.a40be15e.js"><link rel="prefetch" href="/assets/js/58.7feef101.js"><link rel="prefetch" href="/assets/js/59.b7d5f8c6.js"><link rel="prefetch" href="/assets/js/6.c1e71ac1.js"><link rel="prefetch" href="/assets/js/60.58e7ed44.js"><link rel="prefetch" href="/assets/js/61.57be6b29.js"><link rel="prefetch" href="/assets/js/62.275799a6.js"><link rel="prefetch" href="/assets/js/63.d633c7fb.js"><link rel="prefetch" href="/assets/js/64.1b56030a.js"><link rel="prefetch" href="/assets/js/65.280ec9f5.js"><link rel="prefetch" href="/assets/js/66.82262c75.js"><link rel="prefetch" href="/assets/js/67.d02aae69.js"><link rel="prefetch" href="/assets/js/68.6a157678.js"><link rel="prefetch" href="/assets/js/69.12af0553.js"><link rel="prefetch" href="/assets/js/7.427a58b2.js"><link rel="prefetch" href="/assets/js/70.2b02d406.js"><link rel="prefetch" href="/assets/js/71.6b958c68.js"><link rel="prefetch" href="/assets/js/72.d7e1ed87.js"><link rel="prefetch" href="/assets/js/73.b4860b5a.js"><link rel="prefetch" href="/assets/js/74.edbfcadf.js"><link rel="prefetch" href="/assets/js/75.8d38909c.js"><link rel="prefetch" href="/assets/js/76.92714ac3.js"><link rel="prefetch" href="/assets/js/77.acb09ca4.js"><link rel="prefetch" href="/assets/js/78.a842091b.js"><link rel="prefetch" href="/assets/js/79.cdc46e98.js"><link rel="prefetch" href="/assets/js/8.f99e238f.js"><link rel="prefetch" href="/assets/js/80.b8b65e1f.js"><link rel="prefetch" href="/assets/js/81.f1bf0699.js"><link rel="prefetch" href="/assets/js/82.3c24e140.js"><link rel="prefetch" href="/assets/js/83.281fc60e.js"><link rel="prefetch" href="/assets/js/84.07da010a.js"><link rel="prefetch" href="/assets/js/85.1df53a15.js"><link rel="prefetch" href="/assets/js/86.98f18cc0.js"><link rel="prefetch" href="/assets/js/87.7cca4d88.js"><link rel="prefetch" href="/assets/js/88.57cc24f2.js"><link rel="prefetch" href="/assets/js/89.afeade71.js"><link rel="prefetch" href="/assets/js/9.d578bf13.js"><link rel="prefetch" href="/assets/js/90.b2424d6c.js"><link rel="prefetch" href="/assets/js/91.44acca51.js"><link rel="prefetch" href="/assets/js/92.aa09a589.js"><link rel="prefetch" href="/assets/js/93.1804f529.js"><link rel="prefetch" href="/assets/js/94.cc326de7.js"><link rel="prefetch" href="/assets/js/95.a58aa803.js"><link rel="prefetch" href="/assets/js/96.ab39bb52.js"><link rel="prefetch" href="/assets/js/97.7ae11fab.js"><link rel="prefetch" href="/assets/js/98.d9f11bff.js"><link rel="prefetch" href="/assets/js/99.caf9e303.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.ccac5a78.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">设计模式</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><!---->  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>基础知识</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/设计模式概述.html" class="sidebar-link">设计模式概述</a></li><li><a href="/面向对象设计原则.html" class="sidebar-link">面向对象设计原则</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>六个创建型模式</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/简单工厂模式-Simple Factory Pattern.html" class="sidebar-link">简单工厂模式-Simple Factory Pattern</a></li><li><a href="/工厂方法模式-Factory Method Pattern.html" class="sidebar-link">工厂方法模式-Factory Method Pattern</a></li><li><a href="/抽象工厂模式-Abstract  Factory Pattern.html" class="sidebar-link">抽象工厂模式-Abstract  Factory Pattern</a></li><li><a href="/单例模式-Singleton Pattern.html" class="sidebar-link">单例模式-Singleton Pattern</a></li><li><a href="/原型模式-Prototype Pattern.html" class="sidebar-link">原型模式-Prototype Pattern</a></li><li><a href="/建造者模式-Builder Pattern.html" class="sidebar-link">建造者模式-Builder Pattern</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>七个结构型模式</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/适配器模式-Adapter Pattern.html" class="sidebar-link">适配器模式-Adapter Pattern</a></li><li><a href="/桥接模式-Bridge Pattern.html" class="sidebar-link">桥接模式-Bridge Pattern</a></li><li><a href="/组合模式-Composite Pattern.html" class="sidebar-link">组合模式-Composite Pattern</a></li><li><a href="/装饰模式-Decorator Pattern.html" class="sidebar-link">装饰模式-Decorator Pattern</a></li><li><a href="/外观模式-Facade Pattern.html" class="sidebar-link">外观模式-Facade Pattern</a></li><li><a href="/享元模式-Flyweight Pattern.html" class="sidebar-link">享元模式-Flyweight Pattern</a></li><li><a href="/代理模式-Proxy Pattern.html" class="sidebar-link">代理模式-Proxy Pattern</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>十一个行为型模式</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/职责链模式-Chain of Responsibility Pattern.html" class="sidebar-link">职责链模式-Chain of Responsibility Pattern</a></li><li><a href="/命令模式-Command Pattern.html" class="sidebar-link">命令模式-Command Pattern</a></li><li><a href="/解释器模式-Interpreter Pattern.html" class="sidebar-link">解释器模式-Interpreter Pattern</a></li><li><a href="/迭代器模式-Iterator Pattern.html" class="sidebar-link">迭代器模式-Iterator Pattern</a></li><li><a href="/中介者模式-Mediator Pattern.html" class="sidebar-link">中介者模式-Mediator Pattern</a></li><li><a href="/备忘录模式-Memento Pattern.html" class="sidebar-link">备忘录模式-Memento Pattern</a></li><li><a href="/观察者模式-Observer Pattern.html" class="sidebar-link">观察者模式-Observer Pattern</a></li><li><a href="/状态模式-State Pattern.html" class="sidebar-link">状态模式-State Pattern</a></li><li><a href="/策略模式-Strategy Pattern.html" class="sidebar-link">策略模式-Strategy Pattern</a></li><li><a href="/模板方法模式-Template Method Pattern.html" class="sidebar-link">模板方法模式-Template Method Pattern</a></li><li><a href="/访问者模式-Visitor Pattern.html" class="sidebar-link">访问者模式-Visitor Pattern</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>设计模式趣味学习（复习）</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/设计模式与足球（一）.html" class="sidebar-link">设计模式与足球（一）</a></li><li><a href="/设计模式与足球（二）.html" class="sidebar-link">设计模式与足球（二）</a></li><li><a href="/设计模式与足球（三）.html" class="sidebar-link">设计模式与足球（三）</a></li><li><a href="/设计模式与足球（四）.html" class="sidebar-link">设计模式与足球（四）</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>设计模式综合应用实例</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/多人联机射击游戏.html" class="sidebar-link">多人联机射击游戏</a></li><li><a href="/数据库同步系统.html" class="sidebar-link">数据库同步系统</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="设计模式之代理模式-二"><a href="#设计模式之代理模式-二" class="header-anchor">#</a> 设计模式之代理模式（二）</h1> <p>15.3 代理模式应用实例</p> <p>下面通过一个应用实例来进一步学习和理解代理模式。</p> <ol><li>实例说明</li></ol> <p>某软件公司承接了某信息咨询公司的收费商务信息查询系统的开发任务，该系统的基本需求如下：</p> <p>(1) 在进行商务信息查询之前用户需要通过身份验证，只有合法用户才能够使用该查询系统；</p> <p>(2) 在进行商务信息查询时系统需要记录查询日志，以便根据查询次数收取查询费用。</p> <p>该软件公司开发人员已完成了商务信息查询模块的开发任务，现希望能够以一种松耦合的方式向原有系统增加身份验证和日志记录功能，客户端代码可以无区别地对待原始的商务信息查询模块和增加新功能之后的商务信息查询模块，而且可能在将来还要在该信息查询模块中增加一些新的功能。</p> <p>试使用代理模式设计并实现该收费商务信息查询系统。</p> <ol start="2"><li>实例分析及类图</li></ol> <p>通过分析，可以采用一种间接访问的方式来实现该商务信息查询系统的设计，在客户端对象和信息查询对象之间增加一个代理对象，让代理对象来实现身份验证和日志记录等功能，而无须直接对原有的商务信息查询对象进行修改，如图15-3所示：</p> <p><img src="http://img.my.csdn.net/uploads/201211/26/1353943846_5465.jpg" alt=""></p> <p>图15-3 商务信息查询系统设计方案示意图</p> <p>在图15-3中，客户端对象通过代理对象间接访问具有商务信息查询功能的真实对象，在代理对象中除了调用真实对象的商务信息查询功能外，还增加了身份验证和日志记录等功能。使用代理模式设计该商务信息查询系统，结构图如图15-4所示。</p> <p><img src="http://img.my.csdn.net/uploads/201211/26/1353943854_9883.jpg" alt=""></p> <p>图15-4 商务信息查询系统结构图</p> <p>在图15-4中，业务类AccessValidator用于验证用户身份，业务类Logger用于记录用户查询日志，Searcher充当抽象主题角色，RealSearcher充当真实主题角色，ProxySearcher充当代理主题角色。</p> <ol start="3"><li>实例代码</li></ol> <p>(1) AccessValidator：身份验证类，业务类，它提供方法Validate()来实现身份验证。</p> <div class="language- extra-class"><pre class="language-text"><code>//AccessValidator.cs  
+using System;  
+  
+namespace ProxySample  
+{  
+    class AccessValidator  
+    {  
+        //模拟实现登录验证  
+        public bool Validate(string userId)   
+        {  
+            Console.WriteLine(&quot;在数据库中验证用户'&quot; + userId + &quot;'是否是合法用户？&quot;);  
+            if (userId.Equals(&quot;杨过&quot;)) {  
+                Console.WriteLine(&quot;'{0}'登录成功！&quot;,userId);  
+                return true;  
+            }  
+            else {  
+                Console.WriteLine(&quot;'{0}'登录失败！&quot;, userId);  
+                return false;  
+            }  
+        }  
+    }  
+}  
+</code></pre></div><p>(2) Logger：日志记录类，业务类，它提供方法Log()来保存日志。</p> <div class="language- extra-class"><pre class="language-text"><code>//Logger.cs  
+using System;  
+  
+namespace ProxySample  
+{  
+    class Logger  
+    {  
+        //模拟实现日志记录  
+        public void Log(string userId) {  
+            Console.WriteLine(&quot;更新数据库，用户'{0}'查询次数加1！&quot;,userId);  
+        }  
+    }  
+}  
+</code></pre></div><p>(3) Searcher：抽象查询类，充当抽象主题角色，它声明了DoSearch()方法。</p> <div class="language- extra-class"><pre class="language-text"><code>//Searcher.cs  
+namespace ProxySample  
+{  
+    interface Searcher  
+    {  
+        string DoSearch(string userId, string keyword);  
+    }  
+}  
+</code></pre></div><p>(4) RealSearcher：具体查询类，充当真实主题角色，它实现查询功能，提供方法DoSearch()来查询信息。</p> <div class="language- extra-class"><pre class="language-text"><code>//RealSearcher.cs  
+using System;  
+  
+namespace ProxySample  
+{  
+    class RealSearcher : Searcher  
+    {  
+        //模拟查询商务信息  
+        public string DoSearch(string userId, string keyword) {  
+            Console.WriteLine(&quot;用户'{0}'使用关键词'{1}'查询商务信息！&quot;,userId,keyword);  
+            return &quot;返回具体内容&quot;;  
+        }  
+    }  
+}  
+</code></pre></div><p>(5) ProxySearcher：代理查询类，充当代理主题角色，它是查询代理，维持了对RealSearcher对象、AccessValidator对象和Logger对象的引用。</p> <div class="language- extra-class"><pre class="language-text"><code>//ProxySearcher.cs  
+namespace ProxySample  
+{  
+    class ProxySearcher : Searcher  
+    {  
+        private RealSearcher searcher = new RealSearcher(); //维持一个对真实主题的引用  
+        private AccessValidator validator;  
+        private Logger logger;  
+  
+        public string DoSearch(string userId, string keyword)  
+        {  
+            //如果身份验证成功，则执行查询  
+            if (this.Validate(userId))  
+            {  
+                string result = searcher.DoSearch(userId, keyword); //调用真实主题对象的查询方法  
+                this.Log(userId); //记录查询日志  
+                return result; //返回查询结果  
+            }  
+            else  
+            {  
+                return null;  
+            }  
+        }  
+  
+        //创建访问验证对象并调用其Validate()方法实现身份验证  
+        public bool Validate(string userId)  
+        {  
+            validator = new AccessValidator();  
+            return validator.Validate(userId);  
+        }  
+  
+        //创建日志记录对象并调用其Log()方法实现日志记录  
+        public void Log(string userId)  
+        {  
+            logger = new Logger();  
+            logger.Log(userId);  
+        }  
+    }  
+}  
+</code></pre></div><p>(6) 配置文件App.config，在配置文件中存储了代理主题类类名。</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;  
+&lt;configuration&gt;  
+  &lt;appSettings&gt;  
+    &lt;add key=&quot;proxy&quot; value=&quot;ProxySample.ProxySearcher&quot;/&gt;  
+  &lt;/appSettings&gt;  
+&lt;/configuration&gt;  
+</code></pre></div><p>(7) Program：客户端测试类</p> <div class="language- extra-class"><pre class="language-text"><code>//Program.cs  
+using System;  
+using System.Configuration;  
+using System.Reflection;  
+  
+namespace ProxySample  
+{  
+    class Program  
+    {  
+        static void Main(string[] args)  
+        {  
+            //读取配置文件  
+            string proxy = ConfigurationManager.AppSettings[&quot;proxy&quot;];  
+  
+            //反射生成对象，针对抽象编程，客户端无须分辨真实主题类和代理类  
+            Searcher searcher;  
+            searcher = (Searcher)Assembly.Load(&quot;ProxySample&quot;).CreateInstance(proxy);  
+  
+            String result = searcher.DoSearch(&quot;杨过&quot;, &quot;玉女心经&quot;);  
+            Console.Read();  
+        }  
+    }  
+}  
+</code></pre></div><ol start="4"><li>结果及分析</li></ol> <p>编译并运行程序，输出结果如下：</p> <div class="language- extra-class"><pre class="language-text"><code>在数据库中验证用户'杨过'是否是合法用户？
+'杨过'登录成功！
+用户'杨过'使用关键词'玉女心经'查询商务信息！
+更新数据库，用户'杨过'查询次数加1！
+</code></pre></div><p>本实例是保护代理和智能引用代理的应用实例，在代理类ProxySearcher中实现对真实主题类的权限控制和引用计数，如果需要在访问真实主题时增加新的访问控制机制和新功能，只需增加一个新的代理类，再修改配置文件，在客户端代码中使用新增代理类即可，源代码无须修改，符合开闭原则。</p></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">4/27/2016, 10:14:11 PM</span></div></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.61038a2e.js" defer></script><script src="/assets/js/2.59fcb4b9.js" defer></script><script src="/assets/js/133.6d65c72a.js" defer></script>
+  </body>
+</html>

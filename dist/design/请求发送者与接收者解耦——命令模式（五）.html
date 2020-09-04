@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>请求发送者与接收者解耦——命令模式（五） | 设计模式</title>
+    <meta name="generator" content="VuePress 1.5.4">
+    <link rel="icon" href="/images/typescript.png">
+    <meta name="description" content="目录">
+    <link rel="preload" href="/assets/css/0.styles.ccac5a78.css" as="style"><link rel="preload" href="/assets/js/app.61038a2e.js" as="script"><link rel="preload" href="/assets/js/2.59fcb4b9.js" as="script"><link rel="preload" href="/assets/js/145.cc3ccc63.js" as="script"><link rel="prefetch" href="/assets/js/10.874d8029.js"><link rel="prefetch" href="/assets/js/100.9530126e.js"><link rel="prefetch" href="/assets/js/101.f792bf7f.js"><link rel="prefetch" href="/assets/js/102.a482364c.js"><link rel="prefetch" href="/assets/js/103.c3b485a5.js"><link rel="prefetch" href="/assets/js/104.086fb816.js"><link rel="prefetch" href="/assets/js/105.1752b675.js"><link rel="prefetch" href="/assets/js/106.fb07f8cd.js"><link rel="prefetch" href="/assets/js/107.754c61c5.js"><link rel="prefetch" href="/assets/js/108.46cae808.js"><link rel="prefetch" href="/assets/js/109.d3b06d0f.js"><link rel="prefetch" href="/assets/js/11.dad3b836.js"><link rel="prefetch" href="/assets/js/110.8ad47f70.js"><link rel="prefetch" href="/assets/js/111.77dc6489.js"><link rel="prefetch" href="/assets/js/112.84db77a1.js"><link rel="prefetch" href="/assets/js/113.70baa5a9.js"><link rel="prefetch" href="/assets/js/114.7be8d013.js"><link rel="prefetch" href="/assets/js/115.99f7ef37.js"><link rel="prefetch" href="/assets/js/116.4c3c2285.js"><link rel="prefetch" href="/assets/js/117.2c45c866.js"><link rel="prefetch" href="/assets/js/118.aad1fa95.js"><link rel="prefetch" href="/assets/js/119.b0eafca6.js"><link rel="prefetch" href="/assets/js/12.d4db77f4.js"><link rel="prefetch" href="/assets/js/120.e273cd0b.js"><link rel="prefetch" href="/assets/js/121.49b9ca92.js"><link rel="prefetch" href="/assets/js/122.4ad93b29.js"><link rel="prefetch" href="/assets/js/123.f9dbaa66.js"><link rel="prefetch" href="/assets/js/124.bea1aacb.js"><link rel="prefetch" href="/assets/js/125.8b4e8c45.js"><link rel="prefetch" href="/assets/js/126.7182c465.js"><link rel="prefetch" href="/assets/js/127.6503bc31.js"><link rel="prefetch" href="/assets/js/128.2b17e851.js"><link rel="prefetch" href="/assets/js/129.a24fcabe.js"><link rel="prefetch" href="/assets/js/13.dd3d61dd.js"><link rel="prefetch" href="/assets/js/130.63f9bd99.js"><link rel="prefetch" href="/assets/js/131.2b1be2c3.js"><link rel="prefetch" href="/assets/js/132.5466bad6.js"><link rel="prefetch" href="/assets/js/133.6d65c72a.js"><link rel="prefetch" href="/assets/js/134.abe463f4.js"><link rel="prefetch" href="/assets/js/135.d09913a5.js"><link rel="prefetch" href="/assets/js/136.c0e95cbc.js"><link rel="prefetch" href="/assets/js/137.66ab7679.js"><link rel="prefetch" href="/assets/js/138.00f617c4.js"><link rel="prefetch" href="/assets/js/139.68835715.js"><link rel="prefetch" href="/assets/js/14.0a308518.js"><link rel="prefetch" href="/assets/js/140.e11022ef.js"><link rel="prefetch" href="/assets/js/141.a9296a8d.js"><link rel="prefetch" href="/assets/js/142.ca20c2c6.js"><link rel="prefetch" href="/assets/js/143.da7e0086.js"><link rel="prefetch" href="/assets/js/144.01a56269.js"><link rel="prefetch" href="/assets/js/146.1c4eb3c4.js"><link rel="prefetch" href="/assets/js/147.249beb6c.js"><link rel="prefetch" href="/assets/js/148.f2a92d54.js"><link rel="prefetch" href="/assets/js/149.64961d19.js"><link rel="prefetch" href="/assets/js/15.c35f1d83.js"><link rel="prefetch" href="/assets/js/150.973d6bc0.js"><link rel="prefetch" href="/assets/js/151.3eba6723.js"><link rel="prefetch" href="/assets/js/152.d5fe1f44.js"><link rel="prefetch" href="/assets/js/153.c11ad6dc.js"><link rel="prefetch" href="/assets/js/154.56f430a0.js"><link rel="prefetch" href="/assets/js/155.f167872e.js"><link rel="prefetch" href="/assets/js/156.0e9910f2.js"><link rel="prefetch" href="/assets/js/157.51393679.js"><link rel="prefetch" href="/assets/js/158.b427f9d8.js"><link rel="prefetch" href="/assets/js/159.e24ed9e3.js"><link rel="prefetch" href="/assets/js/16.aeabe254.js"><link rel="prefetch" href="/assets/js/160.a24611af.js"><link rel="prefetch" href="/assets/js/161.11b8d1e6.js"><link rel="prefetch" href="/assets/js/162.ee84e1d9.js"><link rel="prefetch" href="/assets/js/163.aecce7b4.js"><link rel="prefetch" href="/assets/js/164.ee441756.js"><link rel="prefetch" href="/assets/js/165.3ad4de65.js"><link rel="prefetch" href="/assets/js/166.248f6f28.js"><link rel="prefetch" href="/assets/js/167.b3a1722f.js"><link rel="prefetch" href="/assets/js/17.a1ebac9c.js"><link rel="prefetch" href="/assets/js/18.b90a786f.js"><link rel="prefetch" href="/assets/js/19.0fd988d3.js"><link rel="prefetch" href="/assets/js/20.892e82e9.js"><link rel="prefetch" href="/assets/js/21.33111ce4.js"><link rel="prefetch" href="/assets/js/22.99ced76e.js"><link rel="prefetch" href="/assets/js/23.7e224152.js"><link rel="prefetch" href="/assets/js/24.e9f56109.js"><link rel="prefetch" href="/assets/js/25.09f31188.js"><link rel="prefetch" href="/assets/js/26.1986d3e8.js"><link rel="prefetch" href="/assets/js/27.16772f9a.js"><link rel="prefetch" href="/assets/js/28.3bbd9183.js"><link rel="prefetch" href="/assets/js/29.aebe80f3.js"><link rel="prefetch" href="/assets/js/3.42420182.js"><link rel="prefetch" href="/assets/js/30.83b49f27.js"><link rel="prefetch" href="/assets/js/31.3d439066.js"><link rel="prefetch" href="/assets/js/32.23313804.js"><link rel="prefetch" href="/assets/js/33.f8399100.js"><link rel="prefetch" href="/assets/js/34.14f82cdc.js"><link rel="prefetch" href="/assets/js/35.5f80fd99.js"><link rel="prefetch" href="/assets/js/36.a024567a.js"><link rel="prefetch" href="/assets/js/37.7033ccb0.js"><link rel="prefetch" href="/assets/js/38.64a94c17.js"><link rel="prefetch" href="/assets/js/39.1643c9f2.js"><link rel="prefetch" href="/assets/js/4.5ed19beb.js"><link rel="prefetch" href="/assets/js/40.54f37494.js"><link rel="prefetch" href="/assets/js/41.980982b2.js"><link rel="prefetch" href="/assets/js/42.ba1bf739.js"><link rel="prefetch" href="/assets/js/43.34834d6e.js"><link rel="prefetch" href="/assets/js/44.86577531.js"><link rel="prefetch" href="/assets/js/45.4a7e612d.js"><link rel="prefetch" href="/assets/js/46.5b82cab0.js"><link rel="prefetch" href="/assets/js/47.a8b810d1.js"><link rel="prefetch" href="/assets/js/48.35253376.js"><link rel="prefetch" href="/assets/js/49.18311c2e.js"><link rel="prefetch" href="/assets/js/5.2cab7bfe.js"><link rel="prefetch" href="/assets/js/50.b1ae9d0e.js"><link rel="prefetch" href="/assets/js/51.9e1f691f.js"><link rel="prefetch" href="/assets/js/52.89b2adf6.js"><link rel="prefetch" href="/assets/js/53.38c11e5b.js"><link rel="prefetch" href="/assets/js/54.afb3ecb4.js"><link rel="prefetch" href="/assets/js/55.e026099c.js"><link rel="prefetch" href="/assets/js/56.a681d79a.js"><link rel="prefetch" href="/assets/js/57.a40be15e.js"><link rel="prefetch" href="/assets/js/58.7feef101.js"><link rel="prefetch" href="/assets/js/59.b7d5f8c6.js"><link rel="prefetch" href="/assets/js/6.c1e71ac1.js"><link rel="prefetch" href="/assets/js/60.58e7ed44.js"><link rel="prefetch" href="/assets/js/61.57be6b29.js"><link rel="prefetch" href="/assets/js/62.275799a6.js"><link rel="prefetch" href="/assets/js/63.d633c7fb.js"><link rel="prefetch" href="/assets/js/64.1b56030a.js"><link rel="prefetch" href="/assets/js/65.280ec9f5.js"><link rel="prefetch" href="/assets/js/66.82262c75.js"><link rel="prefetch" href="/assets/js/67.d02aae69.js"><link rel="prefetch" href="/assets/js/68.6a157678.js"><link rel="prefetch" href="/assets/js/69.12af0553.js"><link rel="prefetch" href="/assets/js/7.427a58b2.js"><link rel="prefetch" href="/assets/js/70.2b02d406.js"><link rel="prefetch" href="/assets/js/71.6b958c68.js"><link rel="prefetch" href="/assets/js/72.d7e1ed87.js"><link rel="prefetch" href="/assets/js/73.b4860b5a.js"><link rel="prefetch" href="/assets/js/74.edbfcadf.js"><link rel="prefetch" href="/assets/js/75.8d38909c.js"><link rel="prefetch" href="/assets/js/76.92714ac3.js"><link rel="prefetch" href="/assets/js/77.acb09ca4.js"><link rel="prefetch" href="/assets/js/78.a842091b.js"><link rel="prefetch" href="/assets/js/79.cdc46e98.js"><link rel="prefetch" href="/assets/js/8.f99e238f.js"><link rel="prefetch" href="/assets/js/80.b8b65e1f.js"><link rel="prefetch" href="/assets/js/81.f1bf0699.js"><link rel="prefetch" href="/assets/js/82.3c24e140.js"><link rel="prefetch" href="/assets/js/83.281fc60e.js"><link rel="prefetch" href="/assets/js/84.07da010a.js"><link rel="prefetch" href="/assets/js/85.1df53a15.js"><link rel="prefetch" href="/assets/js/86.98f18cc0.js"><link rel="prefetch" href="/assets/js/87.7cca4d88.js"><link rel="prefetch" href="/assets/js/88.57cc24f2.js"><link rel="prefetch" href="/assets/js/89.afeade71.js"><link rel="prefetch" href="/assets/js/9.d578bf13.js"><link rel="prefetch" href="/assets/js/90.b2424d6c.js"><link rel="prefetch" href="/assets/js/91.44acca51.js"><link rel="prefetch" href="/assets/js/92.aa09a589.js"><link rel="prefetch" href="/assets/js/93.1804f529.js"><link rel="prefetch" href="/assets/js/94.cc326de7.js"><link rel="prefetch" href="/assets/js/95.a58aa803.js"><link rel="prefetch" href="/assets/js/96.ab39bb52.js"><link rel="prefetch" href="/assets/js/97.7ae11fab.js"><link rel="prefetch" href="/assets/js/98.d9f11bff.js"><link rel="prefetch" href="/assets/js/99.caf9e303.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.ccac5a78.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">设计模式</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><!---->  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>基础知识</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/设计模式概述.html" class="sidebar-link">设计模式概述</a></li><li><a href="/面向对象设计原则.html" class="sidebar-link">面向对象设计原则</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>六个创建型模式</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/简单工厂模式-Simple Factory Pattern.html" class="sidebar-link">简单工厂模式-Simple Factory Pattern</a></li><li><a href="/工厂方法模式-Factory Method Pattern.html" class="sidebar-link">工厂方法模式-Factory Method Pattern</a></li><li><a href="/抽象工厂模式-Abstract  Factory Pattern.html" class="sidebar-link">抽象工厂模式-Abstract  Factory Pattern</a></li><li><a href="/单例模式-Singleton Pattern.html" class="sidebar-link">单例模式-Singleton Pattern</a></li><li><a href="/原型模式-Prototype Pattern.html" class="sidebar-link">原型模式-Prototype Pattern</a></li><li><a href="/建造者模式-Builder Pattern.html" class="sidebar-link">建造者模式-Builder Pattern</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>七个结构型模式</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/适配器模式-Adapter Pattern.html" class="sidebar-link">适配器模式-Adapter Pattern</a></li><li><a href="/桥接模式-Bridge Pattern.html" class="sidebar-link">桥接模式-Bridge Pattern</a></li><li><a href="/组合模式-Composite Pattern.html" class="sidebar-link">组合模式-Composite Pattern</a></li><li><a href="/装饰模式-Decorator Pattern.html" class="sidebar-link">装饰模式-Decorator Pattern</a></li><li><a href="/外观模式-Facade Pattern.html" class="sidebar-link">外观模式-Facade Pattern</a></li><li><a href="/享元模式-Flyweight Pattern.html" class="sidebar-link">享元模式-Flyweight Pattern</a></li><li><a href="/代理模式-Proxy Pattern.html" class="sidebar-link">代理模式-Proxy Pattern</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>十一个行为型模式</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/职责链模式-Chain of Responsibility Pattern.html" class="sidebar-link">职责链模式-Chain of Responsibility Pattern</a></li><li><a href="/命令模式-Command Pattern.html" class="sidebar-link">命令模式-Command Pattern</a></li><li><a href="/解释器模式-Interpreter Pattern.html" class="sidebar-link">解释器模式-Interpreter Pattern</a></li><li><a href="/迭代器模式-Iterator Pattern.html" class="sidebar-link">迭代器模式-Iterator Pattern</a></li><li><a href="/中介者模式-Mediator Pattern.html" class="sidebar-link">中介者模式-Mediator Pattern</a></li><li><a href="/备忘录模式-Memento Pattern.html" class="sidebar-link">备忘录模式-Memento Pattern</a></li><li><a href="/观察者模式-Observer Pattern.html" class="sidebar-link">观察者模式-Observer Pattern</a></li><li><a href="/状态模式-State Pattern.html" class="sidebar-link">状态模式-State Pattern</a></li><li><a href="/策略模式-Strategy Pattern.html" class="sidebar-link">策略模式-Strategy Pattern</a></li><li><a href="/模板方法模式-Template Method Pattern.html" class="sidebar-link">模板方法模式-Template Method Pattern</a></li><li><a href="/访问者模式-Visitor Pattern.html" class="sidebar-link">访问者模式-Visitor Pattern</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>设计模式趣味学习（复习）</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/设计模式与足球（一）.html" class="sidebar-link">设计模式与足球（一）</a></li><li><a href="/设计模式与足球（二）.html" class="sidebar-link">设计模式与足球（二）</a></li><li><a href="/设计模式与足球（三）.html" class="sidebar-link">设计模式与足球（三）</a></li><li><a href="/设计模式与足球（四）.html" class="sidebar-link">设计模式与足球（四）</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>设计模式综合应用实例</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/多人联机射击游戏.html" class="sidebar-link">多人联机射击游戏</a></li><li><a href="/数据库同步系统.html" class="sidebar-link">数据库同步系统</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="请求发送者与接收者解耦-命令模式-五"><a href="#请求发送者与接收者解耦-命令模式-五" class="header-anchor">#</a> 请求发送者与接收者解耦——命令模式（五）</h1> <p>6 请求日志</p> <p>请求日志就是将请求的历史记录保存下来，通常以日志文件(Log File)的形式永久存储在计算机中。很多系统都提供了日志文件，例如Windows日志文件、Oracle日志文件等，日志文件可以记录用户对系统的一些操作（例如对数据的更改）。请求日志文件可以实现很多功能，常用功能如下：</p> <p>(1) “天有不测风云”，一旦系统发生故障，日志文件可以为系统提供一种恢复机制，在请求日志文件中可以记录用户对系统的每一步操作，从而让系统能够顺利恢复到某一个特定的状态；</p> <p>(2) 请求日志也可以用于实现批处理，在一个请求日志文件中可以存储一系列命令对象，例如一个命令队列；</p> <p>(3) 可以将命令队列中的所有命令对象都存储在一个日志文件中，每执行一个命令则从日志文件中删除一个对应的命令对象，防止因为断电或者系统重启等原因造成请求丢失，而且可以避免重新发送全部请求时造成某些命令的重复执行，只需读取请求日志文件，再继续执行文件中剩余的命令即可。</p> <p>在实现请求日志时，我们可以将命令对象通过序列化写到日志文件中，此时命令类必须实现Java.io.Serializable接口。下面我们通过一个简单实例来说明日志文件的用途以及如何实现请求日志：</p> <p>Sunny软件公司开发了一个网站配置文件管理工具，可以通过一个可视化界面对网站配置文件进行增删改等操作，该工具使用命令模式进行设计，结构如图6所示：</p> <p><img src="http://img.my.csdn.net/uploads/201304/15/1366040729_7038.jpg" alt=""></p> <p>图6  网站配置文件管理工具结构图</p> <p>现在Sunny软件公司开发人员希望将对配置文件的操作请求记录在日志文件中，如果网站重新部署，只需要执行保存在日志文件中的命令对象即可修改配置文件。</p> <p>本实例完整代码如下所示：</p> <div class="language- extra-class"><pre class="language-text"><code>import java.io.*;  
+import java.util.*;  
+  
+//抽象命令类，由于需要将命令对象写入文件，因此它实现了Serializable接口  
+abstract class Command implements Serializable {  
+    protected String name; //命令名称  
+    protected String args; //命令参数  
+    protected ConfigOperator configOperator; //维持对接收者对象的引用  
+      
+    public Command(String name) {  
+        this.name = name;  
+    }  
+      
+    public String getName() {  
+        return this.name;  
+    }  
+      
+    public void setName(String name) {  
+        this.name = name;  
+    }  
+      
+    public void setConfigOperator(ConfigOperator configOperator) {  
+        this.configOperator = configOperator;  
+    }  
+      
+    //声明两个抽象的执行方法execute()  
+    public abstract void execute(String args);  
+    public abstract void execute();  
+}  
+  
+//增加命令类：具体命令  
+class InsertCommand extends Command {  
+    public InsertCommand(String name) {  
+        super(name);  
+    }  
+      
+    public void execute(String args) {  
+        this.args = args;  
+        configOperator.insert(args);  
+    }  
+      
+    public void execute() {  
+        configOperator.insert(this.args);  
+    }  
+}  
+  
+//修改命令类：具体命令  
+class ModifyCommand extends Command {  
+    public ModifyCommand(String name) {  
+        super(name);  
+    }  
+      
+    public void execute(String args) {  
+        this.args = args;  
+        configOperator.modify(args);  
+    }  
+      
+    public void execute() {  
+        configOperator.modify(this.args);  
+    }  
+}  
+  
+//省略了删除命令类DeleteCommand  
+  
+//配置文件操作类：请求接收者。由于ConfigOperator类的对象是Command的成员对象，它也将随Command对象一起写入文件，因此ConfigOperator也需要实现Serializable接口  
+class ConfigOperator implements Serializable {  
+    public void insert(String args) {  
+        System.out.println(&quot;增加新节点：&quot; + args);  
+    }  
+      
+    public void modify(String args) {  
+        System.out.println(&quot;修改节点：&quot; + args);  
+    }  
+      
+    public void delete(String args) {  
+        System.out.println(&quot;删除节点：&quot; + args);  
+    }  
+}  
+  
+//配置文件设置窗口类：请求发送者  
+class ConfigSettingWindow {  
+    //定义一个集合来存储每一次操作时的命令对象  
+    private ArrayList&lt;Command&gt; commands = new ArrayList&lt;Command&gt;();  
+    private Command command;   
+  
+    //注入具体命令对象  
+    public void setCommand(Command command) {  
+        this.command = command;  
+    }  
+      
+    //执行配置文件修改命令，同时将命令对象添加到命令集合中  
+    public void call(String args) {  
+        command.execute(args);  
+        commands.add(command);  
+    }  
+      
+    //记录请求日志，生成日志文件，将命令集合写入日志文件  
+    public void save() {  
+        FileUtil.writeCommands(commands);  
+    }  
+      
+    //从日志文件中提取命令集合，并循环调用每一个命令对象的execute()方法来实现配置文件的重新设置  
+    public void recover() {  
+        ArrayList list;  
+        list = FileUtil.readCommands();  
+          
+        for (Object obj : list) {  
+            ((Command)obj).execute();  
+        }  
+    }  
+}  
+  
+//工具类：文件操作类  
+class FileUtil {  
+    //将命令集合写入日志文件  
+    public static void writeCommands(ArrayList commands) {  
+        try {  
+            FileOutputStream file = new FileOutputStream(&quot;config.log&quot;);  
+            //创建对象输出流用于将对象写入到文件中  
+            ObjectOutputStream objout = new ObjectOutputStream(new BufferedOutputStream(file));  
+            //将对象写入文件  
+            objout.writeObject(commands);  
+            objout.close();  
+            }  
+        catch(Exception e) {  
+                System.out.println(&quot;命令保存失败！&quot;);    
+                e.printStackTrace();  
+            }  
+    }  
+      
+    //从日志文件中提取命令集合  
+    public static ArrayList readCommands() {  
+        try {  
+            FileInputStream file = new FileInputStream(&quot;config.log&quot;);  
+            //创建对象输入流用于从文件中读取对象  
+            ObjectInputStream objin = new ObjectInputStream(new BufferedInputStream(file));  
+              
+            //将文件中的对象读出并转换为ArrayList类型  
+            ArrayList commands = (ArrayList)objin.readObject();  
+            objin.close();  
+            return commands;  
+            }  
+        catch(Exception e) {  
+                System.out.println(&quot;命令读取失败！&quot;);  
+                e.printStackTrace();  
+                return null;      
+            }         
+    }  
+}  
+</code></pre></div><p>编写如下客户端测试代码：</p> <div class="language- extra-class"><pre class="language-text"><code>class Client {  
+    public static void main(String args[]) {  
+        ConfigSettingWindow csw = new ConfigSettingWindow(); //定义请求发送者  
+        Command command; //定义命令对象  
+        ConfigOperator co = new ConfigOperator(); //定义请求接收者  
+          
+        //四次对配置文件的更改  
+        command = new InsertCommand(&quot;增加&quot;);  
+        command.setConfigOperator(co);  
+        csw.setCommand(command);  
+        csw.call(&quot;网站首页&quot;);  
+          
+        command = new InsertCommand(&quot;增加&quot;);  
+        command.setConfigOperator(co);  
+        csw.setCommand(command);  
+        csw.call(&quot;端口号&quot;);  
+          
+        command = new ModifyCommand(&quot;修改&quot;);  
+        command.setConfigOperator(co);  
+        csw.setCommand(command);  
+        csw.call(&quot;网站首页&quot;);  
+          
+        command = new ModifyCommand(&quot;修改&quot;);  
+        command.setConfigOperator(co);  
+        csw.setCommand(command);          
+        csw.call(&quot;端口号&quot;);  
+          
+        System.out.println(&quot;----------------------------&quot;);  
+        System.out.println(&quot;保存配置&quot;);  
+        csw.save();  
+              
+        System.out.println(&quot;----------------------------&quot;);   
+        System.out.println(&quot;恢复配置&quot;);  
+        System.out.println(&quot;----------------------------&quot;);   
+        csw.recover();    
+    }  
+}  
+</code></pre></div><p>编译并运行程序，输出结果如下：</p> <div class="language- extra-class"><pre class="language-text"><code>增加新节点：网站首页
+增加新节点：端口号
+修改节点：网站首页
+修改节点：端口号
+----------------------------
+保存配置
+----------------------------
+恢复配置
+----------------------------
+增加新节点：网站首页
+增加新节点：端口号
+修改节点：网站首页
+修改节点：端口号
+</code></pre></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">4/27/2016, 10:36:35 PM</span></div></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.61038a2e.js" defer></script><script src="/assets/js/2.59fcb4b9.js" defer></script><script src="/assets/js/145.cc3ccc63.js" defer></script>
+  </body>
+</html>
