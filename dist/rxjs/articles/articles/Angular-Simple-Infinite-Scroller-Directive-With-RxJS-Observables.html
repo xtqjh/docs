@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>[译] Angular: 使用 RxJS Observables 来实现简易版的无限滚动加载指令 | Rxjs</title>
+    <meta name="generator" content="VuePress 1.5.4">
+    
+    <meta name="description" content="">
+    <link rel="preload" href="/assets/css/0.styles.ccac5a78.css" as="style"><link rel="preload" href="/assets/js/app.9605856b.js" as="script"><link rel="preload" href="/assets/js/2.f6e3d3ee.js" as="script"><link rel="preload" href="/assets/js/16.831974b4.js" as="script"><link rel="prefetch" href="/assets/js/10.99d2065f.js"><link rel="prefetch" href="/assets/js/11.71e24ba0.js"><link rel="prefetch" href="/assets/js/12.b8086885.js"><link rel="prefetch" href="/assets/js/13.f805b576.js"><link rel="prefetch" href="/assets/js/14.e3e54685.js"><link rel="prefetch" href="/assets/js/15.9351c89b.js"><link rel="prefetch" href="/assets/js/17.5e66df57.js"><link rel="prefetch" href="/assets/js/18.433df674.js"><link rel="prefetch" href="/assets/js/19.77700336.js"><link rel="prefetch" href="/assets/js/20.ca0fdbb6.js"><link rel="prefetch" href="/assets/js/21.481352cf.js"><link rel="prefetch" href="/assets/js/22.30a44fc6.js"><link rel="prefetch" href="/assets/js/23.93a777ed.js"><link rel="prefetch" href="/assets/js/24.3203bead.js"><link rel="prefetch" href="/assets/js/25.5a781dd2.js"><link rel="prefetch" href="/assets/js/26.60ae3da3.js"><link rel="prefetch" href="/assets/js/27.16cedc3e.js"><link rel="prefetch" href="/assets/js/28.5d412e0e.js"><link rel="prefetch" href="/assets/js/29.83bc4adc.js"><link rel="prefetch" href="/assets/js/3.54c76ecb.js"><link rel="prefetch" href="/assets/js/30.1fe76ae1.js"><link rel="prefetch" href="/assets/js/31.962a908d.js"><link rel="prefetch" href="/assets/js/32.c0fe7bdd.js"><link rel="prefetch" href="/assets/js/33.74f04d2b.js"><link rel="prefetch" href="/assets/js/34.b3aca583.js"><link rel="prefetch" href="/assets/js/35.d30ab2c2.js"><link rel="prefetch" href="/assets/js/36.49b8436a.js"><link rel="prefetch" href="/assets/js/37.a6af5260.js"><link rel="prefetch" href="/assets/js/38.8e3c7722.js"><link rel="prefetch" href="/assets/js/39.8d268473.js"><link rel="prefetch" href="/assets/js/4.455c99eb.js"><link rel="prefetch" href="/assets/js/40.572399bb.js"><link rel="prefetch" href="/assets/js/41.242cc580.js"><link rel="prefetch" href="/assets/js/42.c22b4731.js"><link rel="prefetch" href="/assets/js/43.ea9a74ad.js"><link rel="prefetch" href="/assets/js/44.2c085c54.js"><link rel="prefetch" href="/assets/js/45.fcfe6221.js"><link rel="prefetch" href="/assets/js/46.31dda88a.js"><link rel="prefetch" href="/assets/js/5.71ecea48.js"><link rel="prefetch" href="/assets/js/6.d32a38ac.js"><link rel="prefetch" href="/assets/js/7.7c069fc4.js"><link rel="prefetch" href="/assets/js/8.92448756.js"><link rel="prefetch" href="/assets/js/9.b6e39a5c.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.ccac5a78.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Rxjs</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/rxjs-docs/home.html" class="nav-link">
+  rxjs
+</a></div><div class="nav-item"><a href="/articles/home.html" class="nav-link">
+  文章翻译
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/rxjs-docs/home.html" class="nav-link">
+  rxjs
+</a></div><div class="nav-item"><a href="/articles/home.html" class="nav-link">
+  文章翻译
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/articles/home.html" class="sidebar-link">RxJS 优质文章翻译</a></li><li><a href="/articles/articles/ADVANCED-CACHING-WITH-RXJS.html" class="sidebar-link">[译] RxJS 高级缓存</a></li><li><a href="/articles/articles/Angular-Simple-Infinite-Scroller-Directive-With-RxJS-Observables.html" aria-current="page" class="active sidebar-link">[译] Angular: 使用 RxJS Observables 来实现简易版的无限滚动加载指令</a></li><li><a href="/articles/articles/Debugging-RxJS-Part1-Tooling.html" class="sidebar-link">[译] 调试 RxJS 第1部分: 工具篇</a></li><li><a href="/articles/articles/Debugging-RxJS-Part2-Logging.html" class="sidebar-link">[译] 调试 RxJS 第2部分: 日志篇</a></li><li><a href="/articles/articles/Don't-Unsubscribe.html" class="sidebar-link">[译] RxJS: 别取消订阅</a></li><li><a href="/articles/articles/Hot-Vs-Cold-Observables.html" class="sidebar-link">[译] 热的 Vs 冷的 Observables</a></li><li><a href="/articles/articles/How-To-Use-RefCount.html" class="sidebar-link">[译] RxJS: 如何使用 refCount</a></li><li><a href="/articles/articles/Infinite-Scroll-In-Angular-An-RxJS.html" class="sidebar-link">[译] 使用 Angular 和 RxJS 实现的无限滚动加载</a></li><li><a href="/articles/articles/Learn-To-Combine-RxJS-Sequences-With-Super-Intuitive-Interactive-Diagrams.html" class="sidebar-link">[译] RxJS: 使用超直观的交互图来学习组合操作符</a></li><li><a href="/articles/articles/Learning-Observable-By-Building-Observable.html" class="sidebar-link">[译] 通过构建 Observable 来学习 Observable</a></li><li><a href="/articles/articles/Naive-Infinite-Scroll-In-Reactive-Programming-Using-RxJS-Observables.html" class="sidebar-link">[译] 使用响应式编程来实现简易版的无限滚动加载</a></li><li><a href="/articles/articles/On-The-Subject-Of-Subjects.html" class="sidebar-link">[译] 关于 RxJS 中的 Subject</a></li><li><a href="/articles/articles/PRIMER-ON-RXJS-SCHEDULERS.html" class="sidebar-link">[译] RxJS 调度器入门</a></li><li><a href="/articles/articles/Reactive-Brain-Waves.html" class="sidebar-link">[译] 响应式脑电波</a></li><li><a href="/articles/articles/RxJS-Observable-Interop-With-Promises-And-Async-Await.html" class="sidebar-link">[译] RxJS Observable 与 Promises 和 Async-Await 交互</a></li><li><a href="/articles/articles/Six-Operators-That-You-Must-Know.html" class="sidebar-link">[译] RxJS: 6个你必须知道的操作符</a></li><li><a href="/articles/articles/Subjects-For-Human-Beings.html" class="sidebar-link">[译] RxJS: 白话 Subjects</a></li><li><a href="/articles/articles/TAMING-SNAKES-WITH-REACTIVE-STREAMS.html" class="sidebar-link">[译] RxJS 游戏之贪吃蛇</a></li><li><a href="/articles/articles/Testing-Race-Conditions-Using-RxJS-Marbles.html" class="sidebar-link">[译] RxJS 进阶技巧: 使用 RxJS Marbles 测试竞争条件</a></li><li><a href="/articles/articles/Understanding-Subjects-in-RxJS.html" class="sidebar-link">[译] 理解 RxJS 中 Subjects</a></li><li><a href="/articles/articles/Understanding-The-Publish-And-Share-Operators.html" class="sidebar-link">[译] RxJS: 理解 publish 和 share 操作符</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="译-angular-使用-rxjs-observables-来实现简易版的无限滚动加载指令"><a href="#译-angular-使用-rxjs-observables-来实现简易版的无限滚动加载指令" class="header-anchor">#</a> [译] Angular: 使用 RxJS Observables 来实现简易版的无限滚动加载指令</h1> <blockquote><p>原文链接: <a href="https://codeburst.io/angular-2-simple-infinite-scroller-directive-with-rxjs-observables-a989b12d4fb1" target="_blank" rel="noopener noreferrer">https://codeburst.io/angular-2-simple-infinite-scroller-directive-with-rxjs-observables-a989b12d4fb1<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p></blockquote> <p><img src="/assets/img/header.ef4a0e2f.png" alt="header"></p> <p>这篇文章是我上篇文章 <a href="/articles/articles/Naive-Infinite-Scroll-In-Reactive-Programming-Using-RxJS-Observables.html">使用响应式编程来实现简易版的无限滚动加载</a> 的延续。在本文中，我们将创建一个 Angular 指令来实现无限滚动加载功能。我们还将继续使用 <a href="https://github.com/cheeaun/node-hnapi" target="_blank" rel="noopener noreferrer">HackerNews 的非官方 API<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> 来获取数据以填充到页面中。</p> <p>我使用 <code>angular-cli</code> 来搭建项目。</p> <div class="language-shell extra-class"><pre class="language-shell"><code>ng new infinite-scroller-poc --style<span class="token operator">=</span>scss
+</code></pre></div><p>项目生成好后，进入 <code>infinite-scroller-poc</code> 目录下。</p> <p>Angular CLI 提供了一堆命令用来生成组件、指令、服务和模块。</p> <p>我们来生成一个服务和一个指令。</p> <div class="language-shell extra-class"><pre class="language-shell"><code>ng g <span class="token function">service</span> hacker-news
+ng g directive infinite-scroller
+</code></pre></div><p><em>注意: Angular CLI 会自动在 <code>app.module.ts</code> 里注册指令，但不会将服务添加到 <code>providers</code> 数组中。你需要手动添加。<code>app.module.ts</code> 如下所示。</em></p> <div class="language-ts extra-class"><pre class="language-ts"><code><span class="token keyword">import</span> <span class="token punctuation">{</span> BrowserModule <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@angular/platform-browser'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> NgModule <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@angular/core'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> HttpModule <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@angular/http'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token punctuation">{</span> AppComponent <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./app.component'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> InfiniteScrollerDirective <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./infinite-scroller.directive'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> HackerNewsService <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./hacker-news.service'</span><span class="token punctuation">;</span>
+@<span class="token function">NgModule</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  declarations<span class="token operator">:</span> <span class="token punctuation">[</span>
+    AppComponent<span class="token punctuation">,</span>
+    InfiniteScrollerDirective
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  imports<span class="token operator">:</span> <span class="token punctuation">[</span>
+    BrowserModule<span class="token punctuation">,</span>
+    HttpModule
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  providers<span class="token operator">:</span> <span class="token punctuation">[</span>HackerNewsService<span class="token punctuation">]</span><span class="token punctuation">,</span>
+  bootstrap<span class="token operator">:</span> <span class="token punctuation">[</span>AppComponent<span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">AppModule</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+</code></pre></div><p>接下来，我们在服务中添加 HackerNews 的 API 调用。下面是 <code>hacker-news.service.ts</code>，它只有一个函数 <code>getLatestStories</code> 。</p> <div class="language-ts extra-class"><pre class="language-ts"><code><span class="token keyword">import</span> <span class="token punctuation">{</span> Injectable <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@angular/core'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Http <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@angular/http'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token constant">BASE_URL</span> <span class="token operator">=</span> <span class="token string">'http://node-hnapi.herokuapp.com'</span><span class="token punctuation">;</span>
+
+@<span class="token function">Injectable</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">HackerNewsService</span> <span class="token punctuation">{</span>
+  
+  <span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="token keyword">private</span> http<span class="token operator">:</span> Http<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+
+  <span class="token function">getLatestStories</span><span class="token punctuation">(</span>page<span class="token operator">:</span> <span class="token builtin">number</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>http<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token constant">BASE_URL</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">/news?page=</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>page<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>现在来构建我们的无限滚动加载指令。下面是指令的完整代码，别担心代码太长，我们会分解来看。</p> <div class="language-ts extra-class"><pre class="language-ts"><code><span class="token keyword">import</span> <span class="token punctuation">{</span> Directive<span class="token punctuation">,</span> AfterViewInit<span class="token punctuation">,</span> ElementRef<span class="token punctuation">,</span> Input <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@angular/core'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Observable<span class="token punctuation">,</span> Subscription <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'rxjs/Rx'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string">'rxjs/add/observable/fromEvent'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string">'rxjs/add/operator/pairwise'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string">'rxjs/add/operator/map'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string">'rxjs/add/operator/exhaustMap'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string">'rxjs/add/operator/filter'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string">'rxjs/add/operator/startWith'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">interface</span> <span class="token class-name">ScrollPosition</span> <span class="token punctuation">{</span>
+  sH<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">;</span>
+  sT<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">;</span>
+  cH<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token constant">DEFAULT_SCROLL_POSITION</span><span class="token operator">:</span> ScrollPosition <span class="token operator">=</span> <span class="token punctuation">{</span>
+  sH<span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+  sT<span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+  cH<span class="token operator">:</span> <span class="token number">0</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+@<span class="token function">Directive</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  selector<span class="token operator">:</span> <span class="token string">'[appInfiniteScroller]'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">InfiniteScrollerDirective</span> <span class="token keyword">implements</span> <span class="token class-name">AfterViewInit</span> <span class="token punctuation">{</span>
+
+  <span class="token keyword">private</span> scrollEvent$<span class="token punctuation">;</span>
+
+  <span class="token keyword">private</span> userScrolledDown$<span class="token punctuation">;</span>
+
+  <span class="token keyword">private</span> requestStream$<span class="token punctuation">;</span>
+
+  <span class="token keyword">private</span> requestOnScroll$<span class="token punctuation">;</span>
+
+  @<span class="token function">Input</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  scrollCallback<span class="token punctuation">;</span>
+
+  @<span class="token function">Input</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  immediateCallback<span class="token punctuation">;</span>
+
+  @<span class="token function">Input</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  scrollPercent <span class="token operator">=</span> <span class="token number">70</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="token keyword">private</span> elm<span class="token operator">:</span> ElementRef<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+
+  <span class="token function">ngAfterViewInit</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">registerScrollEvent</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">streamScrollEvents</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">requestCallbackOnScroll</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">private</span> <span class="token function">registerScrollEvent</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">this</span><span class="token punctuation">.</span>scrollEvent$ <span class="token operator">=</span> Observable<span class="token punctuation">.</span><span class="token function">fromEvent</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>elm<span class="token punctuation">.</span>nativeElement<span class="token punctuation">,</span> <span class="token string">'scroll'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">private</span> <span class="token function">streamScrollEvents</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>userScrolledDown$ <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>scrollEvent$
+      <span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span>e<span class="token operator">:</span> <span class="token builtin">any</span><span class="token punctuation">)</span><span class="token operator">:</span> ScrollPosition <span class="token operator">=&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
+        sH<span class="token operator">:</span> e<span class="token punctuation">.</span>target<span class="token punctuation">.</span>scrollHeight<span class="token punctuation">,</span>
+        sT<span class="token operator">:</span> e<span class="token punctuation">.</span>target<span class="token punctuation">.</span>scrollTop<span class="token punctuation">,</span>
+        cH<span class="token operator">:</span> e<span class="token punctuation">.</span>target<span class="token punctuation">.</span>clientHeight
+      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span><span class="token function">pairwise</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>positions <span class="token operator">=&gt;</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">isUserScrollingDown</span><span class="token punctuation">(</span>positions<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">isScrollExpectedPercent</span><span class="token punctuation">(</span>positions<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">private</span> <span class="token function">requestCallbackOnScroll</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">this</span><span class="token punctuation">.</span>requestOnScroll$ <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>userScrolledDown$<span class="token punctuation">;</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>immediateCallback<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>requestOnScroll$ <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>requestOnScroll$
+        <span class="token punctuation">.</span><span class="token function">startWith</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token constant">DEFAULT_SCROLL_POSITION</span><span class="token punctuation">,</span> <span class="token constant">DEFAULT_SCROLL_POSITION</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">this</span><span class="token punctuation">.</span>requestOnScroll$
+      <span class="token punctuation">.</span><span class="token function">exhaustMap</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">scrollCallback</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">private</span> <span class="token function-variable function">isUserScrollingDown</span> <span class="token operator">=</span> <span class="token punctuation">(</span>positions<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> positions<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>sT <span class="token operator">&lt;</span> positions<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>sT<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">private</span> <span class="token function-variable function">isScrollExpectedPercent</span> <span class="token operator">=</span> <span class="token punctuation">(</span>position<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>position<span class="token punctuation">.</span>sT <span class="token operator">+</span> position<span class="token punctuation">.</span>cH<span class="token punctuation">)</span> <span class="token operator">/</span> position<span class="token punctuation">.</span>sH<span class="token punctuation">)</span> <span class="token operator">&gt;</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>scrollPercent <span class="token operator">/</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+</code></pre></div><p>指令接收3个输入值:</p> <ol><li><code>scrollPercent</code> - 用户需要滚动到容器的百分比，达到后方可调用 <code>scrollCallback</code> 。</li> <li><code>scrollCallback</code> - 返回 observable 的回调函数。</li> <li><code>immediateCallback</code> - 布尔值，如果为 true 则指令初始化后会立即调用 <code>scrollCallback</code> 。</li></ol> <p>Angular 为组件和指令提供了4个生命周期钩子。</p> <p><img src="/assets/img/lifecycle.6508ccec.png" alt="lifecycle"></p> <p>对于这个指令，我们想要进入 <code>ngAfterViewInit</code> 生命周期钩子以注册和处理滚动事件。在 <code>constructor</code> 中，我们注入了 <code>ElementRef</code>，它可以让我们引用应用了指令的元素，即滚动容器。</p> <div class="language-ts extra-class"><pre class="language-ts"><code><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="token keyword">private</span> elm<span class="token operator">:</span> ElementRef<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+
+<span class="token function">ngAfterViewInit</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">registerScrollEvent</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">streamScrollEvents</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">requestCallbackOnScroll</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+</code></pre></div><p>在 <code>ngAfterViewInit</code> 生命周期钩子中，我们执行了3个函数:</p> <ol><li><code>registerScrollEvent</code> - 使用 <code>Observable.fromEvent</code> 来监听元素的滚动事件。</li> <li><code>streamScrollEvents</code> - 根据我们的需求来处理传入的滚动事件流，当滚动到给定的容器高度百分比时发起 API 请求。</li> <li><code>requestCallbackOnScroll</code> - 一旦达到我们设定的条件后，调用 <code>scrollCallback</code> 来发起 API 请求。</li></ol> <p>还有一个可选的输入条件 <code>immediateCallback</code>，如果设置为 true 的话，我们会将 <code>DEFAULT_SCROLL_POSITION</code> 作为流的起始数据，它会触发 <code>scrollCallback</code> 而无需用户滚动页面。这样的话会调用一次 API 以获取初始数据展示在页面中。上述所有函数的作用都与我的上篇<a href="/articles/articles/Naive-Infinite-Scroll-In-Reactive-Programming-Using-RxJS-Observables.html">文章</a>中是一样的，上篇文章中已经详细地解释了 RxJS Observable 各个操作符的用法，这里就不赘述了。</p> <p>接下来将无限滚动指令添加到 <code>AppComponent</code> 中。下面是 <code>app.component.ts</code> 的完整代码。</p> <div class="language-ts extra-class"><pre class="language-ts"><code><span class="token keyword">import</span> <span class="token punctuation">{</span> Component <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@angular/core'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> HackerNewsService <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./hacker-news.service'</span><span class="token punctuation">;</span>
+
+@<span class="token function">Component</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  selector<span class="token operator">:</span> <span class="token string">'app-root'</span><span class="token punctuation">,</span>
+  templateUrl<span class="token operator">:</span> <span class="token string">'./app.component.html'</span><span class="token punctuation">,</span>
+  styleUrls<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'./app.component.css'</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">class</span> <span class="token class-name">AppComponent</span> <span class="token punctuation">{</span>
+
+  currentPage<span class="token operator">:</span> <span class="token builtin">number</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+
+  news<span class="token operator">:</span> <span class="token builtin">Array</span><span class="token operator">&lt;</span><span class="token builtin">any</span><span class="token operator">&gt;</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+  scrollCallback<span class="token punctuation">;</span>
+
+  <span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="token keyword">private</span> hackerNewsSerivce<span class="token operator">:</span> HackerNewsService<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">this</span><span class="token punctuation">.</span>scrollCallback <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getStories</span><span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+   <span class="token punctuation">}</span>
+
+  <span class="token function">getStories</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>hackerNewsSerivce<span class="token punctuation">.</span><span class="token function">getLatestStories</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>currentPage<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token keyword">do</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>processData<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">private</span> <span class="token function-variable function">processData</span> <span class="token operator">=</span> <span class="token punctuation">(</span>news<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>currentPage<span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>news <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>news<span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span>news<span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+</code></pre></div><p><code>getStories</code> - 调用 <code>hackerNewsService</code> 并处理返回数据。</p> <p><strong>注意 constructor  中的 <code>this.scrollCallback</code> 写法</strong></p> <div class="language-ts extra-class"><pre class="language-ts"><code><span class="token keyword">this</span><span class="token punctuation">.</span>scrollCallback <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getStories</span><span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>我们将 <code>this.getStories</code> 函数赋值给 <code>scrollCallback</code> 并将其上下文绑定为 <code>this</code> 。这样可以确保当回调函数在无限滚动指令里执行时，它的上下文是 <code>AppComponent</code> 而不是 <code>InfiniteScrollerDirective</code> 。更多关于 <code>.bind</code> 的用法，可以参考<a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_objects/Function/bind" target="_blank" rel="noopener noreferrer">这里<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>。</p> <div class="language-html extra-class"><pre class="language-html"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>infinite-scroller<span class="token punctuation">&quot;</span></span>
+  <span class="token attr-name">appInfiniteScroller</span>
+  <span class="token attr-name">scrollPerecnt</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>70<span class="token punctuation">&quot;</span></span>
+  <span class="token attr-name">immediateCallback</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>true<span class="token punctuation">&quot;</span></span>
+  <span class="token attr-name">[scrollCallback]</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>scrollCallback<span class="token punctuation">&quot;</span></span>
+  <span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span> <span class="token attr-name">*ngFor</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>let item of news<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>{{item.title}}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><p>html 想当简单，<code>ul</code> 作为 <code>appInfiniteScroller</code> 指令的容器，同时还传入了参数 <code>scrollPercent</code>、<code>immediateCallback</code> 和 <code>scrollCallback</code>。每个 <code>li</code> 表示一条新闻，并只显示新闻的标题。</p> <p>为容器设置基础样式。</p> <div class="language-css extra-class"><pre class="language-css"><code><span class="token selector">#infinite-scroller</span> <span class="token punctuation">{</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> 500px<span class="token punctuation">;</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 700px<span class="token punctuation">;</span>
+  <span class="token property">border</span><span class="token punctuation">:</span> 1px solid #f5ad7c<span class="token punctuation">;</span>
+  <span class="token property">overflow</span><span class="token punctuation">:</span> scroll<span class="token punctuation">;</span>
+  <span class="token property">padding</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">list-style</span><span class="token punctuation">:</span> none<span class="token selector">;
+
+  li</span> <span class="token punctuation">{</span>
+    <span class="token property">padding</span> <span class="token punctuation">:</span> 10px 5px<span class="token punctuation">;</span>
+    <span class="token property">line-height</span><span class="token punctuation">:</span> 1.5<span class="token selector">;
+    &amp;:nth-child(odd)</span> <span class="token punctuation">{</span>
+      <span class="token property">background</span> <span class="token punctuation">:</span> #ffe8d8<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token selector">&amp;:nth-child(even)</span> <span class="token punctuation">{</span>
+      <span class="token property">background</span> <span class="token punctuation">:</span> #f5ad7c<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>下面的示例是使用了 Angular 指令的无限滚动加载，注意观察右边的滚动条。</p> <p>在线示例: <a href="https://ashwin-sureshkumar.github.io/angular-infinite-scroller/" target="_blank" rel="noopener noreferrer">https://ashwin-sureshkumar.github.io/angular-infinite-scroller/<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <p>我无法将 gif 图片上传到此处。这是 gif 图片的链接: <a href="http://giphy.com/gifs/xTiN0FRfyHfO538Tsc" target="_blank" rel="noopener noreferrer">http://giphy.com/gifs/xTiN0FRfyHfO538Tsc<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> 。</p> <p>如果你喜欢本文的话，欢迎分享、评论及点 💚 。</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/articles/articles/ADVANCED-CACHING-WITH-RXJS.html" class="prev">
+        [译] RxJS 高级缓存
+      </a></span> <span class="next"><a href="/articles/articles/Debugging-RxJS-Part1-Tooling.html">
+        [译] 调试 RxJS 第1部分: 工具篇
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.9605856b.js" defer></script><script src="/assets/js/2.f6e3d3ee.js" defer></script><script src="/assets/js/16.831974b4.js" defer></script>
+  </body>
+</html>

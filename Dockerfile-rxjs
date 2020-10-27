@@ -1,0 +1,21 @@
+##################
+### production ###
+##################
+
+# base image
+FROM nginx:1.13.9-alpine
+
+# copy artifact build from the 'build environment'
+COPY ./dist/rxjs /usr/share/nginx/html
+
+ADD nginx.conf /etc/nginx/nginx.conf
+
+# expose port 80
+EXPOSE 80
+
+# run nginx
+CMD ["nginx", "-g", "daemon off;"]
+
+
+# docker build -f Dockerfile-rxjs -t 172.16.111.21:5000/docs-rxjs .
+# docker run -d --name docs-rxjs -p 9908:80 --rm 172.16.111.21:5000/docs-rxjs
