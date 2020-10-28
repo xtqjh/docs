@@ -486,10 +486,10 @@
 <p>Git和其他版本控制系统如SVN的一个不同之处就是有暂存区的概念。</p>
 <p>先来看名词解释。</p>
 <p><strong>工作区</strong>（Working Directory）：就是你在电脑里能看到的目录，比如我的learngit文件夹就是一个工作区：</p>
-<p><img src="http://www.liaoxuefeng.com/files/attachments/0013849082162373cc083b22a2049c4a47408722a61a770000/0" alt="img"></p>
+<p><img src="../gitbook/images/0013849082162373cc083b22a2049c4a47408722a61a770000.png" alt="img"></p>
 <p><strong>版本库</strong>（Repository）：工作区有一个隐藏目录“.git”，这个不算工作区，而是Git的版本库。</p>
 <p>Git的版本库里存了很多东西，其中最重要的就是称为stage（或者叫index）的暂存区，还有Git为我们自动创建的第一个分支master，以及指向master的一个指针叫HEAD。</p>
-<p><img src="http://www.liaoxuefeng.com/files/attachments/001384907702917346729e9afbf4127b6dfbae9207af016000/0" alt="img"></p>
+<p><img src="../gitbook/images/001384907702917346729e9afbf4127b6dfbae9207af016000.png" alt="img"></p>
 <p>分支和HEAD的概念我们以后再讲。</p>
 <p>前面讲了我们把文件往Git版本库里添加的时候，是分两步执行的：</p>
 <p>第一步是用“git add”把文件添加进去，实际上就是把文件修改添加到暂存区；</p>
@@ -529,7 +529,7 @@ no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&q
 #
 </code></pre>
 <p>现在，暂存区的状态就变成这样了：</p>
-<p><img src="http://www.liaoxuefeng.com/files/attachments/001384907720458e56751df1c474485b697575073c40ae9000/0" alt="img"></p>
+<p><img src="../gitbook/images/001384907720458e56751df1c474485b697575073c40ae9000.png" alt="img"></p>
 <p>所以，git add命令实际上就是把要提交的所有修改放到暂存区（Stage），然后，执行git commit就可以一次性把暂存区的所有修改提交到分支。</p>
 <pre><code>$ git commit -m &quot;understand how stage works&quot;
 [master 27c9860] understand how stage works
@@ -540,7 +540,7 @@ no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&q
 # On branch master
 nothing to commit (working directory clean)
 </code></pre><p>现在版本库变成了这样，暂存区就没有任何内容了：</p>
-<p><img src="http://www.liaoxuefeng.com/files/attachments/0013849077337835a877df2d26742b88dd7f56a6ace3ecf000/0" alt="img"></p>
+<p><img src="../gitbook/images/0013849077337835a877df2d26742b88dd7f56a6ace3ecf000.png" alt="img"></p>
 <h2 id="-">小结</h2>
 <p>暂存区是Git非常重要的概念，弄明白了暂存区，就弄明白了Git的很多操作到底干了什么。</p>
 <p>没弄明白暂存区是怎么回事的童鞋，请向上滚动页面，再看一次。</p>
