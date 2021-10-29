@@ -1,98 +1,10 @@
 <html lang="en"><head></head><body>
-        <form id="mainForm" method="post" action="https://run.stackblitz.com/api/angular/v1?file=src/app/hero.service.ts" target="_self"><input type="hidden" name="files[src/main.ts]" value="import { enableProdMode } from '@angular/core';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-
-import { AppModule } from './app/app.module';
-import { environment } from './environments/environment';
-
-if (environment.production) {
-  enableProdMode();
-}
-
-platformBrowserDynamic().bootstrapModule(AppModule)
-  .catch(err => console.error(err));
-
-
-/*
-Copyright Google LLC. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at https://angular.io/license
-*/"><input type="hidden" name="files[src/polyfills.ts]" value="/**
- * This file includes polyfills needed by Angular and is loaded before the app.
- * You can add your own extra polyfills to this file.
- *
- * This file is divided into 2 sections:
- *   1. Browser polyfills. These are applied before loading ZoneJS and are sorted by browsers.
- *   2. Application imports. Files imported after ZoneJS that should be loaded before your main
- *      file.
- *
- * The current setup is for so-called &quot;evergreen&quot; browsers; the last versions of browsers that
- * automatically update themselves. This includes Safari >= 10, Chrome >= 55 (including Opera),
- * Edge >= 13 on the desktop, and iOS 10 and Chrome on mobile.
- *
- * Learn more in https://angular.io/guide/browser-support
- */
-
-/***************************************************************************************************
- * BROWSER POLYFILLS
- */
-
-/** IE11 requires the following for NgClass support on SVG elements */
-// import 'classlist.js';  // Run `npm install --save classlist.js`.
-
-/**
- * Web Animations `@angular/platform-browser/animations`
- * Only required if AnimationBuilder is used within the application and using IE/Edge or Safari.
- * Standard animation support in Angular DOES NOT require any polyfills (as of Angular 6.0).
- */
-// import 'web-animations-js';  // Run `npm install --save web-animations-js`.
-
-/**
- * By default, zone.js will patch all possible macroTask and DomEvents
- * user can disable parts of macroTask/DomEvents patch by setting following flags
- * because those flags need to be set before `zone.js` being loaded, and webpack
- * will put import in the top of bundle, so user need to create a separate file
- * in this directory (for example: zone-flags.ts), and put the following flags
- * into that file, and then add the following code before importing zone.js.
- * import './zone-flags';
- *
- * The flags allowed in zone-flags.ts are listed here.
- *
- * The following flags will work for all browsers.
- *
- * (window as any).__Zone_disable_requestAnimationFrame = true; // disable patch
- * requestAnimationFrame
- * (window as any).__Zone_disable_on_property = true; // disable patch onProperty such as onclick
- * (window as any).__zone_symbol__UNPATCHED_EVENTS = ['scroll', 'mousemove']; // disable patch
- * specified eventNames
- *
- *  in IE/Edge developer tools, the addEventListener will also be wrapped by zone.js
- *  with the following flag, it will bypass `zone.js` patch for IE/Edge
- *
- *  (window as any).__Zone_enable_cross_context_check = true;
- *
- */
-
-/***************************************************************************************************
- * Zone JS is required by default for Angular itself.
- */
-import 'zone.js'; // Included with Angular CLI.
-
-/***************************************************************************************************
- * APPLICATION IMPORTS
- */
-
-
-/*
-Copyright Google LLC. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at https://angular.io/license
-*/"><input type="hidden" name="files[src/app/app-routing.module.ts]" value="import { NgModule } from '@angular/core';
+        <form id="mainForm" method="post" action="https://run.stackblitz.com/api/angular/v1?file=src/app/hero.service.ts" target="_self"><input type="hidden" name="files[src/app/app-routing.module.ts]" value="import { NgModule }             from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { HeroesComponent } from './heroes/heroes.component';
-import { HeroDetailComponent } from './hero-detail/hero-detail.component';
+import { DashboardComponent }   from './dashboard/dashboard.component';
+import { HeroesComponent }      from './heroes/heroes.component';
+import { HeroDetailComponent }  from './hero-detail/hero-detail.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -111,7 +23,7 @@ export class AppRoutingModule {}
 /*
 Copyright Google LLC. All Rights Reserved.
 Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at https://angular.io/license
+can be found in the LICENSE file at http://angular.io/license
 */"><input type="hidden" name="files[src/app/app.component.ts]" value="import { Component } from '@angular/core';
 
 @Component({
@@ -127,23 +39,23 @@ export class AppComponent {
 /*
 Copyright Google LLC. All Rights Reserved.
 Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at https://angular.io/license
-*/"><input type="hidden" name="files[src/app/app.module.ts]" value="import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[src/app/app.module.ts]" value="import { NgModule }       from '@angular/core';
+import { BrowserModule }  from '@angular/platform-browser';
+import { FormsModule }    from '@angular/forms';
+import { HttpClientModule }    from '@angular/common/http';
 
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService } from './in-memory-data.service';
+import { InMemoryDataService }  from './in-memory-data.service';
 
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule }     from './app-routing.module';
 
-import { AppComponent } from './app.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { HeroDetailComponent } from './hero-detail/hero-detail.component';
-import { HeroesComponent } from './heroes/heroes.component';
-import { HeroSearchComponent } from './hero-search/hero-search.component';
-import { MessagesComponent } from './messages/messages.component';
+import { AppComponent }         from './app.component';
+import { DashboardComponent }   from './dashboard/dashboard.component';
+import { HeroDetailComponent }  from './hero-detail/hero-detail.component';
+import { HeroesComponent }      from './heroes/heroes.component';
+import { HeroSearchComponent }  from './hero-search/hero-search.component';
+import { MessagesComponent }    from './messages/messages.component';
 
 @NgModule({
   imports: [
@@ -175,7 +87,128 @@ export class AppModule { }
 /*
 Copyright Google LLC. All Rights Reserved.
 Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at https://angular.io/license
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[src/app/dashboard/dashboard.component.ts]" value="import { Component, OnInit } from '@angular/core';
+import { Hero } from '../hero';
+import { HeroService } from '../hero.service';
+
+@Component({
+  selector: 'app-dashboard',
+  templateUrl: './dashboard.component.html',
+  styleUrls: [ './dashboard.component.css' ]
+})
+export class DashboardComponent implements OnInit {
+  heroes: Hero[] = [];
+
+  constructor(private heroService: HeroService) { }
+
+  ngOnInit() {
+    this.getHeroes();
+  }
+
+  getHeroes(): void {
+    this.heroService.getHeroes()
+      .subscribe(heroes => this.heroes = heroes.slice(1, 5));
+  }
+}
+
+
+/*
+Copyright Google LLC. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[src/app/hero-detail/hero-detail.component.ts]" value="import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+
+import { Hero }         from '../hero';
+import { HeroService }  from '../hero.service';
+
+@Component({
+  selector: 'app-hero-detail',
+  templateUrl: './hero-detail.component.html',
+  styleUrls: [ './hero-detail.component.css' ]
+})
+export class HeroDetailComponent implements OnInit {
+  @Input() hero: Hero;
+
+  constructor(
+    private route: ActivatedRoute,
+    private heroService: HeroService,
+    private location: Location
+  ) {}
+
+  ngOnInit(): void {
+    this.getHero();
+  }
+
+  getHero(): void {
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.heroService.getHero(id)
+      .subscribe(hero => this.hero = hero);
+  }
+
+  goBack(): void {
+    this.location.back();
+  }
+
+  save(): void {
+    this.heroService.updateHero(this.hero)
+      .subscribe(() => this.goBack());
+  }
+}
+
+
+/*
+Copyright Google LLC. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[src/app/hero-search/hero-search.component.ts]" value="import { Component, OnInit } from '@angular/core';
+
+import { Observable, Subject } from 'rxjs';
+
+import {
+   debounceTime, distinctUntilChanged, switchMap
+ } from 'rxjs/operators';
+
+import { Hero } from '../hero';
+import { HeroService } from '../hero.service';
+
+@Component({
+  selector: 'app-hero-search',
+  templateUrl: './hero-search.component.html',
+  styleUrls: [ './hero-search.component.css' ]
+})
+export class HeroSearchComponent implements OnInit {
+  heroes$: Observable<Hero[]>;
+  private searchTerms = new Subject<string>();
+
+  constructor(private heroService: HeroService) {}
+
+  // Push a search term into the observable stream.
+  search(term: string): void {
+    this.searchTerms.next(term);
+  }
+
+  ngOnInit(): void {
+    this.heroes$ = this.searchTerms.pipe(
+      // wait 300ms after each keystroke before considering the term
+      debounceTime(300),
+
+      // ignore new term if same as previous term
+      distinctUntilChanged(),
+
+      // switch to new search observable each time the term changes
+      switchMap((term: string) => this.heroService.searchHeroes(term)),
+    );
+  }
+}
+
+
+/*
+Copyright Google LLC. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
 */"><input type="hidden" name="files[src/app/hero.service.ts]" value="import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
@@ -256,7 +289,8 @@ export class HeroService {
   }
 
   /** DELETE: delete the hero from the server */
-  deleteHero(id: number): Observable<Hero> {
+  deleteHero(hero: Hero | number): Observable<Hero> {
+    const id = typeof hero === 'number' ? hero : hero.id;
     const url = `${this.heroesUrl}/${id}`;
 
     return this.http.delete<Hero>(url, this.httpOptions).pipe(
@@ -303,7 +337,7 @@ export class HeroService {
 /*
 Copyright Google LLC. All Rights Reserved.
 Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at https://angular.io/license
+can be found in the LICENSE file at http://angular.io/license
 */"><input type="hidden" name="files[src/app/hero.ts]" value="export interface Hero {
   id: number;
   name: string;
@@ -313,7 +347,52 @@ can be found in the LICENSE file at https://angular.io/license
 /*
 Copyright Google LLC. All Rights Reserved.
 Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at https://angular.io/license
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[src/app/heroes/heroes.component.ts]" value="import { Component, OnInit } from '@angular/core';
+
+import { Hero } from '../hero';
+import { HeroService } from '../hero.service';
+
+@Component({
+  selector: 'app-heroes',
+  templateUrl: './heroes.component.html',
+  styleUrls: ['./heroes.component.css']
+})
+export class HeroesComponent implements OnInit {
+  heroes: Hero[];
+
+  constructor(private heroService: HeroService) { }
+
+  ngOnInit() {
+    this.getHeroes();
+  }
+
+  getHeroes(): void {
+    this.heroService.getHeroes()
+    .subscribe(heroes => this.heroes = heroes);
+  }
+
+  add(name: string): void {
+    name = name.trim();
+    if (!name) { return; }
+    this.heroService.addHero({ name } as Hero)
+      .subscribe(hero => {
+        this.heroes.push(hero);
+      });
+  }
+
+  delete(hero: Hero): void {
+    this.heroes = this.heroes.filter(h => h !== hero);
+    this.heroService.deleteHero(hero).subscribe();
+  }
+
+}
+
+
+/*
+Copyright Google LLC. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
 */"><input type="hidden" name="files[src/app/in-memory-data.service.ts]" value="import { Injectable } from '@angular/core';
 import { InMemoryDbService } from 'angular-in-memory-web-api';
 import { Hero } from './hero';
@@ -352,7 +431,7 @@ export class InMemoryDataService implements InMemoryDbService {
 /*
 Copyright Google LLC. All Rights Reserved.
 Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at https://angular.io/license
+can be found in the LICENSE file at http://angular.io/license
 */"><input type="hidden" name="files[src/app/message.service.ts]" value="import { Injectable } from '@angular/core';
 
 @Injectable({ providedIn: 'root' })
@@ -372,226 +451,7 @@ export class MessageService {
 /*
 Copyright Google LLC. All Rights Reserved.
 Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at https://angular.io/license
-*/"><input type="hidden" name="files[src/app/mock-heroes.ts]" value="import { Hero } from './hero';
-
-export const HEROES: Hero[] = [
-  { id: 11, name: 'Dr Nice' },
-  { id: 12, name: 'Narco' },
-  { id: 13, name: 'Bombasto' },
-  { id: 14, name: 'Celeritas' },
-  { id: 15, name: 'Magneta' },
-  { id: 16, name: 'RubberMan' },
-  { id: 17, name: 'Dynama' },
-  { id: 18, name: 'Dr IQ' },
-  { id: 19, name: 'Magma' },
-  { id: 20, name: 'Tornado' }
-];
-
-
-/*
-Copyright Google LLC. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at https://angular.io/license
-*/"><input type="hidden" name="files[src/environments/environment.prod.ts]" value="export const environment = {
-  production: true
-};
-
-
-/*
-Copyright Google LLC. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at https://angular.io/license
-*/"><input type="hidden" name="files[src/environments/environment.ts]" value="// This file can be replaced during build by using the `fileReplacements` array.
-// `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
-// The list of file replacements can be found in `angular.json`.
-
-export const environment = {
-  production: false
-};
-
-/*
- * For easier debugging in development mode, you can import the following file
- * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
- *
- * This import should be commented out in production mode because it will have a negative impact
- * on performance if an error is thrown.
- */
-// import 'zone.js/plugins/zone-error';  // Included with Angular CLI.
-
-
-/*
-Copyright Google LLC. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at https://angular.io/license
-*/"><input type="hidden" name="files[src/app/dashboard/dashboard.component.ts]" value="import { Component, OnInit } from '@angular/core';
-import { Hero } from '../hero';
-import { HeroService } from '../hero.service';
-
-@Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: [ './dashboard.component.css' ]
-})
-export class DashboardComponent implements OnInit {
-  heroes: Hero[] = [];
-
-  constructor(private heroService: HeroService) { }
-
-  ngOnInit() {
-    this.getHeroes();
-  }
-
-  getHeroes(): void {
-    this.heroService.getHeroes()
-      .subscribe(heroes => this.heroes = heroes.slice(1, 5));
-  }
-}
-
-
-/*
-Copyright Google LLC. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at https://angular.io/license
-*/"><input type="hidden" name="files[src/app/hero-detail/hero-detail.component.ts]" value="import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Location } from '@angular/common';
-
-import { Hero } from '../hero';
-import { HeroService } from '../hero.service';
-
-@Component({
-  selector: 'app-hero-detail',
-  templateUrl: './hero-detail.component.html',
-  styleUrls: [ './hero-detail.component.css' ]
-})
-export class HeroDetailComponent implements OnInit {
-  hero: Hero | undefined;
-
-  constructor(
-    private route: ActivatedRoute,
-    private heroService: HeroService,
-    private location: Location
-  ) {}
-
-  ngOnInit(): void {
-    this.getHero();
-  }
-
-  getHero(): void {
-    const id = parseInt(this.route.snapshot.paramMap.get('id')!, 10);
-    this.heroService.getHero(id)
-      .subscribe(hero => this.hero = hero);
-  }
-
-  goBack(): void {
-    this.location.back();
-  }
-
-  save(): void {
-    if (this.hero) {
-      this.heroService.updateHero(this.hero)
-        .subscribe(() => this.goBack());
-    }
-  }
-}
-
-
-/*
-Copyright Google LLC. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at https://angular.io/license
-*/"><input type="hidden" name="files[src/app/hero-search/hero-search.component.ts]" value="import { Component, OnInit } from '@angular/core';
-
-import { Observable, Subject } from 'rxjs';
-
-import {
-   debounceTime, distinctUntilChanged, switchMap
- } from 'rxjs/operators';
-
-import { Hero } from '../hero';
-import { HeroService } from '../hero.service';
-
-@Component({
-  selector: 'app-hero-search',
-  templateUrl: './hero-search.component.html',
-  styleUrls: [ './hero-search.component.css' ]
-})
-export class HeroSearchComponent implements OnInit {
-  heroes$!: Observable<Hero[]>;
-  private searchTerms = new Subject<string>();
-
-  constructor(private heroService: HeroService) {}
-
-  // Push a search term into the observable stream.
-  search(term: string): void {
-    this.searchTerms.next(term);
-  }
-
-  ngOnInit(): void {
-    this.heroes$ = this.searchTerms.pipe(
-      // wait 300ms after each keystroke before considering the term
-      debounceTime(300),
-
-      // ignore new term if same as previous term
-      distinctUntilChanged(),
-
-      // switch to new search observable each time the term changes
-      switchMap((term: string) => this.heroService.searchHeroes(term)),
-    );
-  }
-}
-
-
-/*
-Copyright Google LLC. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at https://angular.io/license
-*/"><input type="hidden" name="files[src/app/heroes/heroes.component.ts]" value="import { Component, OnInit } from '@angular/core';
-
-import { Hero } from '../hero';
-import { HeroService } from '../hero.service';
-
-@Component({
-  selector: 'app-heroes',
-  templateUrl: './heroes.component.html',
-  styleUrls: ['./heroes.component.css']
-})
-export class HeroesComponent implements OnInit {
-  heroes: Hero[] = [];
-
-  constructor(private heroService: HeroService) { }
-
-  ngOnInit() {
-    this.getHeroes();
-  }
-
-  getHeroes(): void {
-    this.heroService.getHeroes()
-    .subscribe(heroes => this.heroes = heroes);
-  }
-
-  add(name: string): void {
-    name = name.trim();
-    if (!name) { return; }
-    this.heroService.addHero({ name } as Hero)
-      .subscribe(hero => {
-        this.heroes.push(hero);
-      });
-  }
-
-  delete(hero: Hero): void {
-    this.heroes = this.heroes.filter(h => h !== hero);
-    this.heroService.deleteHero(hero.id).subscribe();
-  }
-
-}
-
-
-/*
-Copyright Google LLC. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at https://angular.io/license
+can be found in the LICENSE file at http://angular.io/license
 */"><input type="hidden" name="files[src/app/messages/messages.component.ts]" value="import { Component, OnInit } from '@angular/core';
 import { MessageService } from '../message.service';
 
@@ -613,197 +473,270 @@ export class MessagesComponent implements OnInit {
 /*
 Copyright Google LLC. All Rights Reserved.
 Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at https://angular.io/license
-*/"><input type="hidden" name="files[src/styles.css]" value="/* Global Styles */
-* {
-  font-family: Arial, Helvetica, sans-serif;
-}
-h1 {
-  color: #264D73;
-  font-size: 2.5rem;
-}
-h2, h3 {
-  color: #444;
-  font-weight: lighter;
-}
-h3 {
-  font-size: 1.3rem;
-}
-body {
-  padding: .5rem;
-  max-width: 1000px;
-  margin: auto;
-}
-@media (min-width: 600px) {
-  body {
-    padding: 2rem;
-  }
-}
-body, input[text] {
-  color: #333;
-  font-family: Cambria, Georgia, serif;
-}
-a {
-  cursor: pointer;
-}
-button {
-  background-color: #eee;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  color: black;
-  font-size: 1.2rem;
-  padding: 1rem;
-  margin-right: 1rem;
-  margin-bottom: 1rem;
-  margin-top: 1rem;
-}
-button:hover {
-  background-color: black;
-  color: white;
-}
-button:disabled {
-  background-color: #eee;
-  color: #aaa;
-  cursor: auto;
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[src/app/mock-heroes.ts]" value="import { Hero } from './hero';
+
+export const HEROES: Hero[] = [
+  { id: 11, name: 'Dr Nice' },
+  { id: 12, name: 'Narco' },
+  { id: 13, name: 'Bombasto' },
+  { id: 14, name: 'Celeritas' },
+  { id: 15, name: 'Magneta' },
+  { id: 16, name: 'RubberMan' },
+  { id: 17, name: 'Dynama' },
+  { id: 18, name: 'Dr IQ' },
+  { id: 19, name: 'Magma' },
+  { id: 20, name: 'Tornado' }
+];
+
+
+/*
+Copyright Google LLC. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[src/environments/environment.prod.ts]" value="export const environment = {
+  production: true
+};
+
+
+/*
+Copyright Google LLC. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[src/environments/environment.ts]" value="// This file can be replaced during build by using the `fileReplacements` array.
+// `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
+// The list of file replacements can be found in `angular.json`.
+
+export const environment = {
+  production: false
+};
+
+/*
+ * For easier debugging in development mode, you can import the following file
+ * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
+ *
+ * This import should be commented out in production mode because it will have a negative impact
+ * on performance if an error is thrown.
+ */
+// import 'zone.js/dist/zone-error';  // Included with Angular CLI.
+
+
+/*
+Copyright Google LLC. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[src/main.ts]" value="import { enableProdMode } from '@angular/core';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+
+import { AppModule } from './app/app.module';
+import { environment } from './environments/environment';
+
+if (environment.production) {
+  enableProdMode();
 }
 
-/* Navigation link styles */
+platformBrowserDynamic().bootstrapModule(AppModule)
+  .catch(err => console.error(err));
+
+
+/*
+Copyright Google LLC. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[src/polyfills.ts]" value="/**
+ * This file includes polyfills needed by Angular and is loaded before the app.
+ * You can add your own extra polyfills to this file.
+ *
+ * This file is divided into 2 sections:
+ *   1. Browser polyfills. These are applied before loading ZoneJS and are sorted by browsers.
+ *   2. Application imports. Files imported after ZoneJS that should be loaded before your main
+ *      file.
+ *
+ * The current setup is for so-called &quot;evergreen&quot; browsers; the last versions of browsers that
+ * automatically update themselves. This includes Safari >= 10, Chrome >= 55 (including Opera),
+ * Edge >= 13 on the desktop, and iOS 10 and Chrome on mobile.
+ *
+ * Learn more in https://angular.io/guide/browser-support
+ */
+
+/***************************************************************************************************
+ * BROWSER POLYFILLS
+ */
+
+/** IE10 and IE11 requires the following for NgClass support on SVG elements */
+// import 'classlist.js';  // Run `npm install --save classlist.js`.
+
+/**
+ * Web Animations `@angular/platform-browser/animations`
+ * Only required if AnimationBuilder is used within the application and using IE/Edge or Safari.
+ * Standard animation support in Angular DOES NOT require any polyfills (as of Angular 6.0).
+ */
+// import 'web-animations-js';  // Run `npm install --save web-animations-js`.
+
+/**
+ * By default, zone.js will patch all possible macroTask and DomEvents
+ * user can disable parts of macroTask/DomEvents patch by setting following flags
+ * because those flags need to be set before `zone.js` being loaded, and webpack
+ * will put import in the top of bundle, so user need to create a separate file
+ * in this directory (for example: zone-flags.ts), and put the following flags
+ * into that file, and then add the following code before importing zone.js.
+ * import './zone-flags';
+ *
+ * The flags allowed in zone-flags.ts are listed here.
+ *
+ * The following flags will work for all browsers.
+ *
+ * (window as any).__Zone_disable_requestAnimationFrame = true; // disable patch
+ * requestAnimationFrame
+ * (window as any).__Zone_disable_on_property = true; // disable patch onProperty such as onclick
+ * (window as any).__zone_symbol__UNPATCHED_EVENTS = ['scroll', 'mousemove']; // disable patch
+ * specified eventNames
+ *
+ *  in IE/Edge developer tools, the addEventListener will also be wrapped by zone.js
+ *  with the following flag, it will bypass `zone.js` patch for IE/Edge
+ *
+ *  (window as any).__Zone_enable_cross_context_check = true;
+ *
+ */
+
+/***************************************************************************************************
+ * Zone JS is required by default for Angular itself.
+ */
+import 'zone.js/dist/zone'; // Included with Angular CLI.
+
+/***************************************************************************************************
+ * APPLICATION IMPORTS
+ */
+
+
+/*
+Copyright Google LLC. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[src/app/app.component.css]" value="/* AppComponent's private CSS styles */
+h1 {
+  font-size: 1.2em;
+  margin-bottom: 0;
+}
+h2 {
+  font-size: 2em;
+  margin-top: 0;
+  padding-top: 0;
+}
 nav a {
   padding: 5px 10px;
   text-decoration: none;
-  margin-right: 10px;
   margin-top: 10px;
   display: inline-block;
-  background-color: #e8e8e8;
-  color: #3d3d3d;
+  background-color: #eee;
   border-radius: 4px;
 }
-
+nav a:visited, a:link {
+  color: #334953;
+}
 nav a:hover {
-  color: white;
-  background-color:  #42545C;
+  color: #039be5;
+  background-color: #CFD8DC;
 }
 nav a.active {
-  background-color: black;
-  color: white;
-}
-hr {
-  margin: 1.5rem 0;
-}
-input[type=&quot;text&quot;] {
-  box-sizing: border-box;
-  width: 100%;
-  padding: .5rem;
+  color: #039be5;
 }
 
 
 /*
 Copyright Google LLC. All Rights Reserved.
 Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at https://angular.io/license
-*/"><input type="hidden" name="files[src/app/app.component.css]" value="/* AppComponent's private CSS styles */
-h1 {
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[src/app/dashboard/dashboard.component.css]" value="/* DashboardComponent's private CSS styles */
+[class*='col-'] {
+  float: left;
+  padding-right: 20px;
+  padding-bottom: 20px;
+}
+[class*='col-']:last-of-type {
+  padding-right: 0;
+}
+a {
+  text-decoration: none;
+}
+*, *:after, *:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+h3 {
+  text-align: center;
   margin-bottom: 0;
 }
-nav a {
-  padding: 1rem;
-  text-decoration: none;
-  margin-top: 10px;
-  display: inline-block;
-  background-color: #e8e8e8;
-  color: #3d3d3d;
-  border-radius: 4px;
+h4 {
+  position: relative;
 }
-nav a:hover {
-  color: white;
-  background-color: #42545C;
+.grid {
+  margin: 0;
 }
-nav a.active {
-  background-color: black;
+.col-1-4 {
+  width: 25%;
 }
-
-
-/*
-Copyright Google LLC. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at https://angular.io/license
-*/"><input type="hidden" name="files[src/app/dashboard/dashboard.component.css]" value="/* DashboardComponent's private CSS styles */
-
-h2 {
+.module {
+  padding: 20px;
   text-align: center;
-}
-
-.heroes-menu {
-  padding: 0;
-  margin: auto;
-  max-width: 1000px;
-
-  /* flexbox */
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-content: flex-start;
-  align-items: flex-start;
-}
-
-a {
+  color: #eee;
+  max-height: 120px;
+  min-width: 120px;
   background-color: #3f525c;
   border-radius: 2px;
-  padding: 1rem;
-  font-size: 1.2rem;
-  text-decoration: none;
-  display: inline-block;
-  color: #fff;
-  text-align: center;
-  width: 100%;
-  min-width: 70px;
-  margin: .5rem auto;
-  box-sizing: border-box;
-
-  /* flexbox */
-  order: 0;
-  flex: 0 1 auto;
-  align-self: auto;
 }
-
-@media (min-width: 600px) {
-  a {
-    width: 18%;
-    box-sizing: content-box;
+.module:hover {
+  background-color: #EEE;
+  cursor: pointer;
+  color: #607d8b;
+}
+.grid-pad {
+  padding: 10px 0;
+}
+.grid-pad > [class*='col-']:last-of-type {
+  padding-right: 20px;
+}
+@media (max-width: 600px) {
+  .module {
+    font-size: 10px;
+    max-height: 75px; }
+}
+@media (max-width: 1024px) {
+  .grid {
+    margin: 0;
+  }
+  .module {
+    min-width: 60px;
   }
 }
 
-a:hover {
-  background-color: black;
-}
-
 
 /*
 Copyright Google LLC. All Rights Reserved.
 Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at https://angular.io/license
+can be found in the LICENSE file at http://angular.io/license
 */"><input type="hidden" name="files[src/app/hero-detail/hero-detail.component.css]" value="/* HeroDetailComponent's private CSS styles */
 label {
-  color: #435960;
+  display: inline-block;
+  width: 3em;
+  margin: .5em 0;
+  color: #607D8B;
   font-weight: bold;
 }
 input {
+  height: 2em;
   font-size: 1em;
-  padding: .5rem;
+  padding-left: .4em;
 }
 button {
   margin-top: 20px;
-  margin-right: .5rem;
+  font-family: Arial;
   background-color: #eee;
-  padding: 1rem;
+  border: none;
+  padding: 5px 10px;
   border-radius: 4px;
-  font-size: 1rem;
+  cursor: pointer;
 }
 button:hover {
   background-color: #cfd8dc;
@@ -818,49 +751,41 @@ button:disabled {
 /*
 Copyright Google LLC. All Rights Reserved.
 Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at https://angular.io/license
+can be found in the LICENSE file at http://angular.io/license
 */"><input type="hidden" name="files[src/app/hero-search/hero-search.component.css]" value="/* HeroSearch private styles */
-
-label {
-  display: block;
-  font-weight: bold;
-  font-size: 1.2rem;
-  margin-top: 1rem;
-  margin-bottom: .5rem;
-
-}
-input {
-  padding: .5rem;
-  width: 100%;
-  max-width: 600px;
-  box-sizing: border-box;
-  display: block;
-}
-
-input:focus {
-  outline: #336699 auto 1px;
-}
-
-li {
-  list-style-type: none;
-}
-.search-result li a {
+.search-result li {
   border-bottom: 1px solid gray;
   border-left: 1px solid gray;
   border-right: 1px solid gray;
-  display: inline-block;
-  width: 100%;
-  max-width: 600px;
-  padding: .5rem;
-  box-sizing: border-box;
+  width: 195px;
+  height: 16px;
+  padding: 5px;
+  background-color: white;
+  cursor: pointer;
+  list-style-type: none;
+}
+
+.search-result li:hover {
+  background-color: #607D8B;
+}
+
+.search-result li a {
+  color: #888;
+  display: block;
   text-decoration: none;
-  color: black;
 }
 
 .search-result li a:hover {
-  background-color: #435A60;
   color: white;
 }
+.search-result li a:active {
+  color: white;
+}
+#search-box {
+  width: 200px;
+  height: 20px;
+}
+
 
 ul.search-result {
   margin-top: 0;
@@ -871,7 +796,7 @@ ul.search-result {
 /*
 Copyright Google LLC. All Rights Reserved.
 Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at https://angular.io/license
+can be found in the LICENSE file at http://angular.io/license
 */"><input type="hidden" name="files[src/app/heroes/heroes.component.css]" value="/* HeroesComponent's private CSS styles */
 .heroes {
   margin: 0 0 2em 0;
@@ -879,44 +804,32 @@ can be found in the LICENSE file at https://angular.io/license
   padding: 0;
   width: 15em;
 }
-
-input {
-  display: block;
-  width: 100%;
-  padding: .5rem;
-  margin: 1rem 0;
-  box-sizing: border-box;
-}
-
 .heroes li {
   position: relative;
   cursor: pointer;
+  background-color: #EEE;
+  margin: .5em;
+  padding: .3em 0;
+  height: 1.6em;
+  border-radius: 4px;
 }
 
 .heroes li:hover {
+  color: #607D8B;
+  background-color: #DDD;
   left: .1em;
 }
 
 .heroes a {
   color: #333;
   text-decoration: none;
-  background-color: #EEE;
-  margin: .5em;
-  padding: .3em 0;
-  height: 1.6em;
-  border-radius: 4px;
+  position: relative;
   display: block;
-  width: 100%;
+  width: 250px;
 }
 
 .heroes a:hover {
-  color: #2c3a41;
-  background-color: #e6e6e6;
-}
-
-.heroes a:active {
-  background-color: #525252;
-  color: #fafafa;
+  color: #607D8B;
 }
 
 .heroes .badge {
@@ -924,7 +837,7 @@ input {
   font-size: small;
   color: white;
   padding: 0.8em 0.7em 0 0.7em;
-  background-color:#405061;
+  background-color: #405061;
   line-height: 1em;
   position: relative;
   left: -1px;
@@ -936,82 +849,147 @@ input {
   border-radius: 4px 0 0 4px;
 }
 
-.add-button {
- padding: .5rem 1.5rem;
- font-size: 1rem;
- margin-bottom: 2rem;
+button {
+  background-color: #eee;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  cursor: hand;
+  font-family: Arial;
 }
 
-.add-button:hover {
-  color: white;
-  background-color: #42545C;
+button:hover {
+  background-color: #cfd8dc;
 }
 
 button.delete {
-  position: absolute;
-  left: 210px;
-  top: 5px;
-  background-color: white;
-  color:  #525252;
-  font-size: 1.1rem;
-  padding: 1px 10px 3px 10px;
-}
-
-button.delete:hover {
-  background-color: #525252;
+  position: relative;
+  left: 194px;
+  top: -32px;
+  background-color: gray !important;
   color: white;
 }
 
 
+
 /*
 Copyright Google LLC. All Rights Reserved.
 Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at https://angular.io/license
+can be found in the LICENSE file at http://angular.io/license
 */"><input type="hidden" name="files[src/app/messages/messages.component.css]" value="/* MessagesComponent's private CSS styles */
 h2 {
-  color: #A80000;
+  color: red;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: lighter;
 }
-
-.clear {
-  color: #333;
-  background-color: #eee;
-  margin-bottom: 12px;
-  padding: 1rem;
-  border-radius: 4px;
-  font-size: 1rem;
+body {
+  margin: 2em;
 }
-.clear:hover {
-  color: #fff;
-  background-color: #42545C;
+body, input[text], button {
+  color: crimson;
+  font-family: Cambria, Georgia;
+}
+
+button.clear {
+  font-family: Arial;
+  background-color: #eee;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  cursor: hand;
+}
+button:hover {
+  background-color: #cfd8dc;
+}
+button:disabled {
+  background-color: #eee;
+  color: #aaa;
+  cursor: auto;
+}
+button.clear {
+  color: #333;
+  margin-bottom: 12px;
 }
 
 
 /*
 Copyright Google LLC. All Rights Reserved.
 Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at https://angular.io/license
-*/"><input type="hidden" name="files[src/index.html]" value="<!doctype html>
-<html lang=&quot;en&quot;>
-<head>
-  <meta charset=&quot;utf-8&quot;>
-  <title>Tour of Heroes</title>
-  <base href=&quot;/&quot;>
-  <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
-  <link rel=&quot;icon&quot; type=&quot;image/x-icon&quot; href=&quot;favicon.ico&quot;>
-</head>
-<body>
-  <app-root></app-root>
-</body>
-</html>
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[src/styles.css]" value="/* Global Styles */
+h1 {
+  color: #369;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 250%;
+}
+h2, h3 {
+  color: #444;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: lighter;
+}
+body {
+  margin: 2em;
+}
+body, input[text], button {
+  color: #333;
+  font-family: Cambria, Georgia;
+}
+a {
+  cursor: pointer;
+  cursor: hand;
+}
+button {
+  font-family: Arial;
+  background-color: #eee;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  cursor: hand;
+}
+button:hover {
+  background-color: #cfd8dc;
+}
+button:disabled {
+  background-color: #eee;
+  color: #aaa;
+  cursor: auto;
+}
+
+/* Navigation link styles */
+nav a {
+  padding: 5px 10px;
+  text-decoration: none;
+  margin-right: 10px;
+  margin-top: 10px;
+  display: inline-block;
+  background-color: #eee;
+  border-radius: 4px;
+}
+nav a:visited, a:link {
+  color: #607D8B;
+}
+nav a:hover {
+  color: #039be5;
+  background-color: #CFD8DC;
+}
+nav a.active {
+  color: #039be5;
+}
+
+/* everywhere else */
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
 
 
-<!-- 
+/*
 Copyright Google LLC. All Rights Reserved.
 Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at https://angular.io/license
--->"><input type="hidden" name="files[src/app/app.component.html]" value="<h1>{{title}}</h1>
+can be found in the LICENSE file at http://angular.io/license
+*/"><input type="hidden" name="files[src/app/app.component.html]" value="<h1>{{title}}</h1>
 <nav>
   <a routerLink=&quot;/dashboard&quot;>Dashboard</a>
   <a routerLink=&quot;/heroes&quot;>Heroes</a>
@@ -1023,12 +1001,14 @@ can be found in the LICENSE file at https://angular.io/license
 <!-- 
 Copyright Google LLC. All Rights Reserved.
 Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at https://angular.io/license
--->"><input type="hidden" name="files[src/app/dashboard/dashboard.component.html]" value="<h2>Top Heroes</h2>
-<div class=&quot;heroes-menu&quot;>
-  <a *ngFor=&quot;let hero of heroes&quot;
+can be found in the LICENSE file at http://angular.io/license
+-->"><input type="hidden" name="files[src/app/dashboard/dashboard.component.html]" value="<h3>Top Heroes</h3>
+<div class=&quot;grid grid-pad&quot;>
+  <a *ngFor=&quot;let hero of heroes&quot; class=&quot;col-1-4&quot;
       routerLink=&quot;/detail/{{hero.id}}&quot;>
-      {{hero.name}}
+    <div class=&quot;module hero&quot;>
+      <h4>{{hero.name}}</h4>
+    </div>
   </a>
 </div>
 
@@ -1038,13 +1018,14 @@ can be found in the LICENSE file at https://angular.io/license
 <!-- 
 Copyright Google LLC. All Rights Reserved.
 Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at https://angular.io/license
+can be found in the LICENSE file at http://angular.io/license
 -->"><input type="hidden" name="files[src/app/hero-detail/hero-detail.component.html]" value="<div *ngIf=&quot;hero&quot;>
   <h2>{{hero.name | uppercase}} Details</h2>
   <div><span>id: </span>{{hero.id}}</div>
   <div>
-    <label for=&quot;hero-name&quot;>Hero name: </label>
-    <input id=&quot;hero-name&quot; [(ngModel)]=&quot;hero.name&quot; placeholder=&quot;Hero name&quot;/>
+    <label>name:
+      <input [(ngModel)]=&quot;hero.name&quot; placeholder=&quot;name&quot;/>
+    </label>
   </div>
   <button (click)=&quot;goBack()&quot;>go back</button>
   <button (click)=&quot;save()&quot;>save</button>
@@ -1054,9 +1035,10 @@ can be found in the LICENSE file at https://angular.io/license
 <!-- 
 Copyright Google LLC. All Rights Reserved.
 Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at https://angular.io/license
+can be found in the LICENSE file at http://angular.io/license
 -->"><input type="hidden" name="files[src/app/hero-search/hero-search.component.html]" value="<div id=&quot;search-component&quot;>
-  <label for=&quot;search-box&quot;>Hero Search</label>
+  <h4><label for=&quot;search-box&quot;>Hero Search</label></h4>
+
   <input #searchBox id=&quot;search-box&quot; (input)=&quot;search(searchBox.value)&quot; />
 
   <ul class=&quot;search-result&quot;>
@@ -1072,16 +1054,16 @@ can be found in the LICENSE file at https://angular.io/license
 <!-- 
 Copyright Google LLC. All Rights Reserved.
 Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at https://angular.io/license
+can be found in the LICENSE file at http://angular.io/license
 -->"><input type="hidden" name="files[src/app/heroes/heroes.component.html]" value="<h2>My Heroes</h2>
 
 <div>
-  <label for=&quot;new-hero&quot;>Hero name: </label>
-  <input id=&quot;new-hero&quot; #heroName />
-
+  <label>Hero name:
+    <input #heroName />
+  </label>
   <!-- (click) passes input value to add() and then clears the input -->
-  <button class=&quot;add-button&quot; (click)=&quot;add(heroName.value); heroName.value=''&quot;>
-    Add hero
+  <button (click)=&quot;add(heroName.value); heroName.value=''&quot;>
+    add
   </button>
 </div>
 
@@ -1099,12 +1081,12 @@ can be found in the LICENSE file at https://angular.io/license
 <!-- 
 Copyright Google LLC. All Rights Reserved.
 Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at https://angular.io/license
+can be found in the LICENSE file at http://angular.io/license
 -->"><input type="hidden" name="files[src/app/messages/messages.component.html]" value="<div *ngIf=&quot;messageService.messages.length&quot;>
 
   <h2>Messages</h2>
   <button class=&quot;clear&quot;
-          (click)=&quot;messageService.clear()&quot;>Clear messages</button>
+          (click)=&quot;messageService.clear()&quot;>clear</button>
   <div *ngFor='let message of messageService.messages'> {{message}} </div>
 
 </div>
@@ -1113,7 +1095,26 @@ can be found in the LICENSE file at https://angular.io/license
 <!-- 
 Copyright Google LLC. All Rights Reserved.
 Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at https://angular.io/license
+can be found in the LICENSE file at http://angular.io/license
+-->"><input type="hidden" name="files[src/index.html]" value="<!doctype html>
+<html lang=&quot;en&quot;>
+<head>
+  <meta charset=&quot;utf-8&quot;>
+  <title>Tour of Heroes</title>
+  <base href=&quot;/&quot;>
+  <meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;>
+  <link rel=&quot;icon&quot; type=&quot;image/x-icon&quot; href=&quot;favicon.ico&quot;>
+</head>
+<body>
+  <app-root></app-root>
+</body>
+</html>
+
+
+<!-- 
+Copyright Google LLC. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
 -->"><input type="hidden" name="files[angular.json]" value="{
   &quot;$schema&quot;: &quot;./node_modules/@angular/cli/lib/config/schema.json&quot;,
   &quot;version&quot;: 1,
@@ -1121,11 +1122,7 @@ can be found in the LICENSE file at https://angular.io/license
   &quot;projects&quot;: {
     &quot;angular.io-example&quot;: {
       &quot;projectType&quot;: &quot;application&quot;,
-      &quot;schematics&quot;: {
-        &quot;@schematics/angular:application&quot;: {
-          &quot;strict&quot;: true
-        }
-      },
+      &quot;schematics&quot;: {},
       &quot;root&quot;: &quot;&quot;,
       &quot;sourceRoot&quot;: &quot;src&quot;,
       &quot;prefix&quot;: &quot;app&quot;,
@@ -1145,13 +1142,7 @@ can be found in the LICENSE file at https://angular.io/license
             &quot;styles&quot;: [
               &quot;src/styles.css&quot;
             ],
-            &quot;scripts&quot;: [],
-            &quot;vendorChunk&quot;: true,
-            &quot;extractLicenses&quot;: false,
-            &quot;buildOptimizer&quot;: false,
-            &quot;sourceMap&quot;: true,
-            &quot;optimization&quot;: false,
-            &quot;namedChunks&quot;: true
+            &quot;scripts&quot;: []
           },
           &quot;configurations&quot;: {
             &quot;production&quot;: {
@@ -1164,20 +1155,22 @@ can be found in the LICENSE file at https://angular.io/license
               &quot;optimization&quot;: true,
               &quot;outputHashing&quot;: &quot;all&quot;,
               &quot;sourceMap&quot;: false,
+              &quot;extractCss&quot;: true,
               &quot;namedChunks&quot;: false,
+              &quot;aot&quot;: true,
               &quot;extractLicenses&quot;: true,
               &quot;vendorChunk&quot;: false,
               &quot;buildOptimizer&quot;: true,
               &quot;budgets&quot;: [
                 {
                   &quot;type&quot;: &quot;initial&quot;,
-                  &quot;maximumWarning&quot;: &quot;500kb&quot;,
-                  &quot;maximumError&quot;: &quot;1mb&quot;
+                  &quot;maximumWarning&quot;: &quot;2mb&quot;,
+                  &quot;maximumError&quot;: &quot;5mb&quot;
                 },
                 {
                   &quot;type&quot;: &quot;anyComponentStyle&quot;,
-                  &quot;maximumWarning&quot;: &quot;2kb&quot;,
-                  &quot;maximumError&quot;: &quot;4kb&quot;
+                  &quot;maximumWarning&quot;: &quot;6kb&quot;,
+                  &quot;maximumError&quot;: &quot;10kb&quot;
                 }
               ]
             }
@@ -1247,36 +1240,7 @@ can be found in the LICENSE file at https://angular.io/license
   },
   &quot;defaultProject&quot;: &quot;angular.io-example&quot;
 }
-"><input type="hidden" name="files[tsconfig.json]" value="{
-  &quot;compileOnSave&quot;: false,
-  &quot;compilerOptions&quot;: {
-    &quot;baseUrl&quot;: &quot;./&quot;,
-    &quot;outDir&quot;: &quot;./dist/out-tsc&quot;,
-    &quot;forceConsistentCasingInFileNames&quot;: true,
-    &quot;strict&quot;: true,
-    &quot;noImplicitReturns&quot;: true,
-    &quot;noFallthroughCasesInSwitch&quot;: true,
-    &quot;sourceMap&quot;: true,
-    &quot;declaration&quot;: false,
-    &quot;downlevelIteration&quot;: true,
-    &quot;experimentalDecorators&quot;: true,
-    &quot;moduleResolution&quot;: &quot;node&quot;,
-    &quot;importHelpers&quot;: true,
-    &quot;target&quot;: &quot;es2015&quot;,
-    &quot;module&quot;: &quot;es2020&quot;,
-    &quot;lib&quot;: [
-      &quot;es2018&quot;,
-      &quot;dom&quot;
-    ]
-  },
-  &quot;angularCompilerOptions&quot;: {
-    &quot;enableI18nLegacyMessageIdFormat&quot;: false,
-    &quot;strictInjectionParameters&quot;: true,
-    &quot;strictInputAccessModifiers&quot;: true,
-    &quot;strictTemplates&quot;: true,
-    &quot;enableIvy&quot;: true
-  }
-}"><input type="hidden" name="tags[0]" value="angular"><input type="hidden" name="tags[1]" value="example"><input type="hidden" name="tags[2]" value="tutorial"><input type="hidden" name="tags[3]" value="tour"><input type="hidden" name="tags[4]" value="heroes"><input type="hidden" name="tags[5]" value="http"><input type="hidden" name="description" value="Angular Example - Tour of Heroes: Part 6"><input type="hidden" name="dependencies" value="{&quot;@angular/animations&quot;:&quot;~12.0.0&quot;,&quot;@angular/common&quot;:&quot;~12.0.0&quot;,&quot;@angular/compiler&quot;:&quot;~12.0.0&quot;,&quot;@angular/core&quot;:&quot;~12.0.0&quot;,&quot;@angular/forms&quot;:&quot;~12.0.0&quot;,&quot;@angular/platform-browser&quot;:&quot;~12.0.0&quot;,&quot;@angular/platform-browser-dynamic&quot;:&quot;~12.0.0&quot;,&quot;@angular/router&quot;:&quot;~12.0.0&quot;,&quot;angular-in-memory-web-api&quot;:&quot;~0.11.0&quot;,&quot;rxjs&quot;:&quot;~6.6.0&quot;,&quot;tslib&quot;:&quot;^2.0.0&quot;,&quot;zone.js&quot;:&quot;~0.11.4&quot;,&quot;jasmine-core&quot;:&quot;~3.7.0&quot;,&quot;jasmine-marbles&quot;:&quot;~0.6.0&quot;}"></form>
+"><input type="hidden" name="tags[0]" value="angular"><input type="hidden" name="tags[1]" value="example"><input type="hidden" name="tags[2]" value="tutorial"><input type="hidden" name="tags[3]" value="tour"><input type="hidden" name="tags[4]" value="heroes"><input type="hidden" name="tags[5]" value="http"><input type="hidden" name="description" value="Angular Example - Tour of Heroes: Part 6"><input type="hidden" name="dependencies" value="{&quot;@angular/animations&quot;:&quot;~9.1.4&quot;,&quot;@angular/common&quot;:&quot;~9.1.4&quot;,&quot;@angular/compiler&quot;:&quot;~9.1.4&quot;,&quot;@angular/core&quot;:&quot;~9.1.4&quot;,&quot;@angular/forms&quot;:&quot;~9.1.4&quot;,&quot;@angular/platform-browser&quot;:&quot;~9.1.4&quot;,&quot;@angular/platform-browser-dynamic&quot;:&quot;~9.1.4&quot;,&quot;@angular/router&quot;:&quot;~9.1.4&quot;,&quot;angular-in-memory-web-api&quot;:&quot;~0.11.0&quot;,&quot;rxjs&quot;:&quot;~6.5.4&quot;,&quot;tslib&quot;:&quot;^1.10.0&quot;,&quot;zone.js&quot;:&quot;~0.10.3&quot;,&quot;jasmine-core&quot;:&quot;~3.5.0&quot;,&quot;jasmine-marbles&quot;:&quot;~0.6.0&quot;}"></form>
         <script>
           var embedded = 'ctl=1';
           var isEmbedded = window.location.search.indexOf(embedded) > -1;
