@@ -1,12 +1,9 @@
-<!doctype html>
-<html lang="zh-Hans">
-
-<head>
+<!DOCTYPE html><html lang="zh-Hans"><head>
   <meta charset="utf-8">
   <title>Angular</title>
   <meta name="Description" content="Angular is a platform for building mobile and desktop web applications.
     Join the community of millions of developers who build compelling user interfaces with Angular.">
-  <base href="angular">
+  <base href="/">
 
   <link rel="preconnect" href="https://www.google-analytics.com">
   <link rel="dns-prefetch" href="https://www.google-analytics.com">
@@ -25,9 +22,9 @@
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/images/favicons/favicon-144x144.png">
 
   <!-- NOTE: These need to be kept in sync with `ngsw-config.json`. -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Sans+Mono&display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons&display=block">
+  <link rel="stylesheet" href="assets/css/roboto.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="assets/css/roboto.css"></noscript>
+  <link rel="stylesheet" href="assets/css/roboto-mono.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="assets/css/roboto-mono.css"></noscript>
+  <link rel="stylesheet" href="assets/css/material-icons.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="assets/css/material-icons.css"></noscript>
   <!-- -->
 
   <link rel="manifest" href="pwa-manifest.json">
@@ -82,7 +79,7 @@
     };
   </script>
 
-<link rel="stylesheet" href="styles.cf0de443cfb9b4fee8f9.css"></head>
+<style>html{font-size:62.5%;}body{font-family:Roboto,Helvetica Neue Light,Helvetica Neue,Helvetica,Arial,Lucida Grande,sans-serif;margin:0;color:#444;font-size:16px;font-size:1.6rem;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}body,html{height:100%;}body{background-color:#fff;}@media print{*{box-shadow:none!important;}body{background:none!important;}}</style><link rel="stylesheet" href="styles.26c7acdc1e2d44a6f9e6.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="styles.26c7acdc1e2d44a6f9e6.css"></noscript></head>
 
 <body>
 
@@ -95,13 +92,27 @@
         <img src="assets/images/logos/angular/angular.svg" width="250" height="250" alt="Angular">
       </div>
       <div class="homepage-container">
-        <div class="hero-headline">一套框架，多种平台<br>移动 &amp; 桌面</div>
+        <div class="hero-headline">现代 Web 开发平台</div>
       </div>
     </section>
     <h2 style="color: red; margin-top: 40px; position: relative; text-align: center; text-shadow: 1px 1px #fafafa;">
       <b><i>该网站需要浏览器支持 JavaScript </i></b>
     </h2>
   </noscript>
-<script src="runtime-es2015.fcd764ba8b27349cbf9b.js" type="module"></script><script src="runtime-es5.fcd764ba8b27349cbf9b.js" nomodule defer></script><script src="polyfills-es5.3da43dfa31f1cc176ea1.js" nomodule defer></script><script src="polyfills-es2015.ac110d314cf16f4d5df4.js" type="module"></script><script src="main-es2015.f39f5ebc8f80f8d1e43b.js" type="module"></script><script src="main-es5.f39f5ebc8f80f8d1e43b.js" nomodule defer></script></body>
 
-</html>
+  <!--
+    Custom Elements polyfills required for browsers that natively support Custom Elements but not
+    ES2015 modules. (See `custom-elements-es5-polyfills.js` for more info.)
+
+    NOTE:
+    The polyfills here will be loaded before the ones in `polyfills.ts` (including
+    `@webcomponents/custom-elements`). This is fine, because the polyfills here are only needed on
+    browsers that natively support Custom Elements, on which `@webcomponents/custom-elements` will
+    be a no-op (so the order of loading does not matter).
+  -->
+  <script src="generated/js/custom-elements-es5-polyfills.js" nomodule></script>
+
+<script src="runtime-es2015.21b5bccd7c09e26ec8c2.js" type="module"></script><script src="runtime-es5.21b5bccd7c09e26ec8c2.js" nomodule defer></script><script src="polyfills-es5.bdf52e612630cfccaf6d.js" nomodule defer></script><script src="polyfills-es2015.e88e400822cab8b930d3.js" type="module"></script><script src="main-es2015.2bf9ef987c7f9c062694.js" type="module"></script><script src="main-es5.2bf9ef987c7f9c062694.js" nomodule defer></script>
+
+
+</body></html>
